@@ -1,9 +1,8 @@
 /* eslint-env node */
 const fs = require("fs");
-class ManifestCopyPlugin {
-    constructor(copies, manifestTransformer) {
+class SimpleCopyPlugin {
+    constructor(copies) {
         this.copies = copies;
-        this.manifestTransformer = manifestTransformer;
     }
     apply(compiler) {
         compiler.plugin("emit", (compilation, callback) => {
@@ -33,4 +32,4 @@ class ManifestCopyPlugin {
     }
 }
 
-module.exports = ManifestCopyPlugin;
+module.exports = SimpleCopyPlugin;
