@@ -1,1 +1,1 @@
-## Zeplin React Native Extension
+## Example Readme

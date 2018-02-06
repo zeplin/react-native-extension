@@ -1,0 +1,21 @@
+{
+  "name": "zeplin-react-native-extension",
+  "version": "1.0.0",
+  "description": "React native extension for Zeplin",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && ./node_modules/.bin/webpack",
+    "clean": "rm -rf ./dist",
+    "test": "npm run build:test && jest && npm run clean",
+    "build:test": "BUILD_TYPE=test npm run build",
+    "dev-server": "node_modules/.bin/webpack-dev-server --color"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^22.1.4",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1",
+    "zeplin-extension-model": "git+https://github.com/zeplin/zeplin-extension-model.git#develop"
+  }
+}

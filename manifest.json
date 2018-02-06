@@ -1,0 +1,42 @@
+{
+    "name": "React Native",
+    "version": "1.0.0",
+    "author": {
+        "name": "Zeplin",
+        "email": "support@zeplin.io",
+        "url": "http://zeplin.io"
+    },
+    "repository": "",
+    "options": [{
+        "name": "Color format",
+        "type": "picker",
+        "id": "colorFormat",
+        "submenu": true,
+        "options": [{
+            "name": "Default",
+            "value": "default"
+        }, {
+            "name": "HEX",
+            "value": "hex"
+        }, {
+            "name": "RGB",
+            "value": "rgb"
+        }, {
+            "name": "HSL",
+            "value": "hsl"
+        }],
+        "default": "default"
+    },
+    {
+        "name": "Dimensions",
+        "type": "switch",
+        "id": "showDimensions",
+        "default": true
+    },
+    {
+        "name": "Default values",
+        "type": "switch",
+        "id": "showDefaultValues",
+        "default": true
+    }]
+}
