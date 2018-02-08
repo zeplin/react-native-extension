@@ -1,16 +1,18 @@
 
 import {
-    blendColors,
     isHtmlTag,
     round,
     selectorize,
-    toHexString,
+    blendColors,
     toRGBAString,
+    toHexString,
     toHSLAString,
+    toDefaultString,
     layerHasGradient,
-    layerHasBlendMode
-} from "./util";
-import generateName from "./utils/generateName";
+    layerHasBlendMode,
+    generateName
+} from "./utils";
+
 import {
     REACT_RULES_WITH_COLOR,
     JSON_SPACE_AMOUNT,
@@ -38,10 +40,6 @@ function generateReactRule(styleObj, projectColorMap, mixin) {
         .replace(/: "colors\.(.*)"/g, ": colors.$1");
 
     return `const ${selectorName} = ${styleObjText};`;
-}
-
-function toDefaultString(color) {
-    return color.a < 1 ? toRGBAString(color) : toHexString(color);
 }
 
 function generateColorStyleObject(color, colorFormat) {
@@ -127,16 +125,16 @@ function generateTextLayerStyleObject({
         layerStyle
     });
 
-    if (layer.fills.length && !layerHasGradient(layer)) {
+    if (layer.fills && layer.fills.length && !layerHasGradient(layer)) {
         delete styles.color;
 
-        let blentColor = blendColors(layer.fills.map(fill => fill.color));
+        let blendedColor = blendColors(layer.fills.map(fill => fill.color));
 
         if (font.color) {
-            blentColor = blentColor.blend(font.color);
+            blendedColor = blendedColor.blend(font.color);
         }
 
-        styles.color = generateColorStyleObject(blentColor, colorFormat);
+        styles.color = generateColorStyleObject(blendedColor, colorFormat);
     }
 
     return styles;
@@ -282,8 +280,8 @@ function generateTextStyleStyleObject({
 }
 
 export {
+    generateReactRule,
     generateColorStyleObject,
     generateLayerStyleObject,
-    generateTextStyleStyleObject,
-    generateReactRule
+    generateTextStyleStyleObject
 };

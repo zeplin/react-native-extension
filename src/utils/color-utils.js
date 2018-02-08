@@ -1,33 +1,23 @@
 import {
-    HTML_TAGS,
     MAX_BRIGHTNESS,
     HEX_BASE,
     HUE_MAX_DEGREE,
     MAX_PERCENTAGE
-} from "./constants";
+} from "../constants";
 
 const alphaFormatter = new Intl.NumberFormat("en-US", {
     useGrouping: false,
     maximumFractionDigits: 2
 });
 
-function layerHasGradient(layer) {
-    return layer.fills.some(f => f.type === "gradient");
-}
-
-function layerHasBlendMode(layer) {
-    return layer.fills.some(f => f.blendMode && f.blendMode !== "normal");
+function toHex(num) {
+    let hexNum = Math.trunc(num + num / MAX_BRIGHTNESS);
+    hexNum = Math.max(0, Math.min(hexNum, MAX_BRIGHTNESS));
+    return (hexNum < HEX_BASE ? "0" : "") + hexNum.toString(HEX_BASE);
 }
 
 function blendColors(colors) {
     return colors.reduce((blendedColor, color) => blendedColor.blend(color));
-}
-
-function escape(str) {
-    return str.trim()
-        .replace(/[^\s\w-]/g, "")
-        .replace(/^(-?\d+)+/, "")
-        .replace(/\s+/g, "-");
 }
 
 function getColorStringByFormat(color, colorFormat) {
@@ -57,49 +47,6 @@ function getColorMapByFormat(colors, colorFormat) {
         colorMap[colorString] = color.name;
         return colorMap;
     }, {});
-}
-
-function isHtmlTag(str) {
-    return HTML_TAGS.indexOf(str.toLowerCase()) > -1;
-}
-
-function round(number, precision) {
-    let formattedNumber = Number(number).toLocaleString("en-US", {
-        useGrouping: false,
-        maximumFractionDigits: precision
-    });
-
-    return Number(formattedNumber);
-}
-
-function selectorize(str) {
-    if (!str) {
-        return "";
-    }
-
-    let selectorizedStr = str.trim();
-
-    if (isHtmlTag(str)) {
-        return selectorizedStr.toLowerCase();
-    }
-
-    if (/^[#.]/.test(selectorizedStr)) {
-        let name = escape(selectorizedStr.substr(1));
-
-        if (name) {
-            return selectorizedStr[0] + name;
-        }
-    }
-
-    selectorizedStr = escape(selectorizedStr);
-
-    return selectorizedStr && `.${selectorizedStr}`;
-}
-
-function toHex(num) {
-    let hexNum = Math.trunc(num + num / MAX_BRIGHTNESS);
-    hexNum = Math.max(0, Math.min(hexNum, MAX_BRIGHTNESS));
-    return (hexNum < HEX_BASE ? "0" : "") + hexNum.toString(HEX_BASE);
 }
 
 function toHexString(color, prefix) {
@@ -137,15 +84,15 @@ function toHSLAString(color) {
     return hslStr;
 }
 
+function toDefaultString(color) {
+    return color.a < 1 ? toRGBAString(color) : toHexString(color);
+}
+
 export {
     blendColors,
     getColorMapByFormat,
-    isHtmlTag,
-    round,
-    selectorize,
     toHexString,
     toRGBAString,
     toHSLAString,
-    layerHasGradient,
-    layerHasBlendMode
+    toDefaultString
 };

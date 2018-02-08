@@ -29,6 +29,6 @@ function tokensForString(str) {
     });
 }
 
-export default function generateName(name, namingScheme) {
+export function generateName(name, namingScheme) {
     return joinTokens(tokensForString(name), namingScheme);
 }
