@@ -1,3 +1,3 @@
 /* eslint-env node */
-const common = require("./wepack.common");
+const common = require("./webpack.common");
 module.exports = common;

@@ -1,3 +1,4 @@
+/* eslint-env node */
 const fs = require("fs");
 const path = require("path");
 const {
@@ -7,12 +8,11 @@ const {
     TextStyle,
     Context
 } = require("zeplin-extension-model");
-const { bundleName } = require("../config");
 const extensionObject = require("../dist/bundle");
 
 const specs = JSON.parse(fs.readFileSync(path.join(__dirname, "./specs.json")));
-const project = JSON.parse(fs.readFileSync(path.join(__dirname, "./project.json")));
-const tests = [{ specs, project }];
+const projectData = JSON.parse(fs.readFileSync(path.join(__dirname, "./project.json")));
+const tests = [{ specs, projectData }];
 function getDefaultOptionsFromManifest(manifest) {
     return manifest.options.reduce((defaultOptions, option) => {
         defaultOptions[option.id] = option.default;
@@ -23,7 +23,7 @@ function getDefaultOptionsFromManifest(manifest) {
 const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, "../dist/manifest.json")));
 
 tests.forEach(singleTest => {
-    const project = new Project(singleTest.project);
+    const project = new Project(singleTest.projectData);
 
     const context = new Context({
         options: getDefaultOptionsFromManifest(manifest),
@@ -32,7 +32,7 @@ tests.forEach(singleTest => {
 
     singleTest.specs.forEach(spec => {
         if (spec.data.fills) {
-            spec.data.fills = spec.data.fills.map((fill) => {
+            spec.data.fills = spec.data.fills.map(fill => {
                 fill.type = fill.fillType;
                 return fill;
             });
@@ -48,7 +48,7 @@ tests.forEach(singleTest => {
                     const actualOutput = extensionObject.layer(context, layer);
                     expect(actualOutput).toEqual(expectedOutput);
                 } else if (spec.type === "textstyles") {
-                    const textStyles = spec.data.map((textStyleData) => new TextStyle(textStyleData));
+                    const textStyles = spec.data.map(textStyleData => new TextStyle(textStyleData));
                     const codeData = extensionObject.styleguideTextStyles(context, textStyles);
                     expect(codeData).toEqual(spec.output);
                 } else if (spec.type === "colors") {

@@ -1,4 +1,3 @@
-
 import {
     isHtmlTag,
     round,
@@ -11,36 +10,12 @@ import {
     layerHasGradient,
     layerHasBlendMode,
     generateName
-} from "./utils";
+} from "../utils";
 
 import {
-    REACT_RULES_WITH_COLOR,
-    JSON_SPACE_AMOUNT,
     NUMERICAL_FONT_BOLD,
     NUMERICAL_FONT_NORMAL
-} from "./constants";
-
-function generateReactRule(styleObj, projectColorMap, mixin) {
-    let selector = styleObj.selector;
-    delete styleObj.selector;
-
-    Object.keys(styleObj).forEach(function (prop) {
-        if (prop === "mixinEntry") {
-            return;
-        }
-
-        if (REACT_RULES_WITH_COLOR.includes(prop) && styleObj[prop] in projectColorMap) {
-            styleObj[prop] = `colors.${projectColorMap[styleObj[prop]]}`;
-        }
-    });
-
-    const selectorName = generateName(selector, "camelCase");
-    const styleObjText = JSON.stringify(styleObj, null, JSON_SPACE_AMOUNT)
-        .replace(/"(.+)":/g, "$1:")
-        .replace(/: "colors\.(.*)"/g, ": colors.$1");
-
-    return `const ${selectorName} = ${styleObjText};`;
-}
+} from "../constants";
 
 function generateColorStyleObject(color, colorFormat) {
     if (!color || !("r" in color && "g" in color && "b" in color && "a" in color)) {
@@ -279,9 +254,51 @@ function generateTextStyleStyleObject({
     return styleProperties;
 }
 
+function generateTextStyleCode(textStyle, params) {
+    let fontStyles = generateTextStyleStyleObject({
+        textStyle,
+        densityDivisor: params.densityDivisor,
+        colorFormat: params.colorFormat,
+        defaultValues: params.defaultValues
+    });
+    let selector = generateName(fontStyles.selector, "camelCase");
+    let textStyleCode = {};
+
+    delete fontStyles.selector;
+
+    if (params.projectColor) {
+        fontStyles.color = `colors.${params.projectColor.name}`;
+    }
+
+    textStyleCode[selector] = fontStyles;
+
+    return textStyleCode;
+}
+
+function generateStyleguideTextStylesObject(options, project, textStyles) {
+    const params = {
+        densityDivisor: project.densityDivisor,
+        colorFormat: options.colorFormat,
+        defaultValues: options.defaultValues
+    };
+
+    return textStyles.reduce((styles, ts) => {
+        let tsParams;
+        if (ts.color) {
+            let projectColor = project.findColorEqual(ts.color);
+            tsParams = Object.assign({}, params, { projectColor });
+        } else {
+            tsParams = params;
+        }
+
+        let textStyle = generateTextStyleCode(ts, tsParams);
+        return Object.assign(styles, textStyle);
+    }, {});
+}
+
 export {
-    generateReactRule,
     generateColorStyleObject,
+    generateTextLayerStyleObject,
     generateLayerStyleObject,
-    generateTextStyleStyleObject
+    generateStyleguideTextStylesObject
 };
