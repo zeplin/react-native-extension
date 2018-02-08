@@ -1,4 +1,5 @@
-import { generateName, getColorMapByFormat } from "./util";
+import { getColorMapByFormat } from "./util";
+import generateName from "./utils/generateName";
 import {
     generateColorStyleObject,
     generateLayerStyleObject,

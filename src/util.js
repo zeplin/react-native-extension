@@ -11,33 +11,6 @@ const alphaFormatter = new Intl.NumberFormat("en-US", {
     maximumFractionDigits: 2
 });
 
-function joinTokens(components, namingScheme) {
-    if (namingScheme === "camelCase" || namingScheme === "upperCamelCase") {
-        let name = components.map(uppercaseFirst).join("");
-        return namingScheme === "camelCase" ? lowercaseFirst(name) : name;
-    } else if (namingScheme === "snakeCase") {
-        return components.join("_");
-    }
-    return components.join("-");
-}
-
-function tokensForString(str) {
-    let tokenizer = /\d+|[a-z]+|[A-Z]+(?![a-z])|[A-Z][a-z]+/g;
-
-    let matchResult = str.match(tokenizer);
-    if (!matchResult) {
-        return ["invalid", "name"];
-    }
-
-    return matchResult.map(function (token) {
-        return token.toLowerCase();
-    });
-}
-
-function generateName(name, namingScheme) {
-    return joinTokens(tokensForString(name), namingScheme);
-}
-
 function layerHasGradient(layer) {
     return layer.fills.some(f => f.type === "gradient");
 }
@@ -90,10 +63,6 @@ function isHtmlTag(str) {
     return HTML_TAGS.indexOf(str.toLowerCase()) > -1;
 }
 
-function lowercaseFirst(s) {
-    return s.charAt(0).toLowerCase() + s.substring(1);
-}
-
 function round(number, precision) {
     let formattedNumber = Number(number).toLocaleString("en-US", {
         useGrouping: false,
@@ -125,10 +94,6 @@ function selectorize(str) {
     selectorizedStr = escape(selectorizedStr);
 
     return selectorizedStr && `.${selectorizedStr}`;
-}
-
-function uppercaseFirst(s) {
-    return s.charAt(0).toUpperCase() + s.substring(1);
 }
 
 function toHex(num) {
@@ -174,7 +139,6 @@ function toHSLAString(color) {
 
 export {
     blendColors,
-    generateName,
     getColorMapByFormat,
     isHtmlTag,
     round,

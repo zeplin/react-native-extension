@@ -1,7 +1,6 @@
 
 import {
     blendColors,
-    generateName,
     isHtmlTag,
     round,
     selectorize,
@@ -11,6 +10,7 @@ import {
     layerHasGradient,
     layerHasBlendMode
 } from "./util";
+import generateName from "./utils/generateName";
 import {
     REACT_RULES_WITH_COLOR,
     JSON_SPACE_AMOUNT,
