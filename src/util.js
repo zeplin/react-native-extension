@@ -1,26 +1,12 @@
-var HTML_TAGS = [
-    "a", "abbr", "address", "area", "article", "aside", "audio", "b", "base", "bdi",
-    "bdo", "blockquote", "body", "br", "button", "canvas", "caption", "cite", "code",
-    "col", "colgroup", "data", "datalist", "dd", "del", "details", "dfn", "dialog",
-    "div", "dl", "dt", "em", "embed", "fieldset", "figcaption", "figure", "footer",
-    "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr",
-    "html", "i", "iframe", "img", "input", "ins", "kbd", "keygen", "label", "legend",
-    "li", "link", "main", "map", "mark", "math", "menu", "menuitem", "meta", "meter",
-    "nav", "noscript", "object", "ol", "optgroup", "option", "output", "p", "param",
-    "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "script",
-    "section", "select", "slot", "small", "source", "source", "span", "strong", "style",
-    "sub", "summary", "sup", "svg", "table", "tbody", "td", "template", "textarea",
-    "tfoot", "th", "thead", "time", "title", "tr", "track", "u", "ul", "var", "video", "wbr"
-];
-
-var alphaFormatter = new Intl.NumberFormat("en-US", {
+import { HTML_TAGS, MAX_BRIGHTNESS, HEX_BASE, HUE_MAX_DEGREE, MAX_PERCENTAGE } from "./constants";
+let alphaFormatter = new Intl.NumberFormat("en-US", {
     useGrouping: false,
     maximumFractionDigits: 2
 });
 
 function joinTokens(components, namingScheme) {
     if (namingScheme === "camelCase" || namingScheme === "upperCamelCase") {
-        var name = components.map(uppercaseFirst).join("");
+        let name = components.map(uppercaseFirst).join("");
         return namingScheme === "camelCase" ? lowercaseFirst(name) : name;
     } else if (namingScheme === "snakeCase") {
         return components.join("_");
@@ -28,10 +14,10 @@ function joinTokens(components, namingScheme) {
     return components.join("-");
 }
 
-var tokenizer = /\d+|[a-z]+|[A-Z]+(?![a-z])|[A-Z][a-z]+/g;
+let tokenizer = /\d+|[a-z]+|[A-Z]+(?![a-z])|[A-Z][a-z]+/g;
 
 function tokensForString(str) {
-    var matchResult = str.match(tokenizer);
+    let matchResult = str.match(tokenizer);
     if (!matchResult) {
         return ["invalid", "name"];
     }
@@ -41,7 +27,7 @@ function tokensForString(str) {
     });
 }
 
-function generateName (name, namingScheme) {
+function generateName(name, namingScheme) {
     return joinTokens(tokensForString(name), namingScheme);
 }
 
@@ -64,20 +50,20 @@ function blendColors(colors) {
 }
 
 function escape(str) {
-    str = str.trim()
+    let escapedStr = str.trim()
         .replace(/[^\s\w-]/g, "")
         .replace(/^(-?\d+)+/, "")
         .replace(/\s+/g, "-");
 
-    return str;
+    return escapedStr;
 }
 
 function escapeHTML(str) {
     return str.replace(/&/gm, "&amp;")
-              .replace(/</gm, "&lt;")
-              .replace(/>/gm, "&gt;")
-              .replace(/"/gm, "&quot;")
-              .replace(/'/gm, "&apos;");
+        .replace(/</gm, "&lt;")
+        .replace(/>/gm, "&gt;")
+        .replace(/"/gm, "&quot;")
+        .replace(/'/gm, "&apos;");
 }
 
 function getColorStringByFormat(color, colorFormat) {
@@ -102,10 +88,10 @@ function getColorStringByFormat(color, colorFormat) {
 }
 
 function getColorMapByFormat(colors, colorFormat) {
-    var colorMap = {};
+    let colorMap = {};
 
     colors.forEach(function (color) {
-        var colorString = getColorStringByFormat(color, colorFormat);
+        let colorString = getColorStringByFormat(color, colorFormat);
 
         colorMap[colorString] = color.name;
     });
@@ -122,7 +108,7 @@ function lowercaseFirst(s) {
 }
 
 function round(number, precision) {
-    var formattedNumber = Number(number).toLocaleString("en-US", {
+    let formattedNumber = Number(number).toLocaleString("en-US", {
         useGrouping: false,
         maximumFractionDigits: precision
     });
@@ -135,23 +121,23 @@ function selectorize(str) {
         return "";
     }
 
-    str = str.trim();
+    let selectorizedStr = str.trim();
 
     if (isHtmlTag(str)) {
-        return str.toLowerCase();
+        return selectorizedStr.toLowerCase();
     }
 
-    if (/^[#.]/.test(str)) {
-        var name = escape(str.substr(1));
+    if (/^[#.]/.test(selectorizedStr)) {
+        let name = escape(selectorizedStr.substr(1));
 
         if (name) {
-            return str[0] + name;
+            return selectorizedStr[0] + name;
         }
     }
 
-    str = escape(str);
+    selectorizedStr = escape(selectorizedStr);
 
-    return str && "." + str;
+    return selectorizedStr && "." + selectorizedStr;
 }
 
 function uppercaseFirst(s) {
@@ -159,16 +145,16 @@ function uppercaseFirst(s) {
 }
 
 function toHex(num) {
-    num = Math.trunc(num + num / 255);
-    num = Math.max(0, Math.min(num, 255));
-    return (num < 16 ? "0" : "") + num.toString(16);
+    let hexNum = Math.trunc(num + num / MAX_BRIGHTNESS);
+    hexNum = Math.max(0, Math.min(hexNum, MAX_BRIGHTNESS));
+    return (hexNum < HEX_BASE ? "0" : "") + hexNum.toString(HEX_BASE);
 }
 
 function toHexString(color, prefix) {
-    var hexCode = color.hexBase();
+    let hexCode = color.hexBase();
 
     if (color.a < 1) {
-        var hexA = toHex(color.a * 255);
+        let hexA = toHex(color.a * MAX_BRIGHTNESS);
 
         hexCode = prefix ? (hexA + hexCode) : (hexCode + hexA);
     }
@@ -177,11 +163,11 @@ function toHexString(color, prefix) {
 }
 
 function toRGBAString(color) {
-    var rgb = Math.round(color.r) + ", " +
+    let rgb = Math.round(color.r) + ", " +
                 Math.round(color.g) + ", " +
                 Math.round(color.b);
 
-    var rgbStr = color.a < 1
+    let rgbStr = color.a < 1
         ? "rgba(" + rgb + ", " + alphaFormatter.format(color.a)
         : "rgb(" + rgb;
 
@@ -189,12 +175,12 @@ function toRGBAString(color) {
 }
 
 function toHSLAString(color) {
-    var hslColor = color.toHSL();
-    var hsl = Math.round(hslColor.h * 360) + ", " +
-              Math.round(hslColor.s * 100) + "%, " +
-              Math.round(hslColor.l * 100) + "%";
+    let hslColor = color.toHSL();
+    let hsl = Math.round(hslColor.h * HUE_MAX_DEGREE) + ", " +
+              Math.round(hslColor.s * MAX_PERCENTAGE) + "%, " +
+              Math.round(hslColor.l * MAX_PERCENTAGE) + "%";
 
-    var hslStr = color.a < 1
+    let hslStr = color.a < 1
         ? "hsla(" + hsl + ", " + alphaFormatter.format(color.a)
         : "hsl(" + hsl;
 

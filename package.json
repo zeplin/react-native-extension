@@ -8,12 +8,13 @@
     "clean": "rm -rf ./dist",
     "test": "npm run build:test && jest && npm run clean",
     "build:test": "BUILD_TYPE=test npm run build",
+    "lint": "node_modules/.bin/eslint src",
     "dev-server": "node_modules/.bin/webpack-dev-server --color",
     "sync": "./sync.sh"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
+    "@zeplin/eslint-config": "^1.2.2",
+    "eslint": "^4.17.0",
     "jest": "^22.1.4",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",

@@ -7,17 +7,14 @@ import {
     selectorize,
     toHexString,
     toRGBAString,
-    toHexString,
+    toHSLAString,
     layerHasGradient,
     layerHasBlendMode
 } from "./util";
-
-var REACT_RULES_WITH_COLOR = [
-    "backgroundColor", "borderColor", "color", "shadowColor", "textDecorationColor", "textShadowColor"
-];
+import { REACT_RULES_WITH_COLOR } from "./constants";
 
 function generateReactRule(styleObj, projectColorMap, mixin) {
-    var selector = styleObj.selector;
+    let selector = styleObj.selector;
     delete styleObj.selector;
 
     Object.keys(styleObj).forEach(function (prop) {
@@ -30,11 +27,17 @@ function generateReactRule(styleObj, projectColorMap, mixin) {
         }
     });
 
+    const SPACE_AMOUNT = 2;
+
     // TODO: how to mixin?
     return "const " + generateName(selector, "camelCase") + " = " +
-        JSON.stringify(styleObj, null, 2)
+        JSON.stringify(styleObj, null, SPACE_AMOUNT)
             .replace(/"(.+)":/g, "$1:")
             .replace(/: "colors\.(.*)"/g, ": colors.$1") + ";";
+}
+
+function toDefaultString(color) {
+    return color.a < 1 ? toRGBAString(color) : toHexString(color);
 }
 
 function generateColorStyleObject(color, colorFormat) {
@@ -54,11 +57,17 @@ function generateColorStyleObject(color, colorFormat) {
 
         case "default":
         default:
-            return color.a < 1 ? toRGBAString(color) : toHexString(color);
+            return toDefaultString(color);
     }
 }
 
-function generateShadowStyleObject(shadow, projectType, layerType, densityDivisor, colorFormat) {
+function generateShadowStyleObject({
+    shadow,
+    projectType,
+    layerType,
+    densityDivisor,
+    colorFormat
+}) {
     if (layerType === "text") {
         return {
             textShadowColor: generateColorStyleObject(shadow.color, colorFormat),
@@ -71,13 +80,13 @@ function generateShadowStyleObject(shadow, projectType, layerType, densityDiviso
     }
 
     if (projectType === "android") {
-        /* return {
+        /* "return {
             elevation: "something"
-        };*/
+        };" */
         return {};
     }
 
-    // iOS doesn't have shadow spread
+    // "iOS" doesn't have shadow spread
     return {
         shadowColor: generateColorStyleObject(shadow.color, colorFormat),
         shadowOffset: {
@@ -105,13 +114,26 @@ function generateBorderStyleObject(border, layerType, densityDivisor, colorForma
     };
 }
 
-function generateTextLayerStyleObject(layer, font, densityDivisor, colorFormat, defaultValues, layerStyle) {
-    var styles = generateTextStyleStyleObject(font, densityDivisor, colorFormat, defaultValues, layerStyle);
+function generateTextLayerStyleObject({
+    layer,
+    font,
+    densityDivisor,
+    colorFormat,
+    defaultValues,
+    layerStyle
+}) {
+    let styles = generateTextStyleStyleObject({
+        textStyle: font,
+        densityDivisor,
+        colorFormat,
+        defaultValues,
+        layerStyle
+    });
 
     if (layer.fills.length && !layer.hasGradient()) {
         delete styles.color;
 
-        var blentColor = blendColors(layer.fills.map(function (fill) {
+        let blentColor = blendColors(layer.fills.map(function (fill) {
             return fill.color;
         }));
 
@@ -125,11 +147,17 @@ function generateTextLayerStyleObject(layer, font, densityDivisor, colorFormat, 
     return styles;
 }
 
-function generateLayerStyleObject(layer, projectType, densityDivisor, showDimensions, colorFormat, defaultValues) {
-    /* eslint-enable dot-notation, quote-props, complexity */
-    var layerType = layer.type;
+function generateLayerStyleObject({
+    layer,
+    projectType,
+    densityDivisor,
+    showDimensions,
+    colorFormat,
+    defaultValues
+}) {
+    let layerType = layer.type;
 
-    var styles = {
+    let styles = {
         selector: selectorize(layer.name) || ".layer"
     };
 
@@ -138,27 +166,29 @@ function generateLayerStyleObject(layer, projectType, densityDivisor, showDimens
         styles.height = round(layer.rect.height / densityDivisor, 1);
     }
 
-    // object fit: https://github.com/acdlite/react-object-fit-cover
-
     if (layer.rotation) {
         styles.transform = "rotate(" + (-layer.rotation) + "deg)";
     }
 
     if (layer.opacity !== 1) {
-        styles.opacity = round(layer.opacity, 2);
+        const PRECISION = 2;
+        styles.opacity = round(layer.opacity, PRECISION);
     }
-
-    // blend mode: https://github.com/CAPSLOCKUSER/gl-react-color-blending
 
     if (layer.borderRadius) {
         styles.borderRadius = round(layer.borderRadius / densityDivisor, 1);
     }
 
-    // blur: https://github.com/react-native-community/react-native-blur
-
     if (layerType === "text") {
-        var defaultTextStyle = layer.defaultTextStyle,
-            textStyle = defaultTextStyle && generateTextLayerStyleObject(layer, defaultTextStyle, densityDivisor, colorFormat, defaultValues);
+        let defaultTextStyle = layer.defaultTextStyle;
+        let textStyle = defaultTextStyle &&
+        generateTextLayerStyleObject({
+            layer,
+            font: defaultTextStyle,
+            densityDivisor,
+            colorFormat,
+            defaultValues
+        });
 
         if (textStyle) {
             // Do not overwrite the selector name
@@ -166,43 +196,65 @@ function generateLayerStyleObject(layer, projectType, densityDivisor, showDimens
             Object.assign(styles, textStyle);
         }
     } else if (layer.fills.length && !layerHasGradient(layer) && !layerHasBlendMode(layer)) {
-        // gradient: https://github.com/react-native-community/react-native-linear-gradient
-
         styles.backgroundColor = generateColorStyleObject(blendColors(layer.fills.map(function (fill) {
             return fill.color;
         })), colorFormat);
     }
 
     if (layer.shadows.length) {
-        // multiple shadows can only be achieved with multiple views
-        Object.assign(styles, generateShadowStyleObject(layer.shadows[layer.shadows.length - 1], projectType, layerType, densityDivisor, colorFormat));
+        // Multiple shadows can only be achieved with multiple views
+        Object.assign(styles,
+            generateShadowStyleObject({
+                shadow: layer.shadows[layer.shadows.length - 1],
+                projectType,
+                layerType,
+                densityDivisor,
+                colorFormat
+            })
+        );
     }
 
     if (layer.borders.length) {
-        Object.assign(styles, generateBorderStyleObject(layer.borders[layer.borders.length - 1], layerType, densityDivisor, colorFormat));
+        Object.assign(styles,
+            generateBorderStyleObject(
+                layer.borders[layer.borders.length - 1],
+                layerType,
+                densityDivisor,
+                colorFormat
+            )
+        );
     }
 
     return styles;
 }
 
-function generateTextStyleStyleObject(textStyle, densityDivisor, colorFormat, defaultValues, layerStyle) {
-    var selector = selectorize(textStyle.name);
+function generateTextStyleStyleObject({
+    textStyle,
+    densityDivisor,
+    colorFormat,
+    defaultValues,
+    layerStyle
+}) {
+    let selector = selectorize(textStyle.name);
     if (!isHtmlTag(selector)) {
         selector = selector.substring(1);
     }
 
-    var styleProperties = {
-        selector: selector
+    const NUMERICAL_FONT_BOLD = 700;
+    const NUMERICAL_FONT_NORMAL = 400;
+
+    let styleProperties = {
+        selector
     };
-    var overrideLayerStyle;
+    let overrideLayerStyle;
 
     styleProperties.fontFamily = textStyle.fontFamily;
     styleProperties.fontSize = round(textStyle.fontSize / densityDivisor, 1);
 
     overrideLayerStyle = layerStyle && layerStyle["font-weight"] && layerStyle["font-weight"] !== "normal";
-    if (textStyle.fontWeight === 700) {
+    if (textStyle.fontWeight === NUMERICAL_FONT_BOLD) {
         styleProperties.fontWeight = "bold";
-    } else if (textStyle.fontWeight !== 400) {
+    } else if (textStyle.fontWeight !== NUMERICAL_FONT_NORMAL) {
         styleProperties.fontWeight = String(textStyle.fontWeight);
     } else if (defaultValues || overrideLayerStyle) {
         styleProperties.fontWeight = "normal";
@@ -213,18 +265,14 @@ function generateTextStyleStyleObject(textStyle, densityDivisor, colorFormat, de
         styleProperties.fontStyle = textStyle.fontStyle;
     }
 
-    // If this is a child text style, then it will simply be inherited if it doesn't have any explicit value
-    // and if we want to revert it to its default value, we need to give the base line height (≈ font size * 1.2)
-    // value explicitly. Non-existence of line height, doesn't mean that it should be reverted back.
-    // Besides, Sketch doesn't allow child text styles to override parent line height, whereas Ps and Ai
-    // allows but it doesn't affect text rendering, so it's practically useless.
     if (textStyle.lineHeight) {
         styleProperties.lineHeight = round(textStyle.lineHeight / densityDivisor, 1);
     }
 
     overrideLayerStyle = layerStyle && layerStyle["letter-spacing"] && layerStyle["letter-spacing"] !== "normal";
     if (textStyle.letterSpacing) {
-        styleProperties.letterSpacing = round(textStyle.letterSpacing / densityDivisor, 2);
+        const PRECISION = 2;
+        styleProperties.letterSpacing = round(textStyle.letterSpacing / densityDivisor, PRECISION);
     } else if (defaultValues || overrideLayerStyle) {
         styleProperties.letterSpacing = 0;
     }
