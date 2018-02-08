@@ -4,20 +4,22 @@
   "description": "React native extension for Zeplin",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && ./node_modules/.bin/webpack",
+    "build": "npm run clean && ./node_modules/.bin/webpack --config webpack.prod.js",
     "clean": "rm -rf ./dist",
     "test": "npm run build:test && jest && npm run clean",
-    "build:test": "BUILD_TYPE=test npm run build",
+    "build:test": "npm run clean && ./node_modules/.bin/webpack --config ./webpack.tst.js",
     "lint": "node_modules/.bin/eslint src",
-    "dev-server": "node_modules/.bin/webpack-dev-server --color",
+    "dev-server": "node_modules/.bin/webpack-dev-server --config webpack.dev.js --color",
     "sync": "./sync.sh"
   },
   "devDependencies": {
     "@zeplin/eslint-config": "^1.2.2",
+    "dotenv": "^5.0.0",
     "eslint": "^4.17.0",
     "jest": "^22.1.4",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1",
     "zeplin-extension-model": "git+https://github.com/zeplin/zeplin-extension-model.git#develop"
   }
 }

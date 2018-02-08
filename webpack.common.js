@@ -17,30 +17,14 @@ const config = {
     entry: { [`${bundleName}`]: "./src/index.js" },
     output: {
         path: path.join(__dirname, "dist"),
-        filename: process.env.BUILD_TYPE === "test" ? "[name].js" : "[name].[chunkhash:8].js",
+        filename: "[name].[chunkhash:8].js",
         library: "extension",
         libraryExport: "default",
         libraryTarget: "umd"
-    },
-    devServer: {
-        port: 8081,
-        publicPath: "/dist",
-        watchContentBase: true,
-        disableHostCheck: true,
-        headers: {
-            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Range",
-            "Access-Control-Allow-Origin": "*"
-        },
-        hot: false,
-        inline: false
     },
     plugins: [
         new SimpleCopyPlugin(copies)
     ]
 };
-
-if (process.env.NODE_ENV !== "prod") {
-    config.devtool = "inline-source-map";
-}
 
 module.exports = config;
