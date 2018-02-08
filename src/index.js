@@ -20,7 +20,7 @@ function generateTextStyleCode(textStyle, params) {
     delete fontStyles.selector;
 
     if (params.projectColor) {
-        fontStyles.color = "colors." + params.projectColor.name;
+        fontStyles.color = `colors.${params.projectColor.name}`;
     }
 
     textStyleCode[selector] = fontStyles;
@@ -28,18 +28,19 @@ function generateTextStyleCode(textStyle, params) {
     return textStyleCode;
 }
 
+function getStyleguideColorTexts(context, colors) {
+    return colors.map((color) => {
+        const colorStyleObject = generateColorStyleObject(
+            color,
+            context.getOption(OPTION_NAMES.COLOR_FORMAT)
+        );
+        return `  ${color.name}: "${colorStyleObject}"`;
+    });
+}
+
 function styleguideColors(context, colors) {
-    let code = "const colors = {\n" +
-        colors.map(function (color) {
-            return "  " +
-            color.name +
-            ': "' +
-            generateColorStyleObject(
-                color,
-                context.getOption(OPTION_NAMES.COLOR_FORMAT)
-            ) +
-            '"';
-        }).join(",\n") + "\n};";
+    const styleguideColorTexts = getStyleguideColorTexts(context, colors);
+    let code = `const colors = {\n${styleguideColorTexts.join(",\n")}\n};`;
 
     return {
         code: code,
@@ -48,33 +49,40 @@ function styleguideColors(context, colors) {
     };
 }
 
-function styleguideTextStyles(context, textstyles) {
-    let params = {
+function getStyleguideTextStyles(context, textstyles) {
+    const params = {
         densityDivisor: context.project.densityDivisor,
         colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
         defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
     };
 
-    let textStyles = textstyles.reduce(function (styles, ts) {
+    return textstyles.reduce((styles, ts) => {
         let tsParams;
-
         if (ts.color) {
             let projectColor = context.project.findColorEqual(ts.color);
-
-            tsParams = Object.assign({}, params, { projectColor: projectColor });
+            tsParams = Object.assign({}, params, { projectColor });
         } else {
             tsParams = params;
         }
 
         let textStyle = generateTextStyleCode(ts, tsParams);
-
         return Object.assign(styles, textStyle);
     }, {});
+}
+
+function processTextStyles(textStyles) {
+    return textStyles.replace(/"(.+)":/g, "$1:").replace(/: "colors\.(.*)"/g, `: colors.$1`);
+}
+
+function styleguideTextStyles(context, textstyles) {
+    let textStyles = getStyleguideTextStyles(context, textstyles);
+
     const JSON_SPACE_AMOUNT = 2;
     textStyles = JSON.stringify(textStyles, null, JSON_SPACE_AMOUNT);
 
-    let code = "const textStyles = StyleSheet.create(" +
-            textStyles.replace(/"(.+)":/g, "$1:").replace(/: "colors\.(.*)"/g, ": colors.$1") + ");";
+    const processedTextStyles = processTextStyles(textStyles);
+
+    let code = `const textStyles = StyleSheet.create(${processedTextStyles});`;
 
     return {
         code: code,
@@ -92,6 +100,7 @@ function layer(context, selectedLayer) {
         colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
         defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
     });
+
     let cssObjects = [];
 
     if (Object.keys(layerStyleRule).length > 1) {
@@ -119,7 +128,7 @@ function layer(context, selectedLayer) {
 }
 
 function comment(context, text) {
-    return "// " + text;
+    return `// ${text}`;
 }
 
 function exportStyleguideColors(context, colors) {
