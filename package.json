@@ -8,7 +8,8 @@
     "clean": "rm -rf ./dist",
     "test": "npm run build:test && jest && npm run clean",
     "build:test": "BUILD_TYPE=test npm run build",
-    "dev-server": "node_modules/.bin/webpack-dev-server --color"
+    "dev-server": "node_modules/.bin/webpack-dev-server --color",
+    "sync": "./sync.sh"
   },
   "author": "",
   "license": "ISC",
