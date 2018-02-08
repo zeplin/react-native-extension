@@ -1,5 +1,12 @@
-import { HTML_TAGS, MAX_BRIGHTNESS, HEX_BASE, HUE_MAX_DEGREE, MAX_PERCENTAGE } from "./constants";
-let alphaFormatter = new Intl.NumberFormat("en-US", {
+import {
+    HTML_TAGS,
+    MAX_BRIGHTNESS,
+    HEX_BASE,
+    HUE_MAX_DEGREE,
+    MAX_PERCENTAGE
+} from "./constants";
+
+const alphaFormatter = new Intl.NumberFormat("en-US", {
     useGrouping: false,
     maximumFractionDigits: 2
 });
@@ -14,9 +21,9 @@ function joinTokens(components, namingScheme) {
     return components.join("-");
 }
 
-let tokenizer = /\d+|[a-z]+|[A-Z]+(?![a-z])|[A-Z][a-z]+/g;
-
 function tokensForString(str) {
+    let tokenizer = /\d+|[a-z]+|[A-Z]+(?![a-z])|[A-Z][a-z]+/g;
+
     let matchResult = str.match(tokenizer);
     if (!matchResult) {
         return ["invalid", "name"];
@@ -32,38 +39,22 @@ function generateName(name, namingScheme) {
 }
 
 function layerHasGradient(layer) {
-    return layer.fills.some(function (f) {
-        return f.type === "gradient";
-    });
+    return layer.fills.some(f => f.type === "gradient");
 }
 
 function layerHasBlendMode(layer) {
-    return layer.fills.some(function (f) {
-        return f.blendMode && f.blendMode !== "normal";
-    });
+    return layer.fills.some(f => f.blendMode && f.blendMode !== "normal");
 }
 
 function blendColors(colors) {
-    return colors.reduce(function (blendedColor, color) {
-        return blendedColor.blend(color);
-    });
+    return colors.reduce((blendedColor, color) => blendedColor.blend(color));
 }
 
 function escape(str) {
-    let escapedStr = str.trim()
+    return str.trim()
         .replace(/[^\s\w-]/g, "")
         .replace(/^(-?\d+)+/, "")
         .replace(/\s+/g, "-");
-
-    return escapedStr;
-}
-
-function escapeHTML(str) {
-    return str.replace(/&/gm, "&amp;")
-        .replace(/</gm, "&lt;")
-        .replace(/>/gm, "&gt;")
-        .replace(/"/gm, "&quot;")
-        .replace(/'/gm, "&apos;");
 }
 
 function getColorStringByFormat(color, colorFormat) {
@@ -88,15 +79,11 @@ function getColorStringByFormat(color, colorFormat) {
 }
 
 function getColorMapByFormat(colors, colorFormat) {
-    let colorMap = {};
-
-    colors.forEach(function (color) {
+    return colors.reduce((colorMap, color) => {
         let colorString = getColorStringByFormat(color, colorFormat);
-
         colorMap[colorString] = color.name;
-    });
-
-    return colorMap;
+        return colorMap;
+    }, {});
 }
 
 function isHtmlTag(str) {
@@ -137,7 +124,7 @@ function selectorize(str) {
 
     selectorizedStr = escape(selectorizedStr);
 
-    return selectorizedStr && "." + selectorizedStr;
+    return selectorizedStr && `.${selectorizedStr}`;
 }
 
 function uppercaseFirst(s) {
@@ -159,46 +146,39 @@ function toHexString(color, prefix) {
         hexCode = prefix ? (hexA + hexCode) : (hexCode + hexA);
     }
 
-    return "#" + hexCode;
+    return `#${hexCode}`;
 }
 
 function toRGBAString(color) {
-    let rgb = Math.round(color.r) + ", " +
-                Math.round(color.g) + ", " +
-                Math.round(color.b);
+    let rgb = `${Math.round(color.r)}, ${Math.round(color.g)}, ${Math.round(color.b)}`;
 
     let rgbStr = color.a < 1
-        ? "rgba(" + rgb + ", " + alphaFormatter.format(color.a)
-        : "rgb(" + rgb;
+        ? `rgba(${rgb}, ${alphaFormatter.format(color.a)})`
+        : `rgb(${rgb})`;
 
-    return rgbStr + ")";
+    return rgbStr;
 }
 
 function toHSLAString(color) {
     let hslColor = color.toHSL();
-    let hsl = Math.round(hslColor.h * HUE_MAX_DEGREE) + ", " +
-              Math.round(hslColor.s * MAX_PERCENTAGE) + "%, " +
-              Math.round(hslColor.l * MAX_PERCENTAGE) + "%";
+    let hsl = `${Math.round(hslColor.h * HUE_MAX_DEGREE)}, ` +
+              `${Math.round(hslColor.s * MAX_PERCENTAGE)}%, ` +
+              `${Math.round(hslColor.l * MAX_PERCENTAGE)}%`;
 
     let hslStr = color.a < 1
-        ? "hsla(" + hsl + ", " + alphaFormatter.format(color.a)
-        : "hsl(" + hsl;
+        ? `hsla(${hsl}, ${alphaFormatter.format(color.a)})`
+        : `hsl(${hsl})`;
 
-    return hslStr + ")";
+    return hslStr;
 }
 
 export {
     blendColors,
-    escape,
-    escapeHTML,
     generateName,
     getColorMapByFormat,
-    getColorStringByFormat,
     isHtmlTag,
-    lowercaseFirst,
     round,
     selectorize,
-    uppercaseFirst,
     toHexString,
     toRGBAString,
     toHSLAString,

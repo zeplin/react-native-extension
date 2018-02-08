@@ -5,7 +5,7 @@ import {
     generateTextStyleStyleObject,
     generateReactRule
 } from "./helpers";
-import { OPTION_NAMES } from "./constants";
+import { OPTION_NAMES, JSON_SPACE_AMOUNT } from "./constants";
 
 function generateTextStyleCode(textStyle, params) {
     let fontStyles = generateTextStyleStyleObject({
@@ -29,7 +29,7 @@ function generateTextStyleCode(textStyle, params) {
 }
 
 function getStyleguideColorTexts(context, colors) {
-    return colors.map((color) => {
+    return colors.map(color => {
         const colorStyleObject = generateColorStyleObject(
             color,
             context.getOption(OPTION_NAMES.COLOR_FORMAT)
@@ -77,9 +77,7 @@ function processTextStyles(textStyles) {
 function styleguideTextStyles(context, textstyles) {
     let textStyles = getStyleguideTextStyles(context, textstyles);
 
-    const JSON_SPACE_AMOUNT = 2;
     textStyles = JSON.stringify(textStyles, null, JSON_SPACE_AMOUNT);
-
     const processedTextStyles = processTextStyles(textStyles);
 
     let code = `const textStyles = StyleSheet.create(${processedTextStyles});`;

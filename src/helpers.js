@@ -11,7 +11,12 @@ import {
     layerHasGradient,
     layerHasBlendMode
 } from "./util";
-import { REACT_RULES_WITH_COLOR } from "./constants";
+import {
+    REACT_RULES_WITH_COLOR,
+    JSON_SPACE_AMOUNT,
+    NUMERICAL_FONT_BOLD,
+    NUMERICAL_FONT_NORMAL
+} from "./constants";
 
 function generateReactRule(styleObj, projectColorMap, mixin) {
     let selector = styleObj.selector;
@@ -23,17 +28,16 @@ function generateReactRule(styleObj, projectColorMap, mixin) {
         }
 
         if (REACT_RULES_WITH_COLOR.includes(prop) && styleObj[prop] in projectColorMap) {
-            styleObj[prop] = "colors." + projectColorMap[styleObj[prop]];
+            styleObj[prop] = `colors.${projectColorMap[styleObj[prop]]}`;
         }
     });
 
-    const SPACE_AMOUNT = 2;
+    const selectorName = generateName(selector, "camelCase");
+    const styleObjText = JSON.stringify(styleObj, null, JSON_SPACE_AMOUNT)
+        .replace(/"(.+)":/g, "$1:")
+        .replace(/: "colors\.(.*)"/g, ": colors.$1");
 
-    // TODO: how to mixin?
-    return "const " + generateName(selector, "camelCase") + " = " +
-        JSON.stringify(styleObj, null, SPACE_AMOUNT)
-            .replace(/"(.+)":/g, "$1:")
-            .replace(/: "colors\.(.*)"/g, ": colors.$1") + ";";
+    return `const ${selectorName} = ${styleObjText};`;
 }
 
 function toDefaultString(color) {
@@ -80,9 +84,6 @@ function generateShadowStyleObject({
     }
 
     if (projectType === "android") {
-        /* "return {
-            elevation: "something"
-        };" */
         return {};
     }
 
@@ -99,11 +100,7 @@ function generateShadowStyleObject({
 }
 
 function generateBorderStyleObject(border, layerType, densityDivisor, colorFormat) {
-    if (layerType === "text") {
-        return {};
-    }
-
-    if (border.fill.type === "gradient") {
+    if (layerType === "text" || (border.fill && border.fill.type === "gradient")) {
         return {};
     }
 
@@ -130,12 +127,10 @@ function generateTextLayerStyleObject({
         layerStyle
     });
 
-    if (layer.fills.length && !layer.hasGradient()) {
+    if (layer.fills.length && !layerHasGradient(layer)) {
         delete styles.color;
 
-        let blentColor = blendColors(layer.fills.map(function (fill) {
-            return fill.color;
-        }));
+        let blentColor = blendColors(layer.fills.map(fill => fill.color));
 
         if (font.color) {
             blentColor = blentColor.blend(font.color);
@@ -146,7 +141,7 @@ function generateTextLayerStyleObject({
 
     return styles;
 }
-
+/* eslint-disable complexity */
 function generateLayerStyleObject({
     layer,
     projectType,
@@ -167,7 +162,7 @@ function generateLayerStyleObject({
     }
 
     if (layer.rotation) {
-        styles.transform = "rotate(" + (-layer.rotation) + "deg)";
+        styles.transform = `rotate(${-layer.rotation}deg)`;
     }
 
     if (layer.opacity !== 1) {
@@ -196,9 +191,10 @@ function generateLayerStyleObject({
             Object.assign(styles, textStyle);
         }
     } else if (layer.fills.length && !layerHasGradient(layer) && !layerHasBlendMode(layer)) {
-        styles.backgroundColor = generateColorStyleObject(blendColors(layer.fills.map(function (fill) {
-            return fill.color;
-        })), colorFormat);
+        styles.backgroundColor = generateColorStyleObject(
+            blendColors(layer.fills.map(fill => fill.color)),
+            colorFormat
+        );
     }
 
     if (layer.shadows.length) {
@@ -239,9 +235,6 @@ function generateTextStyleStyleObject({
     if (!isHtmlTag(selector)) {
         selector = selector.substring(1);
     }
-
-    const NUMERICAL_FONT_BOLD = 700;
-    const NUMERICAL_FONT_NORMAL = 400;
 
     let styleProperties = {
         selector

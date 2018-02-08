@@ -2,6 +2,9 @@ export const MAX_BRIGHTNESS = 255;
 export const HUE_MAX_DEGREE = 360;
 export const MAX_PERCENTAGE = 100;
 export const HEX_BASE = 16;
+export const JSON_SPACE_AMOUNT = 2;
+export const NUMERICAL_FONT_BOLD = 700;
+export const NUMERICAL_FONT_NORMAL = 400;
 export const REACT_RULES_WITH_COLOR = [
     "backgroundColor", "borderColor", "color", "shadowColor", "textDecorationColor", "textShadowColor"
 ];
