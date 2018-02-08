@@ -8,7 +8,7 @@ import { OPTION_NAMES } from "./constants";
 
 function styleguideColors(context, colors) {
     const options = { colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT) };
-    let code = getStyleguideColorsCode(options, colors);
+    const code = getStyleguideColorsCode(options, colors);
 
     return {
         code: code,
@@ -22,7 +22,7 @@ function styleguideTextStyles(context, textStyles) {
         colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
         defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
     };
-    let code = getStyleguideTextStylesCode(options, context.project, textStyles);
+    const code = getStyleguideTextStylesCode(options, context.project, textStyles);
 
     return {
         code: code,
@@ -58,7 +58,7 @@ function comment(context, text) {
 
 function exportStyleguideColors(context, colors) {
     let codeObject = styleguideColors(context, colors);
-    let code = codeObject.code;
+    const code = codeObject.code;
 
     return {
         code: code,
@@ -69,7 +69,7 @@ function exportStyleguideColors(context, colors) {
 
 function exportStyleguideTextStyles(context, textstyles) {
     let codeObject = styleguideTextStyles(context, textstyles);
-    let code = codeObject.code;
+    const code = codeObject.code;
 
     return {
         code: code,
