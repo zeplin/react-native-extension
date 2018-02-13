@@ -10,7 +10,7 @@ import {
 
 import {
     REACT_RULES_WITH_COLOR,
-    JSON_SPACE_AMOUNT
+    JSON_SPACING
 } from "../constants";
 
 function generateReactRule(styleObj, projectColorMap, mixin) {
@@ -28,7 +28,7 @@ function generateReactRule(styleObj, projectColorMap, mixin) {
     });
 
     const selectorName = generateName(selector, "camelCase");
-    const styleObjText = JSON.stringify(styleObj, null, JSON_SPACE_AMOUNT)
+    const styleObjText = JSON.stringify(styleObj, null, JSON_SPACING)
         .replace(/"(.+)":/g, "$1:")
         .replace(/: "colors\.(.*)"/g, ": colors.$1");
 
@@ -54,7 +54,7 @@ function getStyleguideColorsCode(options, colors) {
 function getStyleguideTextStylesCode(options, project, textStyles) {
     let textStylesObj = generateStyleguideTextStylesObject(options, project, textStyles);
 
-    let textStylesStr = JSON.stringify(textStylesObj, null, JSON_SPACE_AMOUNT);
+    let textStylesStr = JSON.stringify(textStylesObj, null, JSON_SPACING);
     const processedTextStyles = textStylesStr.replace(/"(.+)":/g, "$1:").replace(/: "colors\.(.*)"/g, `: colors.$1`);
 
     return `const textStyles = StyleSheet.create(${processedTextStyles});`;

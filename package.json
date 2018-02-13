@@ -2,7 +2,6 @@
   "name": "zeplin-react-native-extension",
   "version": "1.0.0",
   "description": "React native extension for Zeplin",
-  "main": "index.js",
   "scripts": {
     "build": "npm run clean && ./node_modules/.bin/webpack --config webpack.prod.js",
     "clean": "rm -rf ./dist",
