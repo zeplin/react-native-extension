@@ -1,11 +1,11 @@
 import {
-    generateColorStyleObject,
     generateLayerStyleObject,
     generateStyleguideTextStylesObject
 } from "./style-object-helpers";
 import {
     generateName,
-    getColorMapByFormat
+    getColorMapByFormat,
+    getColorStringByFormat
 } from "../utils";
 
 import {
@@ -37,7 +37,7 @@ function generateReactRule(styleObj, projectColorMap, mixin) {
 
 function getStyleguideColorTexts(colorFormat, colors) {
     return colors.map(color => {
-        const colorStyleObject = generateColorStyleObject(
+        const colorStyleObject = getColorStringByFormat(
             color,
             colorFormat
         );

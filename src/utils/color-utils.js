@@ -37,7 +37,7 @@ function getColorStringByFormat(color, colorFormat) {
 
         case "default":
         default:
-            return color.a < 1 ? toRGBAString(color) : toHexString(color);
+            return toDefaultString(color);
     }
 }
 
@@ -91,8 +91,6 @@ function toDefaultString(color) {
 export {
     blendColors,
     getColorMapByFormat,
-    toHexString,
-    toRGBAString,
-    toHSLAString,
-    toDefaultString
+    toDefaultString,
+    getColorStringByFormat
 };

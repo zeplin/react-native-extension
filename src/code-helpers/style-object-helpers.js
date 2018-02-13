@@ -3,40 +3,16 @@ import {
     round,
     selectorize,
     blendColors,
-    toRGBAString,
-    toHexString,
-    toHSLAString,
-    toDefaultString,
     layerHasGradient,
     layerHasBlendMode,
-    generateName
+    generateName,
+    getColorStringByFormat
 } from "../utils";
 
 import {
     NUMERICAL_FONT_BOLD,
     NUMERICAL_FONT_NORMAL
 } from "../constants";
-
-function generateColorStyleObject(color, colorFormat) {
-    if (!color || !("r" in color && "g" in color && "b" in color && "a" in color)) {
-        return;
-    }
-
-    switch (colorFormat) {
-        case "hex":
-            return toHexString(color);
-
-        case "rgb":
-            return toRGBAString(color);
-
-        case "hsl":
-            return toHSLAString(color);
-
-        case "default":
-        default:
-            return toDefaultString(color);
-    }
-}
 
 function generateShadowStyleObject({
     shadow,
@@ -47,7 +23,7 @@ function generateShadowStyleObject({
 }) {
     if (layerType === "text") {
         return {
-            textShadowColor: generateColorStyleObject(shadow.color, colorFormat),
+            textShadowColor: getColorStringByFormat(shadow.color, colorFormat),
             textShadowOffset: {
                 width: round(shadow.offsetX / densityDivisor, 1),
                 height: round(shadow.offsetY / densityDivisor, 1)
@@ -62,7 +38,7 @@ function generateShadowStyleObject({
 
     // "iOS" doesn't have shadow spread
     return {
-        shadowColor: generateColorStyleObject(shadow.color, colorFormat),
+        shadowColor: getColorStringByFormat(shadow.color, colorFormat),
         shadowOffset: {
             width: round(shadow.offsetX / densityDivisor, 1),
             height: round(shadow.offsetY / densityDivisor, 1)
@@ -80,7 +56,7 @@ function generateBorderStyleObject(border, layerType, densityDivisor, colorForma
     return {
         borderStyle: "solid",
         borderWidth: round(border.thickness / densityDivisor, 1),
-        borderColor: generateColorStyleObject(border.fill.color, colorFormat)
+        borderColor: getColorStringByFormat(border.fill.color, colorFormat)
     };
 }
 
@@ -109,7 +85,7 @@ function generateTextLayerStyleObject({
             blendedColor = blendedColor.blend(font.color);
         }
 
-        styles.color = generateColorStyleObject(blendedColor, colorFormat);
+        styles.color = getColorStringByFormat(blendedColor, colorFormat);
     }
 
     return styles;
@@ -164,7 +140,7 @@ function generateLayerStyleObject({
             Object.assign(styles, textStyle);
         }
     } else if (layer.fills.length && !layerHasGradient(layer) && !layerHasBlendMode(layer)) {
-        styles.backgroundColor = generateColorStyleObject(
+        styles.backgroundColor = getColorStringByFormat(
             blendColors(layer.fills.map(fill => fill.color)),
             colorFormat
         );
@@ -248,7 +224,7 @@ function generateTextStyleStyleObject({
     }
 
     if (textStyle.color) {
-        styleProperties.color = generateColorStyleObject(textStyle.color, colorFormat);
+        styleProperties.color = getColorStringByFormat(textStyle.color, colorFormat);
     }
 
     return styleProperties;
@@ -297,7 +273,6 @@ function generateStyleguideTextStylesObject(options, project, textStyles) {
 }
 
 export {
-    generateColorStyleObject,
     generateTextLayerStyleObject,
     generateLayerStyleObject,
     generateStyleguideTextStylesObject
