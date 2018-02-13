@@ -38,7 +38,7 @@ tests.forEach(singleTest => {
                     const expectedOutput = spec.output;
                     const actualOutput = extensionObject.layer(context, layer);
                     expect(actualOutput).toEqual(expectedOutput);
-                } else if (spec.type === "textstyles") {
+                } else if (spec.type === "textStyles") {
                     const textStyles = spec.data.map(textStyleData => new TextStyle(textStyleData));
                     const codeData = extensionObject.styleguideTextStyles(context, textStyles);
                     expect(codeData).toEqual(spec.output);
