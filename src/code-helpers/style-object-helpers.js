@@ -232,7 +232,7 @@ function generateTextStyleCode(textStyle, params) {
         colorFormat: params.colorFormat,
         defaultValues: params.defaultValues
     });
-    let selector = generateName(fontStyles.selector, "camelCase");
+    let selector = generateName(fontStyles.selector);
     let textStyleCode = {};
 
     delete fontStyles.selector;

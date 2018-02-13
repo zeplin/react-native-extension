@@ -27,7 +27,7 @@ function generateReactRule(styleObj, projectColorMap, mixin) {
         }
     });
 
-    const selectorName = generateName(selector, "camelCase");
+    const selectorName = generateName(selector);
     const styleObjText = JSON.stringify(styleObj, null, JSON_SPACING)
         .replace(/"(.+)":/g, "$1:")
         .replace(/: "colors\.(.*)"/g, ": colors.$1");
