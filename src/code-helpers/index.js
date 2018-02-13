@@ -55,7 +55,7 @@ function getStyleguideTextStylesCode(options, project, textStyles) {
     let textStylesObj = generateStyleguideTextStylesObject(options, project, textStyles);
 
     let textStylesStr = JSON.stringify(textStylesObj, null, JSON_SPACING);
-    const processedTextStyles = textStylesStr.replace(/"(.+)":/g, "$1:").replace(/: "colors\.(.*)"/g, `: colors.$1`);
+    const processedTextStyles = textStylesStr.replace(/"(.+)":/g, "$1:").replace(/: "colors\.(.*)"/g, ": colors.$1");
 
     return `const textStyles = StyleSheet.create(${processedTextStyles});`;
 }
