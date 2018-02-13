@@ -123,22 +123,17 @@ function generateLayerStyleObject({
         styles.borderRadius = round(layer.borderRadius / densityDivisor, 1);
     }
 
-    if (layerType === "text") {
-        let defaultTextStyle = layer.defaultTextStyle;
-        let textStyle = defaultTextStyle &&
-        generateTextLayerStyleObject({
+    if (layerType === "text" && layer.defaultTextStyle) {
+        let textStyle = generateTextLayerStyleObject({
             layer,
-            font: defaultTextStyle,
+            font: layer.defaultTextStyle,
             densityDivisor,
             colorFormat,
             defaultValues
         });
 
-        if (textStyle) {
-            // Do not overwrite the selector name
-            delete textStyle.selector;
-            Object.assign(styles, textStyle);
-        }
+        delete textStyle.selector;
+        Object.assign(styles, textStyle);
     } else if (layer.fills.length && !layerHasGradient(layer) && !layerHasBlendMode(layer)) {
         styles.backgroundColor = getColorStringByFormat(
             blendColors(layer.fills.map(fill => fill.color)),
