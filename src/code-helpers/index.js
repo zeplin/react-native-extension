@@ -60,7 +60,7 @@ function getStyleguideTextStylesCode(options, project, textStyles) {
     return `const textStyles = StyleSheet.create(${processedTextStyles});`;
 }
 
-function getLayerCode(options, project, layer) {
+function getLayerCode(project, layer, options) {
     const { showDimensions, colorFormat, defaultValues } = options;
 
     let layerStyleRule = generateLayerStyleObject({

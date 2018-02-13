@@ -37,7 +37,7 @@ function layer(context, selectedLayer) {
         colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
         defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
     };
-    const code = getLayerCode(options, context.project, selectedLayer);
+    const code = getLayerCode(context.project, selectedLayer, options);
 
     let returnOptions = [OPTION_NAMES.COLOR_FORMAT, OPTION_NAMES.SHOW_DIMENSIONS];
 
