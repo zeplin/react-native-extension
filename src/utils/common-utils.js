@@ -10,7 +10,7 @@ function escape(str) {
 }
 
 function isHtmlTag(str) {
-    return HTML_TAGS.indexOf(str.toLowerCase()) > -1;
+    return HTML_TAGS.includes(str);
 }
 
 function round(number, precision) {
