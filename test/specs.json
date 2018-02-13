@@ -37,13 +37,10 @@
             }
         ],
         "output": {
-            "code": "const colors = {\n  softBlue: \"#5d79e7\",\n  darkSkyBlue: \"#3180ed\",\n  perrywinkle: \"#9087e6\",\n  white: \"#ffffff\"\n};",
+            "code":
+                "const colors = {\n  softBlue: \"#5d79e7\",\n  darkSkyBlue: \"#3180ed\",\n  perrywinkle: \"#9087e6\",\n  white: \"#ffffff\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -55,40 +52,23 @@
             "opacity": 1,
             "borderRadius": 0,
             "blendMode": "normal",
-            "rect": {
-                "x": 0,
-                "y": 0,
-                "width": 414,
-                "height": 736
-            },
+            "rect": { "x": 0, "y": 0, "width": 414, "height": 736 },
             "type": "shape",
             "fills": [
                 {
-                    "fillType": "color",
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
             "shadows": [],
-            "absoluteRect": {
-                "x": 0,
-                "y": 0,
-                "width": 414,
-                "height": 736
-            }
+            "absoluteRect": { "x": 0, "y": 0, "width": 414, "height": 736 }
         },
         "output": {
-            "code": "const moneyLoverDark = {\n  width: 414,\n  height: 736,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const moneyLoverDark = {\n  width: 414,\n  height: 736,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -107,47 +87,26 @@
                     "style": {
                         "fontFace": "Montserrat-Regular",
                         "fontSize": 18,
-                        "color": {
-                            "r": 9,
-                            "g": 10,
-                            "b": 18,
-                            "a": 1
-                        }
+                        "color": { "r": 9, "g": 10, "b": 18, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 13
-                    }
+                    "range": { "location": 0, "length": 13 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 28,
-                "y": 252,
-                "width": 359,
-                "height": 22
-            },
+            "rect": { "x": 28, "y": 252, "width": 359, "height": 22 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 28,
-                "y": 252,
-                "width": 359,
-                "height": 22
-            }
+            "absoluteRect": { "x": 28, "y": 252, "width": 359, "height": 22 }
         },
         "output": {
-            "code": "const aadirCuenta = {\n  width: 359,\n  height: 22,\n  fontFamily: \"Montserrat\",\n  fontSize: 18,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#090a12\"\n};",
+            "code":
+                "const aadirCuenta = {\n  width: 359,\n  height: 22,\n  fontFamily: \"Montserrat\",\n  fontSize: 18,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#090a12\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -163,30 +122,17 @@
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 0,
-                "y": 666,
-                "width": 414,
-                "height": 70
-            },
+            "rect": { "x": 0, "y": 666, "width": 414, "height": 70 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": true,
-            "absoluteRect": {
-                "x": 0,
-                "y": 666,
-                "width": 414,
-                "height": 70
-            }
+            "absoluteRect": { "x": 0, "y": 666, "width": 414, "height": 70 }
         },
         "output": {
             "code": "const footerBar = {\n  width: 414,\n  height: 70\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -202,19 +148,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e0f",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -236,12 +175,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -257,19 +194,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e11",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -291,12 +221,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -312,19 +240,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e13",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -346,12 +267,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -367,19 +286,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e15",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -401,12 +313,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -422,19 +332,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e17",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -456,12 +359,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -477,19 +378,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e19",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -511,12 +405,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -532,19 +424,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e1b",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -566,12 +451,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -587,19 +470,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e1d",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -621,12 +497,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -642,19 +516,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e1f",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -676,12 +543,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -697,19 +562,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e21",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -731,12 +589,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -752,19 +608,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e23",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -786,12 +635,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -807,19 +654,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e25",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -841,12 +681,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -862,19 +700,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e27",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -896,12 +727,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 32.2,\n  height: 32.8,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 32.2,\n  height: 32.8,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -917,19 +746,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e29",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -951,12 +773,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 3.1,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 3.1,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -972,19 +792,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e2b",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -1006,12 +819,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 38.4,\n  height: 32.8,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 38.4,\n  height: 32.8,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1027,19 +838,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e2d",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -1061,12 +865,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 7,\n  height: 6.9,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 7,\n  height: 6.9,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1082,19 +884,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e2f",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -1116,12 +911,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 33.1,\n  height: 33.1,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 33.1,\n  height: 33.1,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1137,19 +930,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e31",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -1171,12 +957,10 @@
             }
         },
         "output": {
-            "code": "const vector = {\n  width: 32.5,\n  height: 33.7,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 32.5,\n  height: 33.7,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1195,47 +979,26 @@
                     "style": {
                         "fontFace": "Montserrat-Regular",
                         "fontSize": 64,
-                        "color": {
-                            "r": 255,
-                            "g": 255,
-                            "b": 255,
-                            "a": 1
-                        }
+                        "color": { "r": 255, "g": 255, "b": 255, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 1
-                    }
+                    "range": { "location": 0, "length": 1 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 191,
-                "y": 666,
-                "width": 27,
-                "height": 48
-            },
+            "rect": { "x": 191, "y": 666, "width": 27, "height": 48 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 191,
-                "y": 666,
-                "width": 27,
-                "height": 48
-            }
+            "absoluteRect": { "x": 191, "y": 666, "width": 27, "height": 48 }
         },
         "output": {
-            "code": "const layer = {\n  width: 27,\n  height: 48,\n  fontFamily: \"Montserrat\",\n  fontSize: 64,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
+            "code":
+                "const layer = {\n  width: 27,\n  height: 48,\n  fontFamily: \"Montserrat\",\n  fontSize: 64,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -1266,22 +1029,14 @@
             ],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e37",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 0,
-                        "g": 156,
-                        "b": 222,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 0, "g": 156, "b": 222, "a": 1 },
+                    "type": "color"
                 },
                 {
-                    "fillType": "gradient",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e36",
                     "blendMode": "normal",
@@ -1290,12 +1045,7 @@
                         "colorStops": [
                             {
                                 "position": 0,
-                                "color": {
-                                    "r": 47,
-                                    "g": 128,
-                                    "b": 237,
-                                    "a": 1
-                                }
+                                "color": { "r": 47, "g": 128, "b": 237, "a": 1 }
                             },
                             {
                                 "position": 1,
@@ -1307,42 +1057,25 @@
                                 }
                             }
                         ],
-                        "to": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "from": {
-                            "x": 0,
-                            "y": 0
-                        }
-                    }
+                        "to": { "x": 0, "y": 0 },
+                        "from": { "x": 0, "y": 0 }
+                    },
+                    "type": "gradient"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 174,
-                "y": 683,
-                "width": 65,
-                "height": 53
-            },
+            "rect": { "x": 174, "y": 683, "width": 65, "height": 53 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 174,
-                "y": 683,
-                "width": 65,
-                "height": 53
-            }
+            "absoluteRect": { "x": 174, "y": 683, "width": 65, "height": 53 }
         },
         "output": {
-            "code": "const rectangle78 = {\n  width: 65,\n  height: 53,\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1\n};",
+            "code":
+                "const rectangle78 = {\n  width: 65,\n  height: 53,\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1358,46 +1091,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e39",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 48,
-                        "g": 55,
-                        "b": 87,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 48, "g": 55, "b": 87, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 0,
-                "y": 683,
-                "width": 414,
-                "height": 53
-            },
+            "rect": { "x": 0, "y": 683, "width": 414, "height": 53 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 0,
-                "y": 683,
-                "width": 414,
-                "height": 53
-            }
+            "absoluteRect": { "x": 0, "y": 683, "width": 414, "height": 53 }
         },
         "output": {
-            "code": "const rectangle35 = {\n  width: 414,\n  height: 53,\n  backgroundColor: \"#303757\"\n};",
+            "code":
+                "const rectangle35 = {\n  width: 414,\n  height: 53,\n  backgroundColor: \"#303757\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1413,46 +1127,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e3b",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 6.5,
-                "y": 7.5,
-                "width": 33.5,
-                "height": 5.5
-            },
+            "rect": { "x": 6.5, "y": 7.5, "width": 33.5, "height": 5.5 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 6.5,
-                "y": 7.5,
-                "width": 33.5,
-                "height": 5.5
-            }
+            "absoluteRect": { "x": 6.5, "y": 7.5, "width": 33.5, "height": 5.5 }
         },
         "output": {
-            "code": "const signal = {\n  width: 33.5,\n  height: 5.5,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const signal = {\n  width: 33.5,\n  height: 5.5,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1471,47 +1166,26 @@
                     "style": {
                         "fontFace": "SF UI Text-Semibold",
                         "fontSize": 12,
-                        "color": {
-                            "r": 255,
-                            "g": 255,
-                            "b": 255,
-                            "a": 1
-                        }
+                        "color": { "r": 255, "g": 255, "b": 255, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 7
-                    }
+                    "range": { "location": 0, "length": 7 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 183,
-                "y": 3,
-                "width": 48,
-                "height": 16
-            },
+            "rect": { "x": 183, "y": 3, "width": 48, "height": 16 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 183,
-                "y": 3,
-                "width": 48,
-                "height": 16
-            }
+            "absoluteRect": { "x": 183, "y": 3, "width": 48, "height": 16 }
         },
         "output": {
-            "code": "const time = {\n  width: 48,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"600\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
+            "code":
+                "const time = {\n  width: 48,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"600\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -1530,47 +1204,26 @@
                     "style": {
                         "fontFace": "SF UI Text",
                         "fontSize": 12,
-                        "color": {
-                            "r": 255,
-                            "g": 255,
-                            "b": 255,
-                            "a": 1
-                        }
+                        "color": { "r": 255, "g": 255, "b": 255, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 7
-                    }
+                    "range": { "location": 0, "length": 7 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 44,
-                "y": 2,
-                "width": 39,
-                "height": 16
-            },
+            "rect": { "x": 44, "y": 2, "width": 39, "height": 16 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 44,
-                "y": 2,
-                "width": 39,
-                "height": 16
-            }
+            "absoluteRect": { "x": 44, "y": 2, "width": 39, "height": 16 }
         },
         "output": {
-            "code": "const carrier = {\n  width: 39,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
+            "code":
+                "const carrier = {\n  width: 39,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -1586,46 +1239,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e41",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 89,
-                "y": 5.5,
-                "width": 12,
-                "height": 9
-            },
+            "rect": { "x": 89, "y": 5.5, "width": 12, "height": 9 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 89,
-                "y": 5.5,
-                "width": 12,
-                "height": 9
-            }
+            "absoluteRect": { "x": 89, "y": 5.5, "width": 12, "height": 9 }
         },
         "output": {
-            "code": "const wifi = {\n  width: 12,\n  height: 9,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const wifi = {\n  width: 12,\n  height: 9,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1641,46 +1275,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e43",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 333,
-                "y": 3,
-                "width": 8,
-                "height": 14
-            },
+            "rect": { "x": 333, "y": 3, "width": 8, "height": 14 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 0.4000000059604645,
             "exportable": false,
-            "absoluteRect": {
-                "x": 333,
-                "y": 3,
-                "width": 8,
-                "height": 14
-            }
+            "absoluteRect": { "x": 333, "y": 3, "width": 8, "height": 14 }
         },
         "output": {
-            "code": "const bluetooth = {\n  width: 8,\n  height: 14,\n  opacity: 0.4,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const bluetooth = {\n  width: 8,\n  height: 14,\n  opacity: 0.4,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1696,46 +1311,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e45",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 381,
-                "y": 5.5,
-                "width": 24.5,
-                "height": 9.5
-            },
+            "rect": { "x": 381, "y": 5.5, "width": 24.5, "height": 9.5 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 381,
-                "y": 5.5,
-                "width": 24.5,
-                "height": 9.5
-            }
+            "absoluteRect": { "x": 381, "y": 5.5, "width": 24.5, "height": 9.5 }
         },
         "output": {
-            "code": "const battery = {\n  width: 24.5,\n  height: 9.5,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const battery = {\n  width: 24.5,\n  height: 9.5,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1754,47 +1350,26 @@
                     "style": {
                         "fontFace": "SF UI Text",
                         "fontSize": 12,
-                        "color": {
-                            "r": 255,
-                            "g": 255,
-                            "b": 255,
-                            "a": 1
-                        }
+                        "color": { "r": 255, "g": 255, "b": 255, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 4
-                    }
+                    "range": { "location": 0, "length": 4 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 347,
-                "y": 2,
-                "width": 31,
-                "height": 16
-            },
+            "rect": { "x": 347, "y": 2, "width": 31, "height": 16 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 347,
-                "y": 2,
-                "width": 31,
-                "height": 16
-            }
+            "absoluteRect": { "x": 347, "y": 2, "width": 31, "height": 16 }
         },
         "output": {
-            "code": "const layer = {\n  width: 31,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
+            "code":
+                "const layer = {\n  width: 31,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -1810,46 +1385,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e49",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 19,
-                        "g": 22,
-                        "b": 36,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 0,
-                "y": 0,
-                "width": 413,
-                "height": 22
-            },
+            "rect": { "x": 0, "y": 0, "width": 413, "height": 22 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 0,
-                "y": 0,
-                "width": 413,
-                "height": 22
-            }
+            "absoluteRect": { "x": 0, "y": 0, "width": 413, "height": 22 }
         },
         "output": {
-            "code": "const statusBarLight = {\n  width: 413,\n  height: 22,\n  backgroundColor: \"#131624\"\n};",
+            "code":
+                "const statusBarLight = {\n  width: 413,\n  height: 22,\n  backgroundColor: \"#131624\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1868,47 +1424,26 @@
                     "style": {
                         "fontFace": "Montserrat-Regular",
                         "fontSize": 20,
-                        "color": {
-                            "r": 255,
-                            "g": 255,
-                            "b": 255,
-                            "a": 1
-                        }
+                        "color": { "r": 255, "g": 255, "b": 255, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 7
-                    }
+                    "range": { "location": 0, "length": 7 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 79,
-                "y": 48,
-                "width": 128,
-                "height": 21
-            },
+            "rect": { "x": 79, "y": 48, "width": 128, "height": 21 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 79,
-                "y": 48,
-                "width": 128,
-                "height": 21
-            }
+            "absoluteRect": { "x": 79, "y": 48, "width": 128, "height": 21 }
         },
         "output": {
-            "code": "const carlos = {\n  width: 128,\n  height: 21,\n  fontFamily: \"Montserrat\",\n  fontSize: 20,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
+            "code":
+                "const carlos = {\n  width: 128,\n  height: 21,\n  fontFamily: \"Montserrat\",\n  fontSize: 20,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -1944,10 +1479,7 @@
         "output": {
             "code": "const image24 = {\n  width: 40.8,\n  height: 40.6\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -1963,22 +1495,14 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e4f",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 196,
-                        "g": 196,
-                        "b": 196,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 196, "g": 196, "b": 196, "a": 1 },
+                    "type": "color"
                 },
                 {
-                    "fillType": "gradient",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e4e",
                     "blendMode": "normal",
@@ -1987,12 +1511,7 @@
                         "colorStops": [
                             {
                                 "position": 0,
-                                "color": {
-                                    "r": 48,
-                                    "g": 128,
-                                    "b": 237,
-                                    "a": 1
-                                }
+                                "color": { "r": 48, "g": 128, "b": 237, "a": 1 }
                             },
                             {
                                 "position": 1,
@@ -2004,42 +1523,24 @@
                                 }
                             }
                         ],
-                        "to": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "from": {
-                            "x": 0,
-                            "y": 0
-                        }
-                    }
+                        "to": { "x": 0, "y": 0 },
+                        "from": { "x": 0, "y": 0 }
+                    },
+                    "type": "gradient"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 20,
-                "y": 37,
-                "width": 45,
-                "height": 45
-            },
+            "rect": { "x": 20, "y": 37, "width": 45, "height": 45 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 20,
-                "y": 37,
-                "width": 45,
-                "height": 45
-            }
+            "absoluteRect": { "x": 20, "y": 37, "width": 45, "height": 45 }
         },
         "output": {
             "code": "const ellipse17 = {\n  width: 45,\n  height: 45\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2055,46 +1556,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e51",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 50,
-                        "g": 57,
-                        "b": 91,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 50, "g": 57, "b": 91, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 0,
-                "y": 380,
-                "width": 414,
-                "height": 1
-            },
+            "rect": { "x": 0, "y": 380, "width": 414, "height": 1 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 0,
-                "y": 380,
-                "width": 414,
-                "height": 1
-            }
+            "absoluteRect": { "x": 0, "y": 380, "width": 414, "height": 1 }
         },
         "output": {
-            "code": "const rectangle41 = {\n  width: 414,\n  height: 1,\n  backgroundColor: \"#32395b\"\n};",
+            "code":
+                "const rectangle41 = {\n  width: 414,\n  height: 1,\n  backgroundColor: \"#32395b\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2113,47 +1595,26 @@
                     "style": {
                         "fontFace": "Montserrat-Regular",
                         "fontSize": 16,
-                        "color": {
-                            "r": 50,
-                            "g": 57,
-                            "b": 91,
-                            "a": 1
-                        }
+                        "color": { "r": 50, "g": 57, "b": 91, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 7
-                    }
+                    "range": { "location": 0, "length": 7 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 275,
-                "y": 349,
-                "width": 139,
-                "height": 24
-            },
+            "rect": { "x": 275, "y": 349, "width": 139, "height": 24 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 275,
-                "y": 349,
-                "width": 139,
-                "height": 24
-            }
+            "absoluteRect": { "x": 275, "y": 349, "width": 139, "height": 24 }
         },
         "output": {
-            "code": "const layer = {\n  width: 139,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#32395b\"\n};",
+            "code":
+                "const layer = {\n  width: 139,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#32395b\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -2172,47 +1633,26 @@
                     "style": {
                         "fontFace": "Montserrat-Regular",
                         "fontSize": 16,
-                        "color": {
-                            "r": 124,
-                            "g": 139,
-                            "b": 208,
-                            "a": 1
-                        }
+                        "color": { "r": 124, "g": 139, "b": 208, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 7
-                    }
+                    "range": { "location": 0, "length": 7 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 138,
-                "y": 349,
-                "width": 139,
-                "height": 24
-            },
+            "rect": { "x": 138, "y": 349, "width": 139, "height": 24 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 138,
-                "y": 349,
-                "width": 139,
-                "height": 24
-            }
+            "absoluteRect": { "x": 138, "y": 349, "width": 139, "height": 24 }
         },
         "output": {
-            "code": "const layer = {\n  width: 139,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#7c8bd0\"\n};",
+            "code":
+                "const layer = {\n  width: 139,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#7c8bd0\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -2231,47 +1671,26 @@
                     "style": {
                         "fontFace": "Montserrat-Regular",
                         "fontSize": 16,
-                        "color": {
-                            "r": 50,
-                            "g": 57,
-                            "b": 91,
-                            "a": 1
-                        }
+                        "color": { "r": 50, "g": 57, "b": 91, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 7
-                    }
+                    "range": { "location": 0, "length": 7 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 0,
-                "y": 349,
-                "width": 138,
-                "height": 24
-            },
+            "rect": { "x": 0, "y": 349, "width": 138, "height": 24 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 0,
-                "y": 349,
-                "width": 138,
-                "height": 24
-            }
+            "absoluteRect": { "x": 0, "y": 349, "width": 138, "height": 24 }
         },
         "output": {
-            "code": "const layer = {\n  width: 138,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#32395b\"\n};",
+            "code":
+                "const layer = {\n  width: 138,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#32395b\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -2287,46 +1706,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e59",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 124,
-                        "g": 139,
-                        "b": 208,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 124, "g": 139, "b": 208, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 138,
-                "y": 376,
-                "width": 138,
-                "height": 5
-            },
+            "rect": { "x": 138, "y": 376, "width": 138, "height": 5 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 138,
-                "y": 376,
-                "width": 138,
-                "height": 5
-            }
+            "absoluteRect": { "x": 138, "y": 376, "width": 138, "height": 5 }
         },
         "output": {
-            "code": "const rectangle40 = {\n  width: 138,\n  height: 5,\n  backgroundColor: \"#7c8bd0\"\n};",
+            "code":
+                "const rectangle40 = {\n  width: 138,\n  height: 5,\n  backgroundColor: \"#7c8bd0\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2342,46 +1742,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e5b",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 394,
-                "y": 66,
-                "width": 5,
-                "height": 5
-            },
+            "rect": { "x": 394, "y": 66, "width": 5, "height": 5 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 394,
-                "y": 66,
-                "width": 5,
-                "height": 5
-            }
+            "absoluteRect": { "x": 394, "y": 66, "width": 5, "height": 5 }
         },
         "output": {
-            "code": "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2397,46 +1778,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e5d",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 394,
-                "y": 57,
-                "width": 5,
-                "height": 5
-            },
+            "rect": { "x": 394, "y": 57, "width": 5, "height": 5 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 394,
-                "y": 57,
-                "width": 5,
-                "height": 5
-            }
+            "absoluteRect": { "x": 394, "y": 57, "width": 5, "height": 5 }
         },
         "output": {
-            "code": "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2452,46 +1814,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e5f",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 394,
-                "y": 48,
-                "width": 5,
-                "height": 5
-            },
+            "rect": { "x": 394, "y": 48, "width": 5, "height": 5 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 394,
-                "y": 48,
-                "width": 5,
-                "height": 5
-            }
+            "absoluteRect": { "x": 394, "y": 48, "width": 5, "height": 5 }
         },
         "output": {
-            "code": "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2507,46 +1850,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e61",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 354,
-                "y": 46,
-                "width": 24,
-                "height": 27
-            },
+            "rect": { "x": 354, "y": 46, "width": 24, "height": 27 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 354,
-                "y": 46,
-                "width": 24,
-                "height": 27
-            }
+            "absoluteRect": { "x": 354, "y": 46, "width": 24, "height": 27 }
         },
         "output": {
-            "code": "const vector = {\n  width: 24,\n  height: 27,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const vector = {\n  width: 24,\n  height: 27,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2562,46 +1886,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e63",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 19,
-                        "g": 22,
-                        "b": 36,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 399,
-                "y": 112,
-                "width": 15,
-                "height": 200
-            },
+            "rect": { "x": 399, "y": 112, "width": 15, "height": 200 },
             "borderRadius": 5,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 399,
-                "y": 112,
-                "width": 15,
-                "height": 200
-            }
+            "absoluteRect": { "x": 399, "y": 112, "width": 15, "height": 200 }
         },
         "output": {
-            "code": "const rectangle37 = {\n  width: 15,\n  height: 200,\n  borderRadius: 5,\n  backgroundColor: \"#131624\"\n};",
+            "code":
+                "const rectangle37 = {\n  width: 15,\n  height: 200,\n  borderRadius: 5,\n  backgroundColor: \"#131624\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2617,22 +1922,14 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e66",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 19,
-                        "g": 22,
-                        "b": 36,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
+                    "type": "color"
                 },
                 {
-                    "fillType": "gradient",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e65",
                     "blendMode": "normal",
@@ -2641,59 +1938,32 @@
                         "colorStops": [
                             {
                                 "position": 0,
-                                "color": {
-                                    "r": 43,
-                                    "g": 43,
-                                    "b": 43,
-                                    "a": 1
-                                }
+                                "color": { "r": 43, "g": 43, "b": 43, "a": 1 }
                             },
                             {
                                 "position": 0.988950252532959,
-                                "color": {
-                                    "r": 0,
-                                    "g": 0,
-                                    "b": 0,
-                                    "a": 1
-                                }
+                                "color": { "r": 0, "g": 0, "b": 0, "a": 1 }
                             }
                         ],
-                        "to": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "from": {
-                            "x": 0,
-                            "y": 0
-                        }
-                    }
+                        "to": { "x": 0, "y": 0 },
+                        "from": { "x": 0, "y": 0 }
+                    },
+                    "type": "gradient"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 0,
-                "y": 112,
-                "width": 16,
-                "height": 200
-            },
+            "rect": { "x": 0, "y": 112, "width": 16, "height": 200 },
             "borderRadius": 5,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 0,
-                "y": 112,
-                "width": 16,
-                "height": 200
-            }
+            "absoluteRect": { "x": 0, "y": 112, "width": 16, "height": 200 }
         },
         "output": {
-            "code": "const rectangle37 = {\n  width: 16,\n  height: 200,\n  borderRadius: 5\n};",
+            "code":
+                "const rectangle37 = {\n  width: 16,\n  height: 200,\n  borderRadius: 5\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2709,46 +1979,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e68",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 255,
-                        "g": 255,
-                        "b": 255,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 317,
-                "y": 55,
-                "width": 13,
-                "height": 10
-            },
+            "rect": { "x": 317, "y": 55, "width": 13, "height": 10 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 317,
-                "y": 55,
-                "width": 13,
-                "height": 10
-            }
+            "absoluteRect": { "x": 317, "y": 55, "width": 13, "height": 10 }
         },
         "output": {
-            "code": "const polygon2 = {\n  width: 13,\n  height: 10,\n  backgroundColor: colors.white\n};",
+            "code":
+                "const polygon2 = {\n  width: 13,\n  height: 10,\n  backgroundColor: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2767,47 +2018,26 @@
                     "style": {
                         "fontFace": "Montserrat-Regular",
                         "fontSize": 16,
-                        "color": {
-                            "r": 255,
-                            "g": 255,
-                            "b": 255,
-                            "a": 1
-                        }
+                        "color": { "r": 255, "g": 255, "b": 255, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 6
-                    }
+                    "range": { "location": 0, "length": 6 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 254,
-                "y": 49,
-                "width": 63,
-                "height": 25
-            },
+            "rect": { "x": 254, "y": 49, "width": 63, "height": 25 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 254,
-                "y": 49,
-                "width": 63,
-                "height": 25
-            }
+            "absoluteRect": { "x": 254, "y": 49, "width": 63, "height": 25 }
         },
         "output": {
-            "code": "const paypal = {\n  width: 63,\n  height: 25,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
+            "code":
+                "const paypal = {\n  width: 63,\n  height: 25,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -2823,22 +2053,14 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e6d",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 93,
-                        "g": 121,
-                        "b": 231,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 93, "g": 121, "b": 231, "a": 1 },
+                    "type": "color"
                 },
                 {
-                    "fillType": "gradient",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e6c",
                     "blendMode": "normal",
@@ -2847,12 +2069,7 @@
                         "colorStops": [
                             {
                                 "position": 0,
-                                "color": {
-                                    "r": 49,
-                                    "g": 128,
-                                    "b": 237,
-                                    "a": 1
-                                }
+                                "color": { "r": 49, "g": 128, "b": 237, "a": 1 }
                             },
                             {
                                 "position": 0.9944751262664795,
@@ -2864,42 +2081,24 @@
                                 }
                             }
                         ],
-                        "to": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "from": {
-                            "x": 0,
-                            "y": 0
-                        }
-                    }
+                        "to": { "x": 0, "y": 0 },
+                        "from": { "x": 0, "y": 0 }
+                    },
+                    "type": "gradient"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 228,
-                "y": 52,
-                "width": 15,
-                "height": 15
-            },
+            "rect": { "x": 228, "y": 52, "width": 15, "height": 15 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 228,
-                "y": 52,
-                "width": 15,
-                "height": 15
-            }
+            "absoluteRect": { "x": 228, "y": 52, "width": 15, "height": 15 }
         },
         "output": {
             "code": "const ellipse13 = {\n  width: 15,\n  height: 15\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2915,46 +2114,27 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e6f",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 19,
-                        "g": 22,
-                        "b": 36,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 220,
-                "y": 46,
-                "width": 121,
-                "height": 27
-            },
+            "rect": { "x": 220, "y": 46, "width": 121, "height": 27 },
             "borderRadius": 100,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 220,
-                "y": 46,
-                "width": 121,
-                "height": 27
-            }
+            "absoluteRect": { "x": 220, "y": 46, "width": 121, "height": 27 }
         },
         "output": {
-            "code": "const rectangle36 = {\n  width: 121,\n  height: 27,\n  borderRadius: 100,\n  backgroundColor: \"#131624\"\n};",
+            "code":
+                "const rectangle36 = {\n  width: 121,\n  height: 27,\n  borderRadius: 100,\n  backgroundColor: \"#131624\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -2973,47 +2153,26 @@
                     "style": {
                         "fontFace": "Montserrat-Regular",
                         "fontSize": 144,
-                        "color": {
-                            "r": 8,
-                            "g": 10,
-                            "b": 18,
-                            "a": 1
-                        }
+                        "color": { "r": 8, "g": 10, "b": 18, "a": 1 }
                     },
-                    "range": {
-                        "location": 0,
-                        "length": 1
-                    }
+                    "range": { "location": 0, "length": 1 }
                 }
             ],
             "shadows": [],
             "fills": [],
             "borders": [],
-            "rect": {
-                "x": 29,
-                "y": 101,
-                "width": 355,
-                "height": 173
-            },
+            "rect": { "x": 29, "y": 101, "width": 355, "height": 173 },
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 29,
-                "y": 101,
-                "width": 355,
-                "height": 173
-            }
+            "absoluteRect": { "x": 29, "y": 101, "width": 355, "height": 173 }
         },
         "output": {
-            "code": "const layer = {\n  width: 355,\n  height: 173,\n  fontFamily: \"Montserrat\",\n  fontSize: 144,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#080a12\"\n};",
+            "code":
+                "const layer = {\n  width: 355,\n  height: 173,\n  fontFamily: \"Montserrat\",\n  fontSize: 144,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#080a12\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     },
     {
@@ -3029,19 +2188,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e74",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 19,
-                        "g": 22,
-                        "b": 36,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [
@@ -3052,41 +2204,22 @@
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e73",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 9,
-                        "g": 10,
-                        "b": 18,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 9, "g": 10, "b": 18, "a": 1 }
                 }
             ],
-            "rect": {
-                "x": 39,
-                "y": 113,
-                "width": 339,
-                "height": 199
-            },
+            "rect": { "x": 39, "y": 113, "width": 339, "height": 199 },
             "borderRadius": 8,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 39,
-                "y": 113,
-                "width": 339,
-                "height": 199
-            }
+            "absoluteRect": { "x": 39, "y": 113, "width": 339, "height": 199 }
         },
         "output": {
-            "code": "const rectangle34 = {\n  width: 339,\n  height: 199,\n  borderRadius: 8,\n  backgroundColor: \"#131624\",\n  borderStyle: \"solid\",\n  borderWidth: 3,\n  borderColor: \"#090a12\"\n};",
+            "code":
+                "const rectangle34 = {\n  width: 339,\n  height: 199,\n  borderRadius: 8,\n  backgroundColor: \"#131624\",\n  borderStyle: \"solid\",\n  borderWidth: 3,\n  borderColor: \"#090a12\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -3117,46 +2250,27 @@
             ],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e77",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 19,
-                        "g": 22,
-                        "b": 36,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
-            "rect": {
-                "x": 28,
-                "y": 101,
-                "width": 359,
-                "height": 222
-            },
+            "rect": { "x": 28, "y": 101, "width": 359, "height": 222 },
             "borderRadius": 8,
             "blendMode": "normal",
             "opacity": 1,
             "exportable": false,
-            "absoluteRect": {
-                "x": 28,
-                "y": 101,
-                "width": 359,
-                "height": 222
-            }
+            "absoluteRect": { "x": 28, "y": 101, "width": 359, "height": 222 }
         },
         "output": {
-            "code": "const rectangle34 = {\n  width: 359,\n  height: 222,\n  borderRadius: 8,\n  backgroundColor: \"#131624\",\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1\n};",
+            "code":
+                "const rectangle34 = {\n  width: 359,\n  height: 222,\n  borderRadius: 8,\n  backgroundColor: \"#131624\",\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -3172,19 +2286,12 @@
             "shadows": [],
             "fills": [
                 {
-                    "fillType": "color",
                     "opacity": 1,
                     "_id": "5a0aa8a56796a71d209f9e79",
                     "blendMode": "normal",
-                    "gradient": {
-                        "colorStops": []
-                    },
-                    "color": {
-                        "r": 35,
-                        "g": 40,
-                        "b": 64,
-                        "a": 1
-                    }
+                    "gradient": { "colorStops": [] },
+                    "color": { "r": 35, "g": 40, "b": 64, "a": 1 },
+                    "type": "color"
                 }
             ],
             "borders": [],
@@ -3206,12 +2313,10 @@
             }
         },
         "output": {
-            "code": "const rectangle33 = {\n  width: 414,\n  height: 736,\n  backgroundColor: \"#232840\"\n};",
+            "code":
+                "const rectangle33 = {\n  width: 414,\n  height: 736,\n  backgroundColor: \"#232840\"\n};",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions"
-            ]
+            "options": ["colorFormat", "showDimensions"]
         }
     },
     {
@@ -3227,12 +2332,7 @@
                 "fontStyle": "normal",
                 "fontFamily": "Montserrat",
                 "fontStretch": "normal",
-                "color": {
-                    "r": 8,
-                    "g": 10,
-                    "b": 18,
-                    "a": 1
-                },
+                "color": { "r": 8, "g": 10, "b": 18, "a": 1 },
                 "weightText": "regular",
                 "scaledFontSize": 36
             },
@@ -3245,12 +2345,7 @@
                 "fontStyle": "normal",
                 "fontFamily": "Montserrat",
                 "fontStretch": "normal",
-                "color": {
-                    "r": 255,
-                    "g": 255,
-                    "b": 255,
-                    "a": 1
-                },
+                "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
                 "weightText": "regular",
                 "scaledFontSize": 17
             },
@@ -3263,24 +2358,16 @@
                 "fontStyle": "normal",
                 "fontFamily": "Montserrat",
                 "fontStretch": "normal",
-                "color": {
-                    "r": 124,
-                    "g": 139,
-                    "b": 208,
-                    "a": 1
-                },
+                "color": { "r": 124, "g": 139, "b": 208, "a": 1 },
                 "weightText": "regular",
                 "scaledFontSize": 16
             }
         ],
         "output": {
-            "code": "const textStyles = StyleSheet.create({\n  textStyle2: {\n    fontFamily: \"Montserrat\",\n    fontSize: 144,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: \"#080a12\"\n  },\n  textStyle: {\n    fontFamily: \"Montserrat\",\n    fontSize: 20,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: colors.white\n  },\n  textStyle3: {\n    fontFamily: \"Montserrat\",\n    fontSize: 16,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: \"#7c8bd0\"\n  }\n});",
+            "code":
+                "const textStyles = StyleSheet.create({\n  textStyle2: {\n    fontFamily: \"Montserrat\",\n    fontSize: 144,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: \"#080a12\"\n  },\n  textStyle: {\n    fontFamily: \"Montserrat\",\n    fontSize: 20,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: colors.white\n  },\n  textStyle3: {\n    fontFamily: \"Montserrat\",\n    fontSize: 16,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: \"#7c8bd0\"\n  }\n});",
             "mode": "javascript",
-            "options": [
-                "colorFormat",
-                "showDimensions",
-                "showDefaultValues"
-            ]
+            "options": ["colorFormat", "showDimensions", "showDefaultValues"]
         }
     }
 ]

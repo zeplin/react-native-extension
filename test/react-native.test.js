@@ -1,5 +1,5 @@
-/* eslint-env node */
-const fs = require("fs");
+/* eslint-env jest */
+/* global __dirname */
 const path = require("path");
 const {
     Layer,
@@ -10,17 +10,17 @@ const {
 } = require("zeplin-extension-model");
 const extensionObject = require("../dist/bundle");
 
-const specs = JSON.parse(fs.readFileSync(path.join(__dirname, "./specs.json")));
-const projectData = JSON.parse(fs.readFileSync(path.join(__dirname, "./project.json")));
+const specs = require(path.join(__dirname, "./specs.json"));
+const projectData = require(path.join(__dirname, "./project.json"));
+const manifest = require(path.join(__dirname, "../dist/manifest.json"));
+
 const tests = [{ specs, projectData }];
-function getDefaultOptionsFromManifest(manifest) {
-    return manifest.options.reduce((defaultOptions, option) => {
+function getDefaultOptionsFromManifest(man) {
+    return man.options.reduce((defaultOptions, option) => {
         defaultOptions[option.id] = option.default;
         return defaultOptions;
     }, {});
 }
-
-const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, "../dist/manifest.json")));
 
 tests.forEach(singleTest => {
     const project = new Project(singleTest.projectData);
@@ -28,15 +28,6 @@ tests.forEach(singleTest => {
     const context = new Context({
         options: getDefaultOptionsFromManifest(manifest),
         project
-    });
-
-    singleTest.specs.forEach(spec => {
-        if (spec.data.fills) {
-            spec.data.fills = spec.data.fills.map(fill => {
-                fill.type = fill.fillType;
-                return fill;
-            });
-        }
     });
 
     singleTest.specs.forEach(spec => {
