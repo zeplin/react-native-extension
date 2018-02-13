@@ -12,8 +12,7 @@ function styleguideColors(context, colors) {
 
     return {
         code: code,
-        mode: "javascript",
-        options: [OPTION_NAMES.COLOR_FORMAT, OPTION_NAMES.SHOW_DIMENSIONS, OPTION_NAMES.SHOW_DEFAULT_VALUES]
+        mode: "javascript"
     };
 }
 
@@ -26,8 +25,7 @@ function styleguideTextStyles(context, textStyles) {
 
     return {
         code: code,
-        mode: "javascript",
-        options: [OPTION_NAMES.COLOR_FORMAT, OPTION_NAMES.SHOW_DIMENSIONS, OPTION_NAMES.SHOW_DEFAULT_VALUES]
+        mode: "javascript"
     };
 }
 
@@ -39,16 +37,9 @@ function layer(context, selectedLayer) {
     };
     const code = getLayerCode(context.project, selectedLayer, options);
 
-    let returnOptions = [OPTION_NAMES.COLOR_FORMAT, OPTION_NAMES.SHOW_DIMENSIONS];
-
-    if (selectedLayer.type === "text") {
-        returnOptions.push(OPTION_NAMES.SHOW_DEFAULT_VALUES);
-    }
-
     return {
         code: code,
-        mode: "javascript",
-        options: returnOptions
+        mode: "javascript"
     };
 }
 
