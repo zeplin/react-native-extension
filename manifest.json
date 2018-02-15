@@ -6,7 +6,6 @@
         "email": "support@zeplin.io",
         "url": "http://zeplin.io"
     },
-    "repository": "",
     "options": [{
         "name": "Color format",
         "type": "picker",

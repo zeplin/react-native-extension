@@ -6,7 +6,7 @@ module.exports = function (moduleURL, bundleName) {
             obj,
             {
                 moduleURL: moduleURL + "/" + filename,
-                readmeURL: moduleURL + "/" + "README.md",
+                readmeURL: moduleURL + "/README.md"
             }
         );
         delete obj.output;

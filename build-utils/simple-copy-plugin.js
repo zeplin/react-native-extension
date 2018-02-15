@@ -15,7 +15,7 @@ class SimpleCopyPlugin {
                 copyEntries.forEach(entry => {
                     let file = fs.readFileSync(entry.from);
                     if (entry.transform && typeof entry.transform === "function") {
-                        file = entry.transform(file, chunk.files[0]);                    
+                        file = entry.transform(file, chunk.files[0]);
                     }
                     compilation.assets[`${entry.to}`] = {
                         source: function () {
