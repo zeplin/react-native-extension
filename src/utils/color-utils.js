@@ -11,9 +11,7 @@ const alphaFormatter = new Intl.NumberFormat("en-US", {
 });
 
 function toHex(num) {
-    let hexNum = Math.trunc(num + num / MAX_BRIGHTNESS);
-    hexNum = Math.max(0, Math.min(hexNum, MAX_BRIGHTNESS));
-    return (hexNum < HEX_BASE ? "0" : "") + hexNum.toString(HEX_BASE);
+    return (num < HEX_BASE ? "0" : "") + num.toString(HEX_BASE);
 }
 
 function blendColors(colors) {

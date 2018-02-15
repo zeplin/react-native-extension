@@ -2124,6 +2124,43 @@
         }
     },
     {
+        "testname": "layer-alphalt1-hex",
+        "type": "layer",
+        "data": {
+            "sourceId": "0:1640",
+            "type": "text",
+            "name": "+",
+            "content": "+",
+            "layers": [],
+            "_id": "5a0aa8a56796a71d209f9e70",
+            "textStyles": [
+                {
+                    "_id": "5a0aa8a56796a71d209f9e71",
+                    "style": {
+                        "fontFace": "Montserrat-Regular",
+                        "fontSize": 144,
+                        "color": { "r": 8, "g": 10, "b": 18, "a": 0.2 }
+                    },
+                    "range": { "location": 0, "length": 1 }
+                }
+            ],
+            "shadows": [],
+            "fills": [],
+            "borders": [],
+            "rect": { "x": 29, "y": 101, "width": 355, "height": 173 },
+            "borderRadius": 0,
+            "blendMode": "normal",
+            "opacity": 1,
+            "exportable": false,
+            "absoluteRect": { "x": 29, "y": 101, "width": 355, "height": 173 }
+        },
+        "output": {
+            "code":
+                "const layer = {\n  width: 355,\n  height: 173,\n  fontFamily: \"Montserrat\",\n  fontSize: 144,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"rgba(8, 10, 18, 0.2)\"\n};",
+            "mode": "javascript"
+        }
+    },
+    {
         "testname": "layer-5a0aa8a56796a71d209f9e72",
         "type": "layer",
         "data": {
