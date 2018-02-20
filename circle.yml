@@ -20,5 +20,5 @@ deployment:
   prod:
     branch: master
     commands:
-      - NODE_ENV=production npm run build
-      - NODE_ENV=production npm run sync
+      - NODE_ENV=prod npm run build
+      - NODE_ENV=prod npm run sync
