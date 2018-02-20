@@ -1,6 +1,6 @@
 {
     "name": "React Native",
-    "name": "Generates React Native JavaScript snippets from colors, text styles and layers.",
+    "description": "Generates React Native JavaScript snippets from colors, text styles and layers.",
     "version": "1.0.0",
     "author": {
         "name": "Zeplin",
