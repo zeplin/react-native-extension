@@ -8,10 +8,7 @@ import {
     getColorStringByFormat
 } from "../utils";
 
-import {
-    REACT_RULES_WITH_COLOR,
-    JSON_SPACING
-} from "../constants";
+import { REACT_RULES_WITH_COLOR, JSON_SPACING } from "../constants";
 
 function generateReactRule(styleObj, projectColorMap, mixin) {
     let selector = styleObj.selector;
