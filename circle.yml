@@ -1,0 +1,24 @@
+machine:
+  node:
+    version: 7.6.0
+dependencies:
+  override:
+    - npm install
+  post:
+    - NODE_ENV=local npm run build
+test:
+  override:
+    - NODE_ENV=local npm run test
+  post:
+    - NODE_ENV=local npm run clean
+deployment:
+  dev:
+    branch: develop
+    commands:
+      - NODE_ENV=dev npm run build
+      - NODE_ENV=dev npm run sync
+  prod:
+    branch: master
+    commands:
+      - NODE_ENV=production npm run build
+      - NODE_ENV=production npm run sync
