@@ -5,7 +5,7 @@ import {
     MAX_PERCENTAGE
 } from "../constants";
 
-const alphaFormatter = new Intl.NumberFormat("en-US", {
+var alphaFormatter = new Intl.NumberFormat("en-US", {
     useGrouping: false,
     maximumFractionDigits: 2
 });
@@ -41,17 +41,17 @@ function getColorStringByFormat(color, colorFormat) {
 
 function getColorMapByFormat(colors, colorFormat) {
     return colors.reduce((colorMap, color) => {
-        let colorString = getColorStringByFormat(color, colorFormat);
+        var colorString = getColorStringByFormat(color, colorFormat);
         colorMap[colorString] = color.name;
         return colorMap;
     }, {});
 }
 
 function toHexString(color, prefix) {
-    let hexCode = color.hexBase();
+    var hexCode = color.hexBase();
 
     if (color.a < 1) {
-        let hexA = toHex(color.a * MAX_BRIGHTNESS);
+        var hexA = toHex(color.a * MAX_BRIGHTNESS);
 
         hexCode = prefix ? (hexA + hexCode) : (hexCode + hexA);
     }
@@ -60,9 +60,9 @@ function toHexString(color, prefix) {
 }
 
 function toRGBAString(color) {
-    let rgb = `${Math.round(color.r)}, ${Math.round(color.g)}, ${Math.round(color.b)}`;
+    var rgb = `${Math.round(color.r)}, ${Math.round(color.g)}, ${Math.round(color.b)}`;
 
-    let rgbStr = color.a < 1
+    var rgbStr = color.a < 1
         ? `rgba(${rgb}, ${alphaFormatter.format(color.a)})`
         : `rgb(${rgb})`;
 
@@ -70,12 +70,12 @@ function toRGBAString(color) {
 }
 
 function toHSLAString(color) {
-    let hslColor = color.toHSL();
-    let hsl = `${Math.round(hslColor.h * HUE_MAX_DEGREE)}, ` +
+    var hslColor = color.toHSL();
+    var hsl = `${Math.round(hslColor.h * HUE_MAX_DEGREE)}, ` +
               `${Math.round(hslColor.s * MAX_PERCENTAGE)}%, ` +
               `${Math.round(hslColor.l * MAX_PERCENTAGE)}%`;
 
-    let hslStr = color.a < 1
+    var hslStr = color.a < 1
         ? `hsla(${hsl}, ${alphaFormatter.format(color.a)})`
         : `hsl(${hsl})`;
 

@@ -14,7 +14,7 @@ function isHtmlTag(str) {
 }
 
 function round(number, precision) {
-    let formattedNumber = Number(number).toLocaleString("en-US", {
+    var formattedNumber = Number(number).toLocaleString("en-US", {
         useGrouping: false,
         maximumFractionDigits: precision
     });
@@ -27,14 +27,14 @@ function selectorize(str) {
         return "";
     }
 
-    let selectorizedStr = str.trim();
+    var selectorizedStr = str.trim();
 
     if (isHtmlTag(str)) {
         return selectorizedStr.toLowerCase();
     }
 
     if (/^[#.]/.test(selectorizedStr)) {
-        let name = escape(selectorizedStr.substr(1));
+        var name = escape(selectorizedStr.substr(1));
 
         if (name) {
             return selectorizedStr[0] + name;

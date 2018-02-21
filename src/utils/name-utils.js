@@ -7,14 +7,14 @@ function uppercaseFirst(s) {
 }
 
 function joinTokens(components) {
-    let name = components.map(uppercaseFirst).join("");
+    var name = components.map(uppercaseFirst).join("");
     return lowercaseFirst(name);
 }
 
 function tokensForString(str) {
-    let tokenizer = /\d+|[a-z]+|[A-Z]+(?![a-z])|[A-Z][a-z]+/g;
+    var tokenizer = /\d+|[a-z]+|[A-Z]+(?![a-z])|[A-Z][a-z]+/g;
 
-    let matchResult = str.match(tokenizer);
+    var matchResult = str.match(tokenizer);
     if (!matchResult) {
         return ["invalid", "name"];
     }

@@ -11,7 +11,7 @@ import {
 import { REACT_RULES_WITH_COLOR, JSON_SPACING } from "../constants";
 
 function generateReactRule(styleObj, projectColorMap, mixin) {
-    let selector = styleObj.selector;
+    var selector = styleObj.selector;
     delete styleObj.selector;
 
     Object.keys(styleObj).forEach(function (prop) {
@@ -24,8 +24,8 @@ function generateReactRule(styleObj, projectColorMap, mixin) {
         }
     });
 
-    const selectorName = generateName(selector);
-    const styleObjText = JSON.stringify(styleObj, null, JSON_SPACING)
+    var selectorName = generateName(selector);
+    var styleObjText = JSON.stringify(styleObj, null, JSON_SPACING)
         .replace(/"(.+)":/g, "$1:")
         .replace(/: "colors\.(.*)"/g, ": colors.$1");
 
@@ -34,7 +34,7 @@ function generateReactRule(styleObj, projectColorMap, mixin) {
 
 function getStyleguideColorTexts(colorFormat, colors) {
     return colors.map(color => {
-        const colorStyleObject = getColorStringByFormat(
+        var colorStyleObject = getColorStringByFormat(
             color,
             colorFormat
         );
@@ -43,24 +43,24 @@ function getStyleguideColorTexts(colorFormat, colors) {
 }
 
 function getStyleguideColorsCode(options, colors) {
-    const { colorFormat } = options;
-    const styleguideColorTexts = getStyleguideColorTexts(colorFormat, colors);
+    var { colorFormat } = options;
+    var styleguideColorTexts = getStyleguideColorTexts(colorFormat, colors);
     return `const colors = {\n${styleguideColorTexts.join(",\n")}\n};`;
 }
 
 function getStyleguideTextStylesCode(options, project, textStyles) {
-    let textStylesObj = generateStyleguideTextStylesObject(options, project, textStyles);
+    var textStylesObj = generateStyleguideTextStylesObject(options, project, textStyles);
 
-    let textStylesStr = JSON.stringify(textStylesObj, null, JSON_SPACING);
-    const processedTextStyles = textStylesStr.replace(/"(.+)":/g, "$1:").replace(/: "colors\.(.*)"/g, ": colors.$1");
+    var textStylesStr = JSON.stringify(textStylesObj, null, JSON_SPACING);
+    var processedTextStyles = textStylesStr.replace(/"(.+)":/g, "$1:").replace(/: "colors\.(.*)"/g, ": colors.$1");
 
     return `const textStyles = StyleSheet.create(${processedTextStyles});`;
 }
 
 function getLayerCode(project, layer, options) {
-    const { showDimensions, colorFormat, defaultValues } = options;
+    var { showDimensions, colorFormat, defaultValues } = options;
 
-    let layerStyleRule = generateLayerStyleObject({
+    var layerStyleRule = generateLayerStyleObject({
         layer,
         projectType: project.type,
         densityDivisor: project.densityDivisor,
@@ -69,7 +69,7 @@ function getLayerCode(project, layer, options) {
         defaultValues
     });
 
-    let cssObjects = [];
+    var cssObjects = [];
 
     if (Object.keys(layerStyleRule).length > 1) {
         cssObjects.unshift(layerStyleRule);
