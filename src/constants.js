@@ -1,14 +1,14 @@
-export const MAX_BRIGHTNESS = 255;
-export const HUE_MAX_DEGREE = 360;
-export const MAX_PERCENTAGE = 100;
-export const HEX_BASE = 16;
-export const JSON_SPACING = 2;
-export const NUMERICAL_FONT_BOLD = 700;
-export const NUMERICAL_FONT_NORMAL = 400;
-export const REACT_RULES_WITH_COLOR = [
+export var MAX_BRIGHTNESS = 255;
+export var HUE_MAX_DEGREE = 360;
+export var MAX_PERCENTAGE = 100;
+export var HEX_BASE = 16;
+export var JSON_SPACING = 2;
+export var NUMERICAL_FONT_BOLD = 700;
+export var NUMERICAL_FONT_NORMAL = 400;
+export var REACT_RULES_WITH_COLOR = [
     "backgroundColor", "borderColor", "color", "shadowColor", "textDecorationColor", "textShadowColor"
 ];
-export const HTML_TAGS = [
+export var HTML_TAGS = [
     "a", "abbr", "address", "area", "article", "aside", "audio", "b", "base", "bdi",
     "bdo", "blockquote", "body", "br", "button", "canvas", "caption", "cite", "code",
     "col", "colgroup", "data", "datalist", "dd", "del", "details", "dfn", "dialog",
@@ -22,7 +22,7 @@ export const HTML_TAGS = [
     "sub", "summary", "sup", "svg", "table", "tbody", "td", "template", "textarea",
     "tfoot", "th", "thead", "time", "title", "tr", "track", "u", "ul", "var", "video", "wbr"
 ];
-export const OPTION_NAMES = {
+export var OPTION_NAMES = {
     COLOR_FORMAT: "colorFormat",
     SHOW_DIMENSIONS: "showDimensions",
     SHOW_DEFAULT_VALUES: "showDefaultValues"

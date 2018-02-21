@@ -7,8 +7,8 @@ import {
 import { OPTION_NAMES } from "./constants";
 
 function styleguideColors(context, colors) {
-    const options = { colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT) };
-    const code = getStyleguideColorsCode(options, colors);
+    var options = { colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT) };
+    var code = getStyleguideColorsCode(options, colors);
 
     return {
         code: code,
@@ -17,11 +17,11 @@ function styleguideColors(context, colors) {
 }
 
 function styleguideTextStyles(context, textStyles) {
-    const options = {
+    var options = {
         colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
         defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
     };
-    const code = getStyleguideTextStylesCode(options, context.project, textStyles);
+    var code = getStyleguideTextStylesCode(options, context.project, textStyles);
 
     return {
         code: code,
@@ -30,12 +30,12 @@ function styleguideTextStyles(context, textStyles) {
 }
 
 function layer(context, selectedLayer) {
-    const options = {
+    var options = {
         showDimensions: context.getOption(OPTION_NAMES.SHOW_DIMENSIONS),
         colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
         defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
     };
-    const code = getLayerCode(context.project, selectedLayer, options);
+    var code = getLayerCode(context.project, selectedLayer, options);
 
     return {
         code: code,
@@ -48,8 +48,8 @@ function comment(context, text) {
 }
 
 function exportStyleguideColors(context, colors) {
-    let codeObject = styleguideColors(context, colors);
-    const code = codeObject.code;
+    var codeObject = styleguideColors(context, colors);
+    var code = codeObject.code;
 
     return {
         code: code,
@@ -59,8 +59,8 @@ function exportStyleguideColors(context, colors) {
 }
 
 function exportStyleguideTextStyles(context, textstyles) {
-    let codeObject = styleguideTextStyles(context, textstyles);
-    const code = codeObject.code;
+    var codeObject = styleguideTextStyles(context, textstyles);
+    var code = codeObject.code;
 
     return {
         code: code,

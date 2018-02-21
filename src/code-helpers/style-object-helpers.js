@@ -68,7 +68,7 @@ function generateTextLayerStyleObject({
     defaultValues,
     layerStyle
 }) {
-    let styles = generateTextStyleStyleObject({
+    var styles = generateTextStyleStyleObject({
         textStyle: font,
         densityDivisor,
         colorFormat,
@@ -79,7 +79,7 @@ function generateTextLayerStyleObject({
     if (layer.fills && layer.fills.length && !layerHasGradient(layer)) {
         delete styles.color;
 
-        let blendedColor = blendColors(layer.fills.map(fill => fill.color));
+        var blendedColor = blendColors(layer.fills.map(fill => fill.color));
 
         if (font.color) {
             blendedColor = blendedColor.blend(font.color);
@@ -99,9 +99,9 @@ function generateLayerStyleObject({
     colorFormat,
     defaultValues
 }) {
-    let layerType = layer.type;
+    var layerType = layer.type;
 
-    let styles = {
+    var styles = {
         selector: selectorize(layer.name) || ".layer"
     };
 
@@ -115,7 +115,7 @@ function generateLayerStyleObject({
     }
 
     if (layer.opacity !== 1) {
-        const PRECISION = 2;
+        var PRECISION = 2;
         styles.opacity = round(layer.opacity, PRECISION);
     }
 
@@ -124,7 +124,7 @@ function generateLayerStyleObject({
     }
 
     if (layerType === "text" && layer.defaultTextStyle) {
-        let textStyle = generateTextLayerStyleObject({
+        var textStyle = generateTextLayerStyleObject({
             layer,
             font: layer.defaultTextStyle,
             densityDivisor,
@@ -175,15 +175,15 @@ function generateTextStyleStyleObject({
     defaultValues,
     layerStyle
 }) {
-    let selector = selectorize(textStyle.name);
+    var selector = selectorize(textStyle.name);
     if (!isHtmlTag(selector)) {
         selector = selector.substring(1);
     }
 
-    let styleProperties = {
+    var styleProperties = {
         selector
     };
-    let overrideLayerStyle;
+    var overrideLayerStyle;
 
     styleProperties.fontFamily = textStyle.fontFamily;
     styleProperties.fontSize = round(textStyle.fontSize / densityDivisor, 1);
@@ -208,7 +208,7 @@ function generateTextStyleStyleObject({
 
     overrideLayerStyle = layerStyle && layerStyle["letter-spacing"] && layerStyle["letter-spacing"] !== "normal";
     if (textStyle.letterSpacing) {
-        const PRECISION = 2;
+        var PRECISION = 2;
         styleProperties.letterSpacing = round(textStyle.letterSpacing / densityDivisor, PRECISION);
     } else if (defaultValues || overrideLayerStyle) {
         styleProperties.letterSpacing = 0;
@@ -226,14 +226,14 @@ function generateTextStyleStyleObject({
 }
 
 function generateTextStyleCode(textStyle, params) {
-    let fontStyles = generateTextStyleStyleObject({
+    var fontStyles = generateTextStyleStyleObject({
         textStyle,
         densityDivisor: params.densityDivisor,
         colorFormat: params.colorFormat,
         defaultValues: params.defaultValues
     });
-    let selector = generateName(fontStyles.selector);
-    let textStyleCode = {};
+    var selector = generateName(fontStyles.selector);
+    var textStyleCode = {};
 
     delete fontStyles.selector;
 
@@ -247,22 +247,22 @@ function generateTextStyleCode(textStyle, params) {
 }
 
 function generateStyleguideTextStylesObject(options, project, textStyles) {
-    const params = {
+    var params = {
         densityDivisor: project.densityDivisor,
         colorFormat: options.colorFormat,
         defaultValues: options.defaultValues
     };
 
     return textStyles.reduce((styles, ts) => {
-        let tsParams;
+        var tsParams;
         if (ts.color) {
-            let projectColor = project.findColorEqual(ts.color);
+            var projectColor = project.findColorEqual(ts.color);
             tsParams = Object.assign({}, params, { projectColor });
         } else {
             tsParams = params;
         }
 
-        let textStyle = generateTextStyleCode(ts, tsParams);
+        var textStyle = generateTextStyleCode(ts, tsParams);
         return Object.assign(styles, textStyle);
     }, {});
 }
