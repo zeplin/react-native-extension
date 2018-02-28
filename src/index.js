@@ -12,7 +12,7 @@ function styleguideColors(context, colors) {
 
     return {
         code: code,
-        mode: "javascript"
+        language: "javascript"
     };
 }
 
@@ -25,7 +25,7 @@ function styleguideTextStyles(context, textStyles) {
 
     return {
         code: code,
-        mode: "javascript"
+        language: "javascript"
     };
 }
 
@@ -39,7 +39,7 @@ function layer(context, selectedLayer) {
 
     return {
         code: code,
-        mode: "javascript"
+        language: "javascript"
     };
 }
 
@@ -54,7 +54,7 @@ function exportStyleguideColors(context, colors) {
     return {
         code: code,
         filename: "colors.js",
-        mode: "javascript"
+        language: "javascript"
     };
 }
 
@@ -65,7 +65,7 @@ function exportStyleguideTextStyles(context, textstyles) {
     return {
         code: code,
         filename: "fonts.js",
-        mode: "javascript"
+        language: "javascript"
     };
 }
 

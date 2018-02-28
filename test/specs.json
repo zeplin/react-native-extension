@@ -39,7 +39,7 @@
         "output": {
             "code":
                 "const colors = {\n  softBlue: \"#5d79e7\",\n  darkSkyBlue: \"#3180ed\",\n  perrywinkle: \"#9087e6\",\n  white: \"#ffffff\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -66,7 +66,7 @@
         "output": {
             "code":
                 "const moneyLoverDark = {\n  width: 414,\n  height: 736,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -103,7 +103,7 @@
         "output": {
             "code":
                 "const aadirCuenta = {\n  width: 359,\n  height: 22,\n  fontFamily: \"Montserrat\",\n  fontSize: 18,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#090a12\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -128,7 +128,7 @@
         },
         "output": {
             "code": "const footerBar = {\n  width: 414,\n  height: 70\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -173,7 +173,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -218,7 +218,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -263,7 +263,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -308,7 +308,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -353,7 +353,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -398,7 +398,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -443,7 +443,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -488,7 +488,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -533,7 +533,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -578,7 +578,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 3.9,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -623,7 +623,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 8.4,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -668,7 +668,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 10.6,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -713,7 +713,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 32.2,\n  height: 32.8,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -758,7 +758,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 3.1,\n  height: 1.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -803,7 +803,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 38.4,\n  height: 32.8,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -848,7 +848,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 7,\n  height: 6.9,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -893,7 +893,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 33.1,\n  height: 33.1,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -938,7 +938,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 32.5,\n  height: 33.7,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -975,7 +975,7 @@
         "output": {
             "code":
                 "const layer = {\n  width: 27,\n  height: 48,\n  fontFamily: \"Montserrat\",\n  fontSize: 64,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1051,7 +1051,7 @@
         "output": {
             "code":
                 "const rectangle78 = {\n  width: 65,\n  height: 53,\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1086,7 +1086,7 @@
         "output": {
             "code":
                 "const rectangle35 = {\n  width: 414,\n  height: 53,\n  backgroundColor: \"#303757\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1121,7 +1121,7 @@
         "output": {
             "code":
                 "const signal = {\n  width: 33.5,\n  height: 5.5,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1158,7 +1158,7 @@
         "output": {
             "code":
                 "const time = {\n  width: 48,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"600\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1195,7 +1195,7 @@
         "output": {
             "code":
                 "const carrier = {\n  width: 39,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1230,7 +1230,7 @@
         "output": {
             "code":
                 "const wifi = {\n  width: 12,\n  height: 9,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1265,7 +1265,7 @@
         "output": {
             "code":
                 "const bluetooth = {\n  width: 8,\n  height: 14,\n  opacity: 0.4,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1300,7 +1300,7 @@
         "output": {
             "code":
                 "const battery = {\n  width: 24.5,\n  height: 9.5,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1337,7 +1337,7 @@
         "output": {
             "code":
                 "const layer = {\n  width: 31,\n  height: 16,\n  fontFamily: \"SF UI Text\",\n  fontSize: 12,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1372,7 +1372,7 @@
         "output": {
             "code":
                 "const statusBarLight = {\n  width: 413,\n  height: 22,\n  backgroundColor: \"#131624\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1409,7 +1409,7 @@
         "output": {
             "code":
                 "const carlos = {\n  width: 128,\n  height: 21,\n  fontFamily: \"Montserrat\",\n  fontSize: 20,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1444,7 +1444,7 @@
         },
         "output": {
             "code": "const image24 = {\n  width: 40.8,\n  height: 40.6\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1504,7 +1504,7 @@
         },
         "output": {
             "code": "const ellipse17 = {\n  width: 45,\n  height: 45\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1539,7 +1539,7 @@
         "output": {
             "code":
                 "const rectangle41 = {\n  width: 414,\n  height: 1,\n  backgroundColor: \"#32395b\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1576,7 +1576,7 @@
         "output": {
             "code":
                 "const layer = {\n  width: 139,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#32395b\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1613,7 +1613,7 @@
         "output": {
             "code":
                 "const layer = {\n  width: 139,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#7c8bd0\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1650,7 +1650,7 @@
         "output": {
             "code":
                 "const layer = {\n  width: 138,\n  height: 24,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#32395b\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1685,7 +1685,7 @@
         "output": {
             "code":
                 "const rectangle40 = {\n  width: 138,\n  height: 5,\n  backgroundColor: \"#7c8bd0\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1720,7 +1720,7 @@
         "output": {
             "code":
                 "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1755,7 +1755,7 @@
         "output": {
             "code":
                 "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1790,7 +1790,7 @@
         "output": {
             "code":
                 "const ellipse18 = {\n  width: 5,\n  height: 5,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1825,7 +1825,7 @@
         "output": {
             "code":
                 "const vector = {\n  width: 24,\n  height: 27,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1860,7 +1860,7 @@
         "output": {
             "code":
                 "const rectangle37 = {\n  width: 15,\n  height: 200,\n  borderRadius: 5,\n  backgroundColor: \"#131624\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1916,7 +1916,7 @@
         "output": {
             "code":
                 "const rectangle37 = {\n  width: 16,\n  height: 200,\n  borderRadius: 5\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1951,7 +1951,7 @@
         "output": {
             "code":
                 "const polygon2 = {\n  width: 13,\n  height: 10,\n  backgroundColor: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -1988,7 +1988,7 @@
         "output": {
             "code":
                 "const paypal = {\n  width: 63,\n  height: 25,\n  fontFamily: \"Montserrat\",\n  fontSize: 16,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: colors.white\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -2048,7 +2048,7 @@
         },
         "output": {
             "code": "const ellipse13 = {\n  width: 15,\n  height: 15\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -2083,7 +2083,7 @@
         "output": {
             "code":
                 "const rectangle36 = {\n  width: 121,\n  height: 27,\n  borderRadius: 100,\n  backgroundColor: \"#131624\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -2120,7 +2120,7 @@
         "output": {
             "code":
                 "const layer = {\n  width: 355,\n  height: 173,\n  fontFamily: \"Montserrat\",\n  fontSize: 144,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"#080a12\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -2157,7 +2157,7 @@
         "output": {
             "code":
                 "const layer = {\n  width: 355,\n  height: 173,\n  fontFamily: \"Montserrat\",\n  fontSize: 144,\n  fontWeight: \"normal\",\n  fontStyle: \"normal\",\n  letterSpacing: 0,\n  color: \"rgba(8, 10, 18, 0.2)\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -2203,7 +2203,7 @@
         "output": {
             "code":
                 "const rectangle34 = {\n  width: 339,\n  height: 199,\n  borderRadius: 8,\n  backgroundColor: \"#131624\",\n  borderStyle: \"solid\",\n  borderWidth: 3,\n  borderColor: \"#090a12\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -2253,7 +2253,7 @@
         "output": {
             "code":
                 "const rectangle34 = {\n  width: 359,\n  height: 222,\n  borderRadius: 8,\n  backgroundColor: \"#131624\",\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -2298,7 +2298,7 @@
         "output": {
             "code":
                 "const rectangle33 = {\n  width: 414,\n  height: 736,\n  backgroundColor: \"#232840\"\n};",
-            "mode": "javascript"
+            "language": "javascript"
         }
     },
     {
@@ -2348,7 +2348,7 @@
         "output": {
             "code":
                 "const textStyles = StyleSheet.create({\n  textStyle2: {\n    fontFamily: \"Montserrat\",\n    fontSize: 144,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: \"#080a12\"\n  },\n  textStyle: {\n    fontFamily: \"Montserrat\",\n    fontSize: 20,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: colors.white\n  },\n  textStyle3: {\n    fontFamily: \"Montserrat\",\n    fontSize: 16,\n    fontWeight: \"normal\",\n    fontStyle: \"normal\",\n    letterSpacing: 0,\n    color: \"#7c8bd0\"\n  }\n});",
-            "mode": "javascript"
+            "language": "javascript"
         }
     }
 ]
