@@ -3,6 +3,9 @@ const merge = require("webpack-merge");
 const common = require("./webpack.common");
 
 module.exports = merge(common, {
+    output: {
+        filename: "[name].js"
+    },
     devServer: {
         port: 8080,
         publicPath: "/",
