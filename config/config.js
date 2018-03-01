@@ -1,5 +1,7 @@
 /* eslint-env node */
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
+
 let moduleURL;
 
 switch (process.env.NODE_ENV) {
@@ -15,6 +17,7 @@ switch (process.env.NODE_ENV) {
     default:
         throw new Error("Invalid Environment");
 }
+
 module.exports = {
     moduleURL,
     bundleName: "bundle"
