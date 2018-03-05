@@ -1,25 +1,67 @@
 {
   "name": "zeplin-react-native-extension",
   "version": "1.0.4",
-  "description": "React native extension for Zeplin",
+  "description": "Generates React Native JavaScript snippets from colors, text styles and layers.",
   "scripts": {
-    "build": "npm run clean && ./node_modules/.bin/webpack --config ./config/webpack.prod.js",
-    "clean": "rm -rf ./dist",
+    "start": "zem start",
+    "build": "zem build",
+    "clean": "zem clean",
+    "exec": "zem exec",
+    "build:test": "zem build --dev",
     "test": "npm run build:test && jest && npm run clean",
-    "build:test": "npm run clean && ./node_modules/.bin/webpack --config ./config/webpack.tst.js",
-    "lint": "node_modules/.bin/eslint src",
-    "dev-server": "node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js --color",
     "sync": "./scripts/sync.sh"
   },
   "devDependencies": {
     "@zeplin/eslint-config": "^1.2.2",
     "@zeplin/extension-model": "^1.1.1",
-    "dotenv": "^5.0.0",
-    "eslint": "^4.17.0",
     "jest": "^22.1.4",
-    "uglifyjs-webpack-plugin": "^1.2.0",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1",
-    "webpack-merge": "^4.1.1"
+    "zem": "^0.1.1"
+  },
+  "author": {
+    "name": "Zeplin",
+    "email": "support@zeplin.io",
+    "url": "http://zeplin.io"
+  },
+  "zeplin": {
+    "displayName": "React Native",
+    "options": [
+      {
+        "name": "Color format",
+        "type": "picker",
+        "id": "colorFormat",
+        "submenu": true,
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "HEX",
+            "value": "hex"
+          },
+          {
+            "name": "RGB",
+            "value": "rgb"
+          },
+          {
+            "name": "HSL",
+            "value": "hsl"
+          }
+        ],
+        "default": "default"
+      },
+      {
+        "name": "Dimensions",
+        "type": "switch",
+        "id": "showDimensions",
+        "default": true
+      },
+      {
+        "name": "Default values",
+        "type": "switch",
+        "id": "showDefaultValues",
+        "default": true
+      }
+    ]
   }
 }
