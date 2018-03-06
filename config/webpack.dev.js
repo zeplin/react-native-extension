@@ -7,8 +7,8 @@ module.exports = merge(common, {
         filename: "[name].js"
     },
     devServer: {
-        port: 8081,
-        publicPath: "/dist",
+        port: 8080,
+        publicPath: "/",
         watchContentBase: true,
         disableHostCheck: true,
         headers: {
