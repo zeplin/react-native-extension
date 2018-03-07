@@ -2183,14 +2183,16 @@
             ],
             "borders": [
                 {
-                    "fillType": "color",
+                    "fill": {
+                        "type": "color",
+                        "gradient": { "colorStops": [] },
+                        "blendMode": "normal",
+                        "opacity": 1,
+                        "color": { "r": 9, "g": 10, "b": 18, "a": 1 }
+                    },
                     "position": "inside",
                     "thickness": 3,
-                    "opacity": 1,
-                    "_id": "5a0aa8a56796a71d209f9e73",
-                    "blendMode": "normal",
-                    "gradient": { "colorStops": [] },
-                    "color": { "r": 9, "g": 10, "b": 18, "a": 1 }
+                    "_id": "5a0aa8a56796a71d209f9e73"
                 }
             ],
             "rect": { "x": 39, "y": 113, "width": 339, "height": 199 },
