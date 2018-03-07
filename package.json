@@ -13,13 +13,13 @@
   },
   "devDependencies": {
     "@zeplin/eslint-config": "^1.2.2",
+    "@zeplin/extension-model": "^1.1.1",
     "dotenv": "^5.0.0",
     "eslint": "^4.17.0",
     "jest": "^22.1.4",
     "uglifyjs-webpack-plugin": "^1.2.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
-    "webpack-merge": "^4.1.1",
-    "zeplin-extension-model": "git+ssh://git@github.com/zeplin/zeplin-extension-model.git#v1.x.x"
+    "webpack-merge": "^4.1.1"
   }
 }
