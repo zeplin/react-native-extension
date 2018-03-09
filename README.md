@@ -75,13 +75,6 @@ Toggles always generating default values from layers or text styles, such as `fo
 
 ## Development
 
-To debug the extension, run `dev-server` script:
+React Native extension is developed using [zem](https://github.com/zeplin/zem), Zeplin Extension Manager. zem is a command line tool that lets you quickly create and test extensions.
 
-```sh
-npm install
-npm run dev-server
-```
-
-This will serve the manifest and module files locally, which you can add to a Zeplin project, following the [tutorial](https://github.com/zeplin/zeplin-extension-documentation/blob/master/tutorial.md#adding-a-local-extension).
-
-*We're currently working on an extension manager to quickly create and test Zeplin extensions with no build configuration. React Native extension should be updated soon to make use of this manager.*
+To learn more about zem, [see documentation](https://github.com/zeplin/zem).

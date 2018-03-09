@@ -8,7 +8,7 @@ const {
     TextStyle,
     Context
 } = require("@zeplin/extension-model");
-const extensionObject = require("../dist/bundle");
+const extensionObject = require("../dist/main");
 
 const specs = require(path.join(__dirname, "./specs.json"));
 const projectData = require(path.join(__dirname, "./project.json"));
