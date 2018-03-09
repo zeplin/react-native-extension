@@ -10,6 +10,7 @@ module.exports = {
             {
                 "ignore": [-1, 0, 1]
             }
-        ]
+        ],
+        "no-var": "off"
     }
 }
