@@ -1,6 +1,6 @@
 {
   "name": "zeplin-react-native-extension",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Generates React Native JavaScript snippets from colors, text styles and layers.",
   "scripts": {
     "start": "zem start",
