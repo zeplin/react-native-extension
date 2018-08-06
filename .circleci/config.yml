@@ -26,6 +26,10 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run: rm -rf node_modules/zeplin-*
       - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules        
       - run: npm run clean
       - run: NODE_ENV=dev npm run build
       - run:
@@ -41,6 +45,10 @@ jobs:
             key: deploy-dependency-cache-{{ checksum "package.json" }}
         - run: rm -rf node_modules/zeplin-*
         - run: npm install
+        - save_cache:
+            key: dependency-cache-{{ checksum "package.json" }}
+            paths:
+              - ./node_modules          
         - run: npm run clean
         - run: NODE_ENV=prod npm run build
         - run:
