@@ -8,7 +8,7 @@
     "clean": "zem clean",
     "exec": "zem exec",
     "build:test": "zem build --dev",
-    "test": "npm run build:test && jest && npm run clean",
+    "test": "npm run build:test && jest --testURL http://localhost && npm run clean",
     "sync": "./scripts/sync.sh"
   },
   "devDependencies": {
