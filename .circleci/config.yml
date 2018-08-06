@@ -1,0 +1,69 @@
+version: 2
+jobs:
+  build_and_test:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      # Remove zeplin packages from node_modules because they might be updated with same tag since last caching
+      - run: rm -rf node_modules/zeplin-*
+      - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: NODE_ENV=local npm run build
+      - run: NODE_ENV=local npm run test
+
+  deploy_dev:
+    docker:
+      - image: circleci/python:2.7-node
+    steps:
+      - checkout
+      - run: sudo pip install awscli
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: rm -rf node_modules/zeplin-*
+      - run: npm install
+      - run: npm run clean
+      - run: NODE_ENV=dev npm run build
+      - run:
+          name: Sync to S3
+          command: NODE_ENV=dev npm run sync
+
+  deploy_prod:
+      docker:
+      - image: circleci/python:2.7-node
+      steps:
+        - checkout
+        - run: sudo pip install awscli
+        - restore_cache:
+            key: deploy-dependency-cache-{{ checksum "package.json" }}
+        - run: rm -rf node_modules/zeplin-*
+        - run: npm install
+        - run: npm run clean
+        - run: NODE_ENV=prod npm run build
+        - run:
+            name: Sync to S3
+            command: NODE_ENV=prod npm run sync
+
+workflows:
+  version: 2
+  build_test_and_deploy:
+    jobs:
+      # Run the build_and_test for all branches
+      - build_and_test
+      - deploy_dev:
+          requires:
+            - build_and_test
+          filters:
+            branches:
+              only: develop
+      - deploy_prod:
+          requires:
+            - build_and_test
+          filters:
+            branches:
+              only: master
