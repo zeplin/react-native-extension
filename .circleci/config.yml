@@ -42,7 +42,7 @@ jobs:
       steps:
         - checkout
         - restore_cache:
-            key: deploy-dependency-cache-{{ checksum "package.json" }}
+            key: dependency-cache-{{ checksum "package.json" }}
         - run: rm -rf node_modules/zeplin-*
         - run: npm install
         - save_cache:
