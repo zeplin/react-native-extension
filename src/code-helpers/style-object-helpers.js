@@ -199,7 +199,7 @@ function generateTextStyleStyleObject({
 
     overrideLayerStyle = layerStyle && layerStyle["font-style"] && layerStyle["font-style"] !== "normal";
     if (textStyle.fontStyle && (textStyle.fontStyle !== "normal" || defaultValues || overrideLayerStyle)) {
-        styleProperties.fontStyle = textStyle.fontStyle;
+        styleProperties.fontStyle = textStyle.fontStyle === "oblique" ? "italic" : textStyle.fontStyle;
     }
 
     if (textStyle.lineHeight) {
