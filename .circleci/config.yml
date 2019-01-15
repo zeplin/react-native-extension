@@ -51,9 +51,6 @@ jobs:
               - ./node_modules          
         - run: npm run clean
         - run: NODE_ENV=prod npm run build
-        - run:
-            name: Sync to S3
-            command: NODE_ENV=prod npm run sync
 
 workflows:
   version: 2
