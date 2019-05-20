@@ -17,25 +17,6 @@ jobs:
       - run: NODE_ENV=local npm run build
       - run: NODE_ENV=local npm run test
 
-  deploy_dev:
-    docker:
-      - image: zeplin/amazon-linux-ami:cci-node8
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run: rm -rf node_modules/zeplin-*
-      - run: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules        
-      - run: npm run clean
-      - run: NODE_ENV=dev npm run build
-      - run:
-          name: Sync to S3
-          command: NODE_ENV=dev npm run sync
-
   deploy_prod:
       docker:
       - image: zeplin/amazon-linux-ami:cci-node8
@@ -48,9 +29,14 @@ jobs:
         - save_cache:
             key: dependency-cache-{{ checksum "package.json" }}
             paths:
-              - ./node_modules          
+              - ./node_modules
         - run: npm run clean
         - run: NODE_ENV=prod npm run build
+        - run:
+            name: Publish extension
+            command: |
+              echo "{\"token\": \"$ZEM_TOKEN\"}" >> ~/.zemrc
+              NODE_ENV=prod npm run publish
 
 workflows:
   version: 2
@@ -58,12 +44,6 @@ workflows:
     jobs:
       # Run the build_and_test for all branches
       - build_and_test
-      - deploy_dev:
-          requires:
-            - build_and_test
-          filters:
-            branches:
-              only: develop
       - deploy_prod:
           requires:
             - build_and_test
