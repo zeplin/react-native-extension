@@ -1,6 +1,6 @@
 {
   "name": "react-native",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Generates React Native JavaScript snippets from colors, text styles and layers.",
   "scripts": {
     "start": "zem start",
@@ -9,13 +9,13 @@
     "exec": "zem exec",
     "build:test": "zem build --dev",
     "test": "npm run build:test && jest --testURL http://localhost && npm run clean",
-    "sync": "./scripts/sync.sh"
+    "publish": "zem publish"
   },
   "devDependencies": {
     "@zeplin/eslint-config": "^1.2.2",
     "@zeplin/extension-model": "^1.1.1",
     "jest": "^22.1.4",
-    "zem": "^0.1.1"
+    "zem": "^0.4.1"
   },
   "author": {
     "name": "Zeplin",
