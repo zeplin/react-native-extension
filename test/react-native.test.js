@@ -3,9 +3,6 @@
 const path = require("path");
 const {
     Layer,
-    Color,
-    Project,
-    TextStyle,
     Context
 } = require("@zeplin/extension-model");
 const extensionObject = require("../dist/main");
@@ -22,13 +19,22 @@ function getDefaultOptionsFromManifest(man) {
     }, {});
 }
 
-tests.forEach(singleTest => {
-    const project = new Project(singleTest.projectData);
+function createContext(data, type) {
+    const contextParams = {
+        options: getDefaultOptionsFromManifest(manifest)
+    };
 
-    const context = new Context({
-        options: getDefaultOptionsFromManifest(manifest),
-        project
-    });
+    if (type === "project") {
+        contextParams.project = data;
+    } else if (type === "styleguide") {
+        contextParams.styleguide = data;
+    }
+
+    return new Context(contextParams);
+}
+
+tests.forEach(singleTest => {
+    const { projectData: testProjectData } = singleTest;
 
     singleTest.specs.forEach(spec => {
         describe(`layer tests`, () => {
@@ -36,15 +42,18 @@ tests.forEach(singleTest => {
                 if (spec.type === "layer") {
                     const layer = new Layer(spec.data);
                     const expectedOutput = spec.output;
+                    const context = createContext(testProjectData, "project");
                     const actualOutput = extensionObject.layer(context, layer);
                     expect(actualOutput).toEqual(expectedOutput);
                 } else if (spec.type === "textStyles") {
-                    const textStyles = spec.data.map(textStyleData => new TextStyle(textStyleData));
-                    const codeData = extensionObject.styleguideTextStyles(context, textStyles);
+                    const projectDataWithTextStyles = Object.assign({}, testProjectData, { textStyles: spec.data });
+                    const context = createContext(projectDataWithTextStyles, "project");
+                    const codeData = extensionObject.textStyles(context);
                     expect(codeData).toEqual(spec.output);
                 } else if (spec.type === "colors") {
-                    const colors = spec.data.map(color => new Color(color));
-                    const codeData = extensionObject.styleguideColors(context, colors);
+                    const projectDataWithColors = Object.assign({}, testProjectData, { colors: spec.data });
+                    const context = createContext(projectDataWithColors, "project");
+                    const codeData = extensionObject.colors(context);
                     expect(codeData).toEqual(spec.output);
                 }
             });
