@@ -56,7 +56,7 @@
             "fills": [
                 {
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -123,7 +123,7 @@
             "borderRadius": 0,
             "blendMode": "normal",
             "opacity": 1,
-            "exportable": true,
+            "exportable": false,
             "absoluteRect": { "x": 0, "y": 666, "width": 414, "height": 70 }
         },
         "output": {
@@ -149,7 +149,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -194,7 +194,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -239,7 +239,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -284,7 +284,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -329,7 +329,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -374,7 +374,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -419,7 +419,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -464,7 +464,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -509,7 +509,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -554,7 +554,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -599,7 +599,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -644,7 +644,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -689,7 +689,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -734,7 +734,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -779,7 +779,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -824,7 +824,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -869,7 +869,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -914,7 +914,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1011,7 +1011,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 0, "g": 156, "b": 222, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 },
                 {
                     "opacity": 1,
@@ -1037,7 +1037,7 @@
                         "to": { "x": 0, "y": 0 },
                         "from": { "x": 0, "y": 0 }
                     },
-                    "type": "gradient"
+                    "fillType": "gradient"
                 }
             ],
             "borders": [],
@@ -1072,7 +1072,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 48, "g": 55, "b": 87, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1107,7 +1107,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1216,7 +1216,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1251,7 +1251,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1286,7 +1286,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1358,7 +1358,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1465,7 +1465,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 196, "g": 196, "b": 196, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 },
                 {
                     "opacity": 1,
@@ -1491,7 +1491,7 @@
                         "to": { "x": 0, "y": 0 },
                         "from": { "x": 0, "y": 0 }
                     },
-                    "type": "gradient"
+                    "fillType": "gradient"
                 }
             ],
             "borders": [],
@@ -1525,7 +1525,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 50, "g": 57, "b": 91, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1671,7 +1671,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 124, "g": 139, "b": 208, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1706,7 +1706,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1741,7 +1741,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1776,7 +1776,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1811,7 +1811,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1846,7 +1846,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -1881,7 +1881,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 },
                 {
                     "opacity": 1,
@@ -1902,7 +1902,7 @@
                         "to": { "x": 0, "y": 0 },
                         "from": { "x": 0, "y": 0 }
                     },
-                    "type": "gradient"
+                    "fillType": "gradient"
                 }
             ],
             "borders": [],
@@ -1937,7 +1937,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 255, "g": 255, "b": 255, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -2009,7 +2009,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 93, "g": 121, "b": 231, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 },
                 {
                     "opacity": 1,
@@ -2035,7 +2035,7 @@
                         "to": { "x": 0, "y": 0 },
                         "from": { "x": 0, "y": 0 }
                     },
-                    "type": "gradient"
+                    "fillType": "gradient"
                 }
             ],
             "borders": [],
@@ -2069,7 +2069,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -2178,18 +2178,16 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [
                 {
-                    "fill": {
-                        "type": "color",
-                        "gradient": { "colorStops": [] },
-                        "blendMode": "normal",
-                        "opacity": 1,
-                        "color": { "r": 9, "g": 10, "b": 18, "a": 1 }
-                    },
+                    "fillType": "color",
+                    "gradient": { "colorStops": [] },
+                    "blendMode": "normal",
+                    "opacity": 1,
+                    "color": { "r": 9, "g": 10, "b": 18, "a": 1 },
                     "position": "inside",
                     "thickness": 3,
                     "_id": "5a0aa8a56796a71d209f9e73"
@@ -2241,7 +2239,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 19, "g": 22, "b": 36, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],
@@ -2276,7 +2274,7 @@
                     "blendMode": "normal",
                     "gradient": { "colorStops": [] },
                     "color": { "r": 35, "g": 40, "b": 64, "a": 1 },
-                    "type": "color"
+                    "fillType": "color"
                 }
             ],
             "borders": [],

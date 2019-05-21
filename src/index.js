@@ -3,12 +3,15 @@ import {
     getStyleguideTextStylesCode,
     getLayerCode
 } from "./code-helpers";
-
 import { OPTION_NAMES } from "./constants";
+import { getResourceContainer, getResources } from "./utils";
 
-function styleguideColors(context, colors) {
+function colors(context) {
+    var useLinkedStyleguides = context.getOption(OPTION_NAMES.USE_LINKED_STYLEGUIDES);
+    var { container, type } = getResourceContainer(context);
+    var allColors = getResources(container, type, useLinkedStyleguides, "colors");
     var options = { colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT) };
-    var code = getStyleguideColorsCode(options, colors);
+    var code = getStyleguideColorsCode(options, allColors);
 
     return {
         code: code,
@@ -16,12 +19,16 @@ function styleguideColors(context, colors) {
     };
 }
 
-function styleguideTextStyles(context, textStyles) {
+function textStyles(context) {
     var options = {
+        useLinkedStyleguides: context.getOption(OPTION_NAMES.USE_LINKED_STYLEGUIDES),
         colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
         defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
     };
-    var code = getStyleguideTextStylesCode(options, context.project, textStyles);
+    var containerAndType = getResourceContainer(context);
+    var { container, type } = containerAndType;
+    var allTextStyles = getResources(container, type, options.useLinkedStyleguides, "textStyles");
+    var code = getStyleguideTextStylesCode(options, containerAndType, allTextStyles);
 
     return {
         code: code,
@@ -30,12 +37,14 @@ function styleguideTextStyles(context, textStyles) {
 }
 
 function layer(context, selectedLayer) {
+    var containerAndType = getResourceContainer(context);
     var options = {
+        useLinkedStyleguides: context.getOption(OPTION_NAMES.USE_LINKED_STYLEGUIDES),
         showDimensions: context.getOption(OPTION_NAMES.SHOW_DIMENSIONS),
         colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
         defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
     };
-    var code = getLayerCode(context.project, selectedLayer, options);
+    var code = getLayerCode(containerAndType, selectedLayer, options);
 
     return {
         code: code,
@@ -47,8 +56,8 @@ function comment(context, text) {
     return `// ${text}`;
 }
 
-function exportStyleguideColors(context, colors) {
-    var codeObject = styleguideColors(context, colors);
+function exportColors(context) {
+    var codeObject = colors(context);
     var code = codeObject.code;
 
     return {
@@ -58,8 +67,8 @@ function exportStyleguideColors(context, colors) {
     };
 }
 
-function exportStyleguideTextStyles(context, textstyles) {
-    var codeObject = styleguideTextStyles(context, textstyles);
+function exportTextStyles(context) {
+    var codeObject = textStyles(context);
     var code = codeObject.code;
 
     return {
@@ -69,11 +78,57 @@ function exportStyleguideTextStyles(context, textstyles) {
     };
 }
 
+function styleguideColors(context, colorsInProject) {
+    var options = { colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT) };
+    var code = getStyleguideColorsCode(options, colorsInProject);
+    return {
+        code,
+        language: "javascript"
+    };
+}
+
+function styleguideTextStyles(context, textStylesInProject) {
+    var options = {
+        colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
+        defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
+    };
+    var containerAndType = getResourceContainer(context);
+    var code = getStyleguideTextStylesCode(options, containerAndType, textStylesInProject);
+    return {
+        code,
+        language: "javascript"
+    };
+}
+
+function exportStyleguideColors(context, colorsInProject) {
+    var codeObject = styleguideColors(context, colorsInProject);
+    var code = codeObject.code;
+    return {
+        code,
+        filename: "colors.js",
+        language: "javascript"
+    };
+}
+
+function exportStyleguideTextStyles(context, textStylesInProject) {
+    var codeObject = styleguideTextStyles(context, textStylesInProject);
+    var code = codeObject.code;
+    return {
+        code,
+        filename: "fonts.js",
+        language: "javascript"
+    };
+}
+
 export default {
     layer,
+    colors,
+    textStyles,
+    comment,
+    exportColors,
+    exportTextStyles,
     styleguideColors,
     styleguideTextStyles,
-    comment,
     exportStyleguideColors,
     exportStyleguideTextStyles
 };
