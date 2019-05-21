@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@zeplin/eslint-config": "^1.2.2",
-    "@zeplin/extension-model": "^1.1.1",
+    "@zeplin/extension-model": "^2.3.0",
     "jest": "^22.1.4",
     "zem": "^0.4.1"
   },
@@ -64,6 +64,12 @@
         "name": "Default values",
         "type": "switch",
         "id": "showDefaultValues",
+        "default": true
+      },
+      {
+        "name": "Display resources from linked and parent styleguides",
+        "type": "switch",
+        "id": "useLinkedStyleguides",
         "default": true
       }
     ]

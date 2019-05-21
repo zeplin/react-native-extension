@@ -25,5 +25,6 @@ export var HTML_TAGS = [
 export var OPTION_NAMES = {
     COLOR_FORMAT: "colorFormat",
     SHOW_DIMENSIONS: "showDimensions",
-    SHOW_DEFAULT_VALUES: "showDefaultValues"
+    SHOW_DEFAULT_VALUES: "showDefaultValues",
+    USE_LINKED_STYLEGUIDES: "useLinkedStyleguides"
 };

@@ -16,7 +16,7 @@ import {
 
 function generateShadowStyleObject({
     shadow,
-    projectType,
+    platform,
     layerType,
     densityDivisor,
     colorFormat
@@ -32,7 +32,7 @@ function generateShadowStyleObject({
         };
     }
 
-    if (projectType === "android") {
+    if (platform === "android") {
         return {};
     }
 
@@ -93,7 +93,7 @@ function generateTextLayerStyleObject({
 /* eslint-disable complexity */
 function generateLayerStyleObject({
     layer,
-    projectType,
+    platform,
     densityDivisor,
     showDimensions,
     colorFormat,
@@ -146,7 +146,7 @@ function generateLayerStyleObject({
         Object.assign(styles,
             generateShadowStyleObject({
                 shadow: layer.shadows[layer.shadows.length - 1],
-                projectType,
+                platform,
                 layerType,
                 densityDivisor,
                 colorFormat
@@ -237,8 +237,8 @@ function generateTextStyleCode(textStyle, params) {
 
     delete fontStyles.selector;
 
-    if (params.projectColor) {
-        fontStyles.color = `colors.${params.projectColor.name}`;
+    if (params.containerColor) {
+        fontStyles.color = `colors.${params.containerColor.name}`;
     }
 
     textStyleCode[selector] = fontStyles;
@@ -246,9 +246,10 @@ function generateTextStyleCode(textStyle, params) {
     return textStyleCode;
 }
 
-function generateStyleguideTextStylesObject(options, project, textStyles) {
+function generateStyleguideTextStylesObject(options, containerAndType, textStyles) {
+    var { container } = containerAndType;
     var params = {
-        densityDivisor: project.densityDivisor,
+        densityDivisor: container.densityDivisor,
         colorFormat: options.colorFormat,
         defaultValues: options.defaultValues
     };
@@ -256,8 +257,8 @@ function generateStyleguideTextStylesObject(options, project, textStyles) {
     return textStyles.reduce((styles, ts) => {
         var tsParams;
         if (ts.color) {
-            var projectColor = project.findColorEqual(ts.color);
-            tsParams = Object.assign({}, params, { projectColor });
+            var containerColor = container.findColorEqual(ts.color, options.useLinkedStyleguides);
+            tsParams = Object.assign({}, params, { containerColor });
         } else {
             tsParams = params;
         }

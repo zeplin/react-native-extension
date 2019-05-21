@@ -42,7 +42,11 @@ function getColorStringByFormat(color, colorFormat) {
 function getColorMapByFormat(colors, colorFormat) {
     return colors.reduce((colorMap, color) => {
         var colorString = getColorStringByFormat(color, colorFormat);
-        colorMap[colorString] = color.name;
+        /*
+            We don't want to override already set keys because
+            colors are supplied from bottom to top (first from local styleguide then linked styleguide then styleguides from children to parent)
+        */
+        colorMap[colorString] = colorMap[colorString] ? colorMap[colorString] : color.name;
         return colorMap;
     }, {});
 }
