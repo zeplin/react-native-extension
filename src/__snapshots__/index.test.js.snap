@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Colors should generate code snippet 1`] = `
+Object {
+  "code": "const colors = {
+  red: \\"#ff0000\\",
+  green: \\"#00ff00\\",
+  blue: \\"#0000ff\\",
+  yellow: \\"#ffff00\\",
+  black: \\"#000000\\",
+  black50: \\"rgba(0, 0, 0, 0.5)\\",
+  white: \\"#ffffff\\"
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Colors should generate exportable file 1`] = `
+Object {
+  "code": "const colors = {
+  red: \\"#ff0000\\",
+  green: \\"#00ff00\\",
+  blue: \\"#0000ff\\",
+  yellow: \\"#ffff00\\",
+  black: \\"#000000\\",
+  black50: \\"rgba(0, 0, 0, 0.5)\\",
+  white: \\"#ffffff\\"
+};",
+  "filename": "colors.js",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Exportable layer\` should generate code snippet 1`] = `
+Object {
+  "code": "const exportableLayer = {
+  width: 100,
+  height: 100,
+  backgroundColor: colors.yellow
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Layer with blur\` should generate code snippet 1`] = `
+Object {
+  "code": "const layerWithBlur = {
+  width: 100,
+  height: 100,
+  backgroundColor: \\"#00ffff\\"
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Layer with border radius\` should generate code snippet 1`] = `
+Object {
+  "code": "const layerWithBorderRadius = {
+  width: 100,
+  height: 100,
+  borderRadius: 20,
+  backgroundColor: colors.red
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Layer with border\` should generate code snippet 1`] = `
+Object {
+  "code": "const layerWithBorder = {
+  width: 100,
+  height: 100,
+  borderStyle: \\"solid\\",
+  borderWidth: 2,
+  borderColor: colors.black
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Layer with fill\` should generate code snippet 1`] = `
+Object {
+  "code": "const layerWithFill = {
+  width: 100,
+  height: 100,
+  backgroundColor: colors.blue
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Layer with gradient border\` should generate code snippet 1`] = `
+Object {
+  "code": "const layerWithGradientBorder = {
+  width: 100,
+  height: 100
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Layer with gradient fill\` should generate code snippet 1`] = `
+Object {
+  "code": "const layerWithGradientFill = {
+  width: 100,
+  height: 100
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Layer with shadow\` should generate code snippet 1`] = `
+Object {
+  "code": "const layerWithShadow = {
+  width: 100,
+  height: 100,
+  shadowColor: colors.black50,
+  shadowOffset: {
+    width: 0,
+    height: 2
+  },
+  shadowRadius: 4,
+  shadowOpacity: 1
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Rotated layer\` should generate code snippet 1`] = `
+Object {
+  "code": "const rotatedLayer = {
+  width: 103,
+  height: 100,
+  transform: \\"rotate(45deg)\\",
+  backgroundColor: colors.green
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Sample layer\` should generate code snippet 1`] = `
+Object {
+  "code": "const sampleLayer = {
+  width: 320,
+  height: 768
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Text layer with multiple styles\` should generate code snippet 1`] = `
+Object {
+  "code": "const textLayerWithMultipleStyles = {
+  width: 220,
+  height: 24,
+  fontFamily: \\"SFProText\\",
+  fontSize: 20,
+  fontWeight: \\"normal\\",
+  fontStyle: \\"normal\\",
+  letterSpacing: 0,
+  textAlign: \\"left\\",
+  color: colors.black
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Text layer\` should generate code snippet 1`] = `
+Object {
+  "code": "const textLayer = {
+  width: 220,
+  height: 24,
+  fontFamily: \\"SFProText\\",
+  fontSize: 20,
+  fontWeight: \\"normal\\",
+  fontStyle: \\"normal\\",
+  letterSpacing: 0,
+  textAlign: \\"left\\",
+  color: colors.black
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Layer \`Transparent layer with blend mode\` should generate code snippet 1`] = `
+Object {
+  "code": "const transparentLayerWithBlendMode = {
+  width: 103,
+  height: 100,
+  opacity: 0.3,
+  backgroundColor: colors.green
+};",
+  "language": "javascript",
+}
+`;
+
+exports[`Text Styles should generate code snippet 1`] = `
+Object {
+  "code": "const textStyles = StyleSheet.create({
+  sampleTextStyle: {
+    fontFamily: \\"SFProText\\",
+    fontSize: 20,
+    fontWeight: \\"normal\\",
+    fontStyle: \\"normal\\",
+    letterSpacing: 0,
+    textAlign: \\"left\\",
+    color: colors.black
+  },
+  sampleTextStyleWithColor: {
+    fontFamily: \\"SFProText\\",
+    fontSize: 20,
+    fontWeight: \\"normal\\",
+    fontStyle: \\"normal\\",
+    letterSpacing: 0,
+    textAlign: \\"left\\",
+    color: colors.red
+  }
+});",
+  "language": "javascript",
+}
+`;
+
+exports[`Text Styles should generate exportable file 1`] = `
+Object {
+  "code": "const textStyles = StyleSheet.create({
+  sampleTextStyle: {
+    fontFamily: \\"SFProText\\",
+    fontSize: 20,
+    fontWeight: \\"normal\\",
+    fontStyle: \\"normal\\",
+    letterSpacing: 0,
+    textAlign: \\"left\\",
+    color: colors.black
+  },
+  sampleTextStyleWithColor: {
+    fontFamily: \\"SFProText\\",
+    fontSize: 20,
+    fontWeight: \\"normal\\",
+    fontStyle: \\"normal\\",
+    letterSpacing: 0,
+    textAlign: \\"left\\",
+    color: colors.red
+  }
+});",
+  "filename": "fonts.js",
+  "language": "javascript",
+}
+`;
