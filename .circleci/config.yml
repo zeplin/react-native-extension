@@ -35,7 +35,6 @@ jobs:
         - run:
             name: Publish extension
             command: |
-              echo "{\"token\": \"$ZEM_TOKEN\"}" >> ~/.zemrc
               NODE_ENV=prod npm run publish
 
 workflows:
