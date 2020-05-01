@@ -1,6 +1,6 @@
 {
   "name": "react-native",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Generates React Native JavaScript snippets from colors, text styles and layers.",
   "scripts": {
     "start": "zem start",
@@ -11,8 +11,7 @@
     "publish": "zem publish"
   },
   "devDependencies": {
-    "@zeplin/eslint-config": "^1.2.2",
-    "zem": "^1.0.4"
+    "@zeplin/eslint-config": "^1.2.2"
   },
   "author": {
     "name": "Zeplin",
@@ -70,5 +69,8 @@
         "default": true
       }
     ]
+  },
+  "dependencies": {
+    "zem": "^1.0.4"
   }
 }
