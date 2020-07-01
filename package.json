@@ -68,7 +68,8 @@
         "id": "useLinkedStyleguides",
         "default": true
       }
-    ]
+    ],
+    "platforms": ["android", "ios", "web"]
   },
   "dependencies": {
     "zem": "^1.0.4"
