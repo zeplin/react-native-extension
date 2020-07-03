@@ -2,6 +2,8 @@
 
 Generates React Native JavaScript snippets from colors, text styles and layers. ⚛️📱
 
+## Output
+
 Sample colors output:
 ```js
 const colors = {
