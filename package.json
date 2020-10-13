@@ -72,6 +72,6 @@
     "platforms": ["android", "ios", "web"]
   },
   "dependencies": {
-    "zem": "^1.0.4"
+    "zem": "^1.0.6"
   }
 }
