@@ -1,6 +1,6 @@
 {
   "name": "react-native",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Generates React Native JavaScript snippets from colors, text styles and layers.",
   "scripts": {
     "start": "zem start",
@@ -72,6 +72,6 @@
     "platforms": ["android", "ios", "web"]
   },
   "dependencies": {
-    "zem": "^1.0.4"
+    "zem": "^1.0.6"
   }
 }
