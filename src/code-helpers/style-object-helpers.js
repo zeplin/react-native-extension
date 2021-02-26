@@ -19,11 +19,11 @@ function generateShadowStyleObject({
     platform,
     layerType,
     densityDivisor,
-    colorFormat
+    getColorValue
 }) {
     if (layerType === "text") {
         return {
-            textShadowColor: getColorStringByFormat(shadow.color, colorFormat),
+            textShadowColor: getColorValue(shadow.color),
             textShadowOffset: {
                 width: round(shadow.offsetX / densityDivisor, 1),
                 height: round(shadow.offsetY / densityDivisor, 1)
@@ -38,7 +38,7 @@ function generateShadowStyleObject({
 
     // "iOS" doesn't have shadow spread
     return {
-        shadowColor: getColorStringByFormat(shadow.color, colorFormat),
+        shadowColor: getColorValue(shadow.color),
         shadowOffset: {
             width: round(shadow.offsetX / densityDivisor, 1),
             height: round(shadow.offsetY / densityDivisor, 1)
@@ -48,7 +48,7 @@ function generateShadowStyleObject({
     };
 }
 
-function generateBorderStyleObject(border, layerType, densityDivisor, colorFormat) {
+function generateBorderStyleObject(border, layerType, densityDivisor, getColorValue) {
     if (layerType === "text" || (border.fill && border.fill.type === "gradient")) {
         return {};
     }
@@ -56,7 +56,7 @@ function generateBorderStyleObject(border, layerType, densityDivisor, colorForma
     return {
         borderStyle: "solid",
         borderWidth: round(border.thickness / densityDivisor, 1),
-        borderColor: getColorStringByFormat(border.fill.color, colorFormat)
+        borderColor: getColorValue(border.fill.color)
     };
 }
 
@@ -64,16 +64,16 @@ function generateTextLayerStyleObject({
     layer,
     font,
     densityDivisor,
-    colorFormat,
     defaultValues,
-    layerStyle
+    layerStyle,
+    getColorValue
 }) {
     var styles = generateTextStyleStyleObject({
         textStyle: font,
         densityDivisor,
-        colorFormat,
         defaultValues,
-        layerStyle
+        layerStyle,
+        getColorValue
     });
 
     if (layer.fills && layer.fills.length && !layerHasGradient(layer)) {
@@ -85,7 +85,7 @@ function generateTextLayerStyleObject({
             blendedColor = blendedColor.blend(font.color);
         }
 
-        styles.color = getColorStringByFormat(blendedColor, colorFormat);
+        styles.color = getColorValue(blendedColor);
     }
 
     return styles;
@@ -96,8 +96,8 @@ function generateLayerStyleObject({
     platform,
     densityDivisor,
     showDimensions,
-    colorFormat,
-    defaultValues
+    defaultValues,
+    getColorValue
 }) {
     var layerType = layer.type;
 
@@ -128,17 +128,14 @@ function generateLayerStyleObject({
             layer,
             font: layer.defaultTextStyle,
             densityDivisor,
-            colorFormat,
-            defaultValues
+            defaultValues,
+            getColorValue
         });
 
         delete textStyle.selector;
         Object.assign(styles, textStyle);
     } else if (layer.fills.length && !layerHasGradient(layer) && !layerHasBlendMode(layer)) {
-        styles.backgroundColor = getColorStringByFormat(
-            blendColors(layer.fills.map(fill => fill.color)),
-            colorFormat
-        );
+        styles.backgroundColor = getColorValue(blendColors(layer.fills.map(fill => fill.color)));
     }
 
     if (layer.shadows.length) {
@@ -149,7 +146,7 @@ function generateLayerStyleObject({
                 platform,
                 layerType,
                 densityDivisor,
-                colorFormat
+                getColorValue
             })
         );
     }
@@ -160,7 +157,7 @@ function generateLayerStyleObject({
                 layer.borders[layer.borders.length - 1],
                 layerType,
                 densityDivisor,
-                colorFormat
+                getColorValue
             )
         );
     }
@@ -171,9 +168,9 @@ function generateLayerStyleObject({
 function generateTextStyleStyleObject({
     textStyle,
     densityDivisor,
-    colorFormat,
     defaultValues,
-    layerStyle
+    layerStyle,
+    getColorValue
 }) {
     var selector = selectorize(textStyle.name);
     if (!isHtmlTag(selector)) {
@@ -219,7 +216,7 @@ function generateTextStyleStyleObject({
     }
 
     if (textStyle.color) {
-        styleProperties.color = getColorStringByFormat(textStyle.color, colorFormat);
+        styleProperties.color = getColorValue(textStyle.color);
     }
 
     return styleProperties;
@@ -229,17 +226,13 @@ function generateTextStyleCode(textStyle, params) {
     var fontStyles = generateTextStyleStyleObject({
         textStyle,
         densityDivisor: params.densityDivisor,
-        colorFormat: params.colorFormat,
+        getColorValue: params.getColorValue,
         defaultValues: params.defaultValues
     });
     var selector = generateName(fontStyles.selector);
     var textStyleCode = {};
 
     delete fontStyles.selector;
-
-    if (params.containerColor) {
-        fontStyles.color = `colors.${params.containerColor.name}`;
-    }
 
     textStyleCode[selector] = fontStyles;
 
@@ -248,22 +241,23 @@ function generateTextStyleCode(textStyle, params) {
 
 function generateStyleguideTextStylesObject(options, containerAndType, textStyles) {
     var { container } = containerAndType;
+
+    function getColorValue(color) {
+        const matchedColor = container.findColorEqual(color, options.useLinkedStyleguides);
+        if (matchedColor) {
+            return `colors.${matchedColor.getFormattedName("constant")}`;
+        }
+        return getColorStringByFormat(color, options.colorFormat);
+    }
+
     var params = {
         densityDivisor: container.densityDivisor,
-        colorFormat: options.colorFormat,
+        getColorValue,
         defaultValues: options.defaultValues
     };
 
     return textStyles.reduce((styles, ts) => {
-        var tsParams;
-        if (ts.color) {
-            var containerColor = container.findColorEqual(ts.color, options.useLinkedStyleguides);
-            tsParams = Object.assign({}, params, { containerColor });
-        } else {
-            tsParams = params;
-        }
-
-        var textStyle = generateTextStyleCode(ts, tsParams);
+        var textStyle = generateTextStyleCode(ts, params);
         return Object.assign(styles, textStyle);
     }, {});
 }
