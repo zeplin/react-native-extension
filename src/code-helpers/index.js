@@ -62,21 +62,15 @@ function getLayerCode(containerAndType, layer, options) {
     var { container, type } = containerAndType;
     var { useLinkedStyleguides, showDimensions, colorFormat, defaultValues } = options;
 
-    function getColorValue(color) {
-        const matchedColor = container.findColorEqual(color, useLinkedStyleguides);
-        if (matchedColor) {
-            return `colors.${matchedColor.getFormattedName("constant")}`;
-        }
-        return getColorStringByFormat(color, colorFormat);
-    }
-
     var layerStyleRule = generateLayerStyleObject({
         layer,
         platform: container.type,
         densityDivisor: container.densityDivisor,
         showDimensions,
         defaultValues,
-        getColorValue
+        container,
+        useLinkedStyleguides,
+        colorFormat
     });
 
     var cssObjects = [];

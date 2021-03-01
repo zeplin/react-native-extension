@@ -18,6 +18,14 @@ function blendColors(colors) {
     return colors.reduce((blendedColor, color) => blendedColor.blend(color));
 }
 
+function getColorValue(color, { container, useLinkedStyleguides, colorFormat }) {
+    const matchedColor = container.findColorEqual(color, useLinkedStyleguides);
+    if (matchedColor) {
+        return `colors.${matchedColor.getFormattedName("constant")}`;
+    }
+    return getColorStringByFormat(color, colorFormat);
+}
+
 function getColorStringByFormat(color, colorFormat) {
     if (!("r" in color && "g" in color && "b" in color && "a" in color)) {
         return;
@@ -94,5 +102,6 @@ export {
     blendColors,
     getColorMapByFormat,
     toDefaultString,
-    getColorStringByFormat
+    getColorStringByFormat,
+    getColorValue
 };

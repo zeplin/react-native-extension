@@ -6,7 +6,7 @@ import {
     layerHasGradient,
     layerHasBlendMode,
     generateName,
-    getColorStringByFormat
+    getColorValue
 } from "../utils";
 
 import {
@@ -19,11 +19,20 @@ function generateShadowStyleObject({
     platform,
     layerType,
     densityDivisor,
-    getColorValue
+    container,
+    useLinkedStyleguides,
+    colorFormat
 }) {
     if (layerType === "text") {
         return {
-            textShadowColor: getColorValue(shadow.color),
+            textShadowColor: getColorValue(
+                shadow.color,
+                {
+                    container,
+                    useLinkedStyleguides,
+                    colorFormat
+                }
+            ),
             textShadowOffset: {
                 width: round(shadow.offsetX / densityDivisor, 1),
                 height: round(shadow.offsetY / densityDivisor, 1)
@@ -38,7 +47,14 @@ function generateShadowStyleObject({
 
     // "iOS" doesn't have shadow spread
     return {
-        shadowColor: getColorValue(shadow.color),
+        shadowColor: getColorValue(
+            shadow.color,
+            {
+                container,
+                useLinkedStyleguides,
+                colorFormat
+            }
+        ),
         shadowOffset: {
             width: round(shadow.offsetX / densityDivisor, 1),
             height: round(shadow.offsetY / densityDivisor, 1)
@@ -48,7 +64,16 @@ function generateShadowStyleObject({
     };
 }
 
-function generateBorderStyleObject(border, layerType, densityDivisor, getColorValue) {
+function generateBorderStyleObject(
+    border,
+    layerType,
+    densityDivisor,
+    {
+        container,
+        useLinkedStyleguides,
+        colorFormat
+    }
+) {
     if (layerType === "text" || (border.fill && border.fill.type === "gradient")) {
         return {};
     }
@@ -56,7 +81,14 @@ function generateBorderStyleObject(border, layerType, densityDivisor, getColorVa
     return {
         borderStyle: "solid",
         borderWidth: round(border.thickness / densityDivisor, 1),
-        borderColor: getColorValue(border.fill.color)
+        borderColor: getColorValue(
+            border.fill.color,
+            {
+                container,
+                useLinkedStyleguides,
+                colorFormat
+            }
+        )
     };
 }
 
@@ -66,14 +98,18 @@ function generateTextLayerStyleObject({
     densityDivisor,
     defaultValues,
     layerStyle,
-    getColorValue
+    container,
+    useLinkedStyleguides,
+    colorFormat
 }) {
     var styles = generateTextStyleStyleObject({
         textStyle: font,
         densityDivisor,
         defaultValues,
         layerStyle,
-        getColorValue
+        container,
+        useLinkedStyleguides,
+        colorFormat
     });
 
     if (layer.fills && layer.fills.length && !layerHasGradient(layer)) {
@@ -85,7 +121,14 @@ function generateTextLayerStyleObject({
             blendedColor = blendedColor.blend(font.color);
         }
 
-        styles.color = getColorValue(blendedColor);
+        styles.color = getColorValue(
+            blendedColor,
+            {
+                container,
+                useLinkedStyleguides,
+                colorFormat
+            }
+        );
     }
 
     return styles;
@@ -97,7 +140,9 @@ function generateLayerStyleObject({
     densityDivisor,
     showDimensions,
     defaultValues,
-    getColorValue
+    container,
+    useLinkedStyleguides,
+    colorFormat
 }) {
     var layerType = layer.type;
 
@@ -129,13 +174,22 @@ function generateLayerStyleObject({
             font: layer.defaultTextStyle,
             densityDivisor,
             defaultValues,
-            getColorValue
+            container,
+            useLinkedStyleguides,
+            colorFormat
         });
 
         delete textStyle.selector;
         Object.assign(styles, textStyle);
     } else if (layer.fills.length && !layerHasGradient(layer) && !layerHasBlendMode(layer)) {
-        styles.backgroundColor = getColorValue(blendColors(layer.fills.map(fill => fill.color)));
+        styles.backgroundColor = getColorValue(
+            blendColors(layer.fills.map(fill => fill.color)),
+            {
+                container,
+                useLinkedStyleguides,
+                colorFormat
+            }
+        );
     }
 
     if (layer.shadows.length) {
@@ -146,7 +200,9 @@ function generateLayerStyleObject({
                 platform,
                 layerType,
                 densityDivisor,
-                getColorValue
+                container,
+                useLinkedStyleguides,
+                colorFormat
             })
         );
     }
@@ -157,7 +213,11 @@ function generateLayerStyleObject({
                 layer.borders[layer.borders.length - 1],
                 layerType,
                 densityDivisor,
-                getColorValue
+                {
+                    container,
+                    useLinkedStyleguides,
+                    colorFormat
+                }
             )
         );
     }
@@ -170,7 +230,9 @@ function generateTextStyleStyleObject({
     densityDivisor,
     defaultValues,
     layerStyle,
-    getColorValue
+    container,
+    useLinkedStyleguides,
+    colorFormat
 }) {
     var selector = selectorize(textStyle.name);
     if (!isHtmlTag(selector)) {
@@ -216,7 +278,14 @@ function generateTextStyleStyleObject({
     }
 
     if (textStyle.color) {
-        styleProperties.color = getColorValue(textStyle.color);
+        styleProperties.color = getColorValue(
+            textStyle.color,
+            {
+                container,
+                useLinkedStyleguides,
+                colorFormat
+            }
+        );
     }
 
     return styleProperties;
@@ -226,7 +295,9 @@ function generateTextStyleCode(textStyle, params) {
     var fontStyles = generateTextStyleStyleObject({
         textStyle,
         densityDivisor: params.densityDivisor,
-        getColorValue: params.getColorValue,
+        container: params.container,
+        useLinkedStyleguides: params.useLinkedStyleguides,
+        colorFormat: params.colorFormat,
         defaultValues: params.defaultValues
     });
     var selector = generateName(fontStyles.selector);
@@ -242,17 +313,11 @@ function generateTextStyleCode(textStyle, params) {
 function generateStyleguideTextStylesObject(options, containerAndType, textStyles) {
     var { container } = containerAndType;
 
-    function getColorValue(color) {
-        const matchedColor = container.findColorEqual(color, options.useLinkedStyleguides);
-        if (matchedColor) {
-            return `colors.${matchedColor.getFormattedName("constant")}`;
-        }
-        return getColorStringByFormat(color, options.colorFormat);
-    }
-
     var params = {
         densityDivisor: container.densityDivisor,
-        getColorValue,
+        container,
+        useLinkedStyleguides: options.useLinkedStyleguides,
+        colorFormat: options.colorFormat,
         defaultValues: options.defaultValues
     };
 
