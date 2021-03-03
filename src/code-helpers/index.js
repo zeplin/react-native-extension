@@ -2,14 +2,9 @@ import {
     generateLayerStyleObject,
     generateStyleguideTextStylesObject
 } from "./style-object-helpers";
-import {
-    generateName,
-    getColorMapByFormat,
-    getColorStringByFormat,
-    getResources
-} from "../utils";
+import { generateName, getColorStringByFormat } from "../utils";
 
-import { REACT_RULES_WITH_COLOR, JSON_SPACING } from "../constants";
+import { JSON_SPACING } from "../constants";
 
 function generateReactRule(styleObj) {
     var selector = styleObj.selector;

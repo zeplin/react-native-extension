@@ -3,8 +3,7 @@ import {
     getStyleguideTextStylesCode,
     getLayerCode
 } from "./code-helpers";
-import { OPTION_NAMES } from "./constants";
-import { getResourceContainer, Context } from "./utils";
+import { Context } from "./utils";
 
 function colors(context) {
     const wrappedContext = new Context(context);
