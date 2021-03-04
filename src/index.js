@@ -3,15 +3,12 @@ import {
     getStyleguideTextStylesCode,
     getLayerCode
 } from "./code-helpers";
-import { OPTION_NAMES } from "./constants";
-import { getResourceContainer, getResources } from "./utils";
+import { Context } from "./utils";
 
 function colors(context) {
-    var useLinkedStyleguides = context.getOption(OPTION_NAMES.USE_LINKED_STYLEGUIDES);
-    var { container, type } = getResourceContainer(context);
-    var allColors = getResources(container, type, useLinkedStyleguides, "colors");
-    var options = { colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT) };
-    var code = getStyleguideColorsCode(options, allColors);
+    const wrappedContext = new Context(context);
+    var allColors = wrappedContext.getResources("colors");
+    var code = getStyleguideColorsCode(allColors, wrappedContext);
 
     return {
         code: code,
@@ -20,15 +17,9 @@ function colors(context) {
 }
 
 function textStyles(context) {
-    var options = {
-        useLinkedStyleguides: context.getOption(OPTION_NAMES.USE_LINKED_STYLEGUIDES),
-        colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
-        defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
-    };
-    var containerAndType = getResourceContainer(context);
-    var { container, type } = containerAndType;
-    var allTextStyles = getResources(container, type, options.useLinkedStyleguides, "textStyles");
-    var code = getStyleguideTextStylesCode(options, containerAndType, allTextStyles);
+    const wrappedContext = new Context(context);
+    var allTextStyles = wrappedContext.getResources("textStyles");
+    var code = getStyleguideTextStylesCode(allTextStyles, wrappedContext);
 
     return {
         code: code,
@@ -37,14 +28,8 @@ function textStyles(context) {
 }
 
 function layer(context, selectedLayer) {
-    var containerAndType = getResourceContainer(context);
-    var options = {
-        useLinkedStyleguides: context.getOption(OPTION_NAMES.USE_LINKED_STYLEGUIDES),
-        showDimensions: context.getOption(OPTION_NAMES.SHOW_DIMENSIONS),
-        colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
-        defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
-    };
-    var code = getLayerCode(containerAndType, selectedLayer, options);
+    const wrappedContext = new Context(context);
+    var code = getLayerCode(selectedLayer, wrappedContext);
 
     return {
         code: code,
@@ -79,8 +64,8 @@ function exportTextStyles(context) {
 }
 
 function styleguideColors(context, colorsInProject) {
-    var options = { colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT) };
-    var code = getStyleguideColorsCode(options, colorsInProject);
+    const wrappedContext = new Context(context);
+    var code = getStyleguideColorsCode(colorsInProject, wrappedContext);
     return {
         code,
         language: "javascript"
@@ -88,12 +73,8 @@ function styleguideColors(context, colorsInProject) {
 }
 
 function styleguideTextStyles(context, textStylesInProject) {
-    var options = {
-        colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
-        defaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES)
-    };
-    var containerAndType = getResourceContainer(context);
-    var code = getStyleguideTextStylesCode(options, containerAndType, textStylesInProject);
+    const wrappedContext = new Context(context);
+    var code = getStyleguideTextStylesCode(textStylesInProject, wrappedContext);
     return {
         code,
         language: "javascript"

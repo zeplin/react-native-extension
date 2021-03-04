@@ -3,13 +3,13 @@
 exports[`Colors should generate code snippet 1`] = `
 Object {
   "code": "const colors = {
-  red: \\"#ff0000\\",
-  green: \\"#00ff00\\",
-  blue: \\"#0000ff\\",
-  yellow: \\"#ffff00\\",
-  black: \\"#000000\\",
-  black50: \\"rgba(0, 0, 0, 0.5)\\",
-  white: \\"#ffffff\\"
+  RED: \\"#ff0000\\",
+  GREEN: \\"#00ff00\\",
+  BLUE: \\"#0000ff\\",
+  YELLOW: \\"#ffff00\\",
+  BLACK: \\"#000000\\",
+  BLACK_50: \\"rgba(0, 0, 0, 0.5)\\",
+  WHITE: \\"#ffffff\\"
 };",
   "language": "javascript",
 }
@@ -18,13 +18,13 @@ Object {
 exports[`Colors should generate exportable file 1`] = `
 Object {
   "code": "const colors = {
-  red: \\"#ff0000\\",
-  green: \\"#00ff00\\",
-  blue: \\"#0000ff\\",
-  yellow: \\"#ffff00\\",
-  black: \\"#000000\\",
-  black50: \\"rgba(0, 0, 0, 0.5)\\",
-  white: \\"#ffffff\\"
+  RED: \\"#ff0000\\",
+  GREEN: \\"#00ff00\\",
+  BLUE: \\"#0000ff\\",
+  YELLOW: \\"#ffff00\\",
+  BLACK: \\"#000000\\",
+  BLACK_50: \\"rgba(0, 0, 0, 0.5)\\",
+  WHITE: \\"#ffffff\\"
 };",
   "filename": "colors.js",
   "language": "javascript",
@@ -36,7 +36,7 @@ Object {
   "code": "const exportableLayer = {
   width: 100,
   height: 100,
-  backgroundColor: colors.yellow
+  backgroundColor: colors.YELLOW
 };",
   "language": "javascript",
 }
@@ -59,7 +59,7 @@ Object {
   width: 100,
   height: 100,
   borderRadius: 20,
-  backgroundColor: colors.red
+  backgroundColor: colors.RED
 };",
   "language": "javascript",
 }
@@ -72,7 +72,7 @@ Object {
   height: 100,
   borderStyle: \\"solid\\",
   borderWidth: 2,
-  borderColor: colors.black
+  borderColor: colors.BLACK
 };",
   "language": "javascript",
 }
@@ -83,7 +83,7 @@ Object {
   "code": "const layerWithFill = {
   width: 100,
   height: 100,
-  backgroundColor: colors.blue
+  backgroundColor: colors.BLUE
 };",
   "language": "javascript",
 }
@@ -114,7 +114,7 @@ Object {
   "code": "const layerWithShadow = {
   width: 100,
   height: 100,
-  shadowColor: colors.black50,
+  shadowColor: colors.BLACK_50,
   shadowOffset: {
     width: 0,
     height: 2
@@ -132,7 +132,7 @@ Object {
   width: 103,
   height: 100,
   transform: \\"rotate(45deg)\\",
-  backgroundColor: colors.green
+  backgroundColor: colors.GREEN
 };",
   "language": "javascript",
 }
@@ -159,7 +159,7 @@ Object {
   fontStyle: \\"normal\\",
   letterSpacing: 0,
   textAlign: \\"left\\",
-  color: colors.black
+  color: colors.BLACK
 };",
   "language": "javascript",
 }
@@ -176,7 +176,7 @@ Object {
   fontStyle: \\"normal\\",
   letterSpacing: 0,
   textAlign: \\"left\\",
-  color: colors.black
+  color: colors.BLACK
 };",
   "language": "javascript",
 }
@@ -188,7 +188,7 @@ Object {
   width: 103,
   height: 100,
   opacity: 0.3,
-  backgroundColor: colors.green
+  backgroundColor: colors.GREEN
 };",
   "language": "javascript",
 }
@@ -197,15 +197,6 @@ Object {
 exports[`Text Styles should generate code snippet 1`] = `
 Object {
   "code": "const textStyles = StyleSheet.create({
-  sampleTextStyle: {
-    fontFamily: \\"SFProText\\",
-    fontSize: 20,
-    fontWeight: \\"normal\\",
-    fontStyle: \\"normal\\",
-    letterSpacing: 0,
-    textAlign: \\"left\\",
-    color: colors.black
-  },
   sampleTextStyleWithColor: {
     fontFamily: \\"SFProText\\",
     fontSize: 20,
@@ -213,7 +204,16 @@ Object {
     fontStyle: \\"normal\\",
     letterSpacing: 0,
     textAlign: \\"left\\",
-    color: colors.red
+    color: colors.RED
+  },
+  sampleTextStyle: {
+    fontFamily: \\"SFProText\\",
+    fontSize: 20,
+    fontWeight: \\"normal\\",
+    fontStyle: \\"normal\\",
+    letterSpacing: 0,
+    textAlign: \\"left\\",
+    color: colors.BLACK
   }
 });",
   "language": "javascript",
@@ -223,15 +223,6 @@ Object {
 exports[`Text Styles should generate exportable file 1`] = `
 Object {
   "code": "const textStyles = StyleSheet.create({
-  sampleTextStyle: {
-    fontFamily: \\"SFProText\\",
-    fontSize: 20,
-    fontWeight: \\"normal\\",
-    fontStyle: \\"normal\\",
-    letterSpacing: 0,
-    textAlign: \\"left\\",
-    color: colors.black
-  },
   sampleTextStyleWithColor: {
     fontFamily: \\"SFProText\\",
     fontSize: 20,
@@ -239,7 +230,16 @@ Object {
     fontStyle: \\"normal\\",
     letterSpacing: 0,
     textAlign: \\"left\\",
-    color: colors.red
+    color: colors.RED
+  },
+  sampleTextStyle: {
+    fontFamily: \\"SFProText\\",
+    fontSize: 20,
+    fontWeight: \\"normal\\",
+    fontStyle: \\"normal\\",
+    letterSpacing: 0,
+    textAlign: \\"left\\",
+    color: colors.BLACK
   }
 });",
   "filename": "fonts.js",

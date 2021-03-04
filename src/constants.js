@@ -5,9 +5,7 @@ export var HEX_BASE = 16;
 export var JSON_SPACING = 2;
 export var NUMERICAL_FONT_BOLD = 700;
 export var NUMERICAL_FONT_NORMAL = 400;
-export var REACT_RULES_WITH_COLOR = [
-    "backgroundColor", "borderColor", "color", "shadowColor", "textDecorationColor", "textShadowColor"
-];
+
 export var HTML_TAGS = [
     "a", "abbr", "address", "area", "article", "aside", "audio", "b", "base", "bdi",
     "bdo", "blockquote", "body", "br", "button", "canvas", "caption", "cite", "code",
