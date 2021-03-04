@@ -69,9 +69,13 @@
         "default": true
       }
     ],
-    "platforms": ["android", "ios", "web"]
+    "platforms": [
+      "android",
+      "ios",
+      "web"
+    ]
   },
   "dependencies": {
-    "zem": "^1.0.6"
+    "zem": "^1.3.0"
   }
 }
