@@ -5,8 +5,7 @@ import {
     blendColors,
     layerHasGradient,
     layerHasBlendMode,
-    generateName,
-    getColorStringByFormat
+    generateName
 } from "../utils";
 
 import {
@@ -14,67 +13,53 @@ import {
     NUMERICAL_FONT_NORMAL
 } from "../constants";
 
-function generateShadowStyleObject({
-    shadow,
-    platform,
-    layerType,
-    densityDivisor,
-    colorFormat
-}) {
+function generateShadowStyleObject(shadow, layerType, context) {
     if (layerType === "text") {
         return {
-            textShadowColor: getColorStringByFormat(shadow.color, colorFormat),
+            textShadowColor: context.getColorValue(shadow.color),
             textShadowOffset: {
-                width: round(shadow.offsetX / densityDivisor, 1),
-                height: round(shadow.offsetY / densityDivisor, 1)
+                width: round(shadow.offsetX / context.densityDivisor, 1),
+                height: round(shadow.offsetY / context.densityDivisor, 1)
             },
-            textShadowRadius: round(shadow.blurRadius / densityDivisor, 1)
+            textShadowRadius: round(shadow.blurRadius / context.densityDivisor, 1)
         };
     }
 
-    if (platform === "android") {
+    if (context.platform === "android") {
         return {};
     }
 
     // "iOS" doesn't have shadow spread
     return {
-        shadowColor: getColorStringByFormat(shadow.color, colorFormat),
+        shadowColor: context.getColorValue(shadow.color),
         shadowOffset: {
-            width: round(shadow.offsetX / densityDivisor, 1),
-            height: round(shadow.offsetY / densityDivisor, 1)
+            width: round(shadow.offsetX / context.densityDivisor, 1),
+            height: round(shadow.offsetY / context.densityDivisor, 1)
         },
-        shadowRadius: round(shadow.blurRadius / densityDivisor, 1),
+        shadowRadius: round(shadow.blurRadius / context.densityDivisor, 1),
         shadowOpacity: 1.0
     };
 }
 
-function generateBorderStyleObject(border, layerType, densityDivisor, colorFormat) {
+function generateBorderStyleObject(
+    border,
+    layerType,
+    context
+) {
     if (layerType === "text" || (border.fill && border.fill.type === "gradient")) {
         return {};
     }
 
     return {
         borderStyle: "solid",
-        borderWidth: round(border.thickness / densityDivisor, 1),
-        borderColor: getColorStringByFormat(border.fill.color, colorFormat)
+        borderWidth: round(border.thickness / context.densityDivisor, 1),
+        borderColor: context.getColorValue(border.fill.color)
     };
 }
 
-function generateTextLayerStyleObject({
-    layer,
-    font,
-    densityDivisor,
-    colorFormat,
-    defaultValues,
-    layerStyle
-}) {
-    var styles = generateTextStyleStyleObject({
-        textStyle: font,
-        densityDivisor,
-        colorFormat,
-        defaultValues,
-        layerStyle
-    });
+function generateTextLayerStyleObject(layer, context) {
+    const font = layer.defaultTextStyle;
+    var styles = generateTextStyleStyleObject(font, context);
 
     if (layer.fills && layer.fills.length && !layerHasGradient(layer)) {
         delete styles.color;
@@ -85,29 +70,22 @@ function generateTextLayerStyleObject({
             blendedColor = blendedColor.blend(font.color);
         }
 
-        styles.color = getColorStringByFormat(blendedColor, colorFormat);
+        styles.color = context.getColorValue(blendedColor);
     }
 
     return styles;
 }
 /* eslint-disable complexity */
-function generateLayerStyleObject({
-    layer,
-    platform,
-    densityDivisor,
-    showDimensions,
-    colorFormat,
-    defaultValues
-}) {
+function generateLayerStyleObject(layer, context) {
     var layerType = layer.type;
 
     var styles = {
         selector: selectorize(layer.name) || ".layer"
     };
 
-    if (showDimensions) {
-        styles.width = round(layer.rect.width / densityDivisor, 1);
-        styles.height = round(layer.rect.height / densityDivisor, 1);
+    if (context.showDimensions) {
+        styles.width = round(layer.rect.width / context.densityDivisor, 1);
+        styles.height = round(layer.rect.height / context.densityDivisor, 1);
     }
 
     if (layer.rotation) {
@@ -120,37 +98,22 @@ function generateLayerStyleObject({
     }
 
     if (layer.borderRadius) {
-        styles.borderRadius = round(layer.borderRadius / densityDivisor, 1);
+        styles.borderRadius = round(layer.borderRadius / context.densityDivisor, 1);
     }
 
     if (layerType === "text" && layer.defaultTextStyle) {
-        var textStyle = generateTextLayerStyleObject({
-            layer,
-            font: layer.defaultTextStyle,
-            densityDivisor,
-            colorFormat,
-            defaultValues
-        });
+        var textStyle = generateTextLayerStyleObject(layer, context);
 
         delete textStyle.selector;
         Object.assign(styles, textStyle);
     } else if (layer.fills.length && !layerHasGradient(layer) && !layerHasBlendMode(layer)) {
-        styles.backgroundColor = getColorStringByFormat(
-            blendColors(layer.fills.map(fill => fill.color)),
-            colorFormat
-        );
+        styles.backgroundColor = context.getColorValue(blendColors(layer.fills.map(fill => fill.color)));
     }
 
     if (layer.shadows.length) {
         // Multiple shadows can only be achieved with multiple views
         Object.assign(styles,
-            generateShadowStyleObject({
-                shadow: layer.shadows[layer.shadows.length - 1],
-                platform,
-                layerType,
-                densityDivisor,
-                colorFormat
-            })
+            generateShadowStyleObject(layer.shadows[layer.shadows.length - 1], layerType, context)
         );
     }
 
@@ -159,8 +122,7 @@ function generateLayerStyleObject({
             generateBorderStyleObject(
                 layer.borders[layer.borders.length - 1],
                 layerType,
-                densityDivisor,
-                colorFormat
+                context
             )
         );
     }
@@ -168,13 +130,7 @@ function generateLayerStyleObject({
     return styles;
 }
 
-function generateTextStyleStyleObject({
-    textStyle,
-    densityDivisor,
-    colorFormat,
-    defaultValues,
-    layerStyle
-}) {
+function generateTextStyleStyleObject(textStyle, context) {
     var selector = selectorize(textStyle.name);
     if (!isHtmlTag(selector)) {
         selector = selector.substring(1);
@@ -183,34 +139,30 @@ function generateTextStyleStyleObject({
     var styleProperties = {
         selector
     };
-    var overrideLayerStyle;
 
     styleProperties.fontFamily = textStyle.fontFamily;
-    styleProperties.fontSize = round(textStyle.fontSize / densityDivisor, 1);
+    styleProperties.fontSize = round(textStyle.fontSize / context.densityDivisor, 1);
 
-    overrideLayerStyle = layerStyle && layerStyle["font-weight"] && layerStyle["font-weight"] !== "normal";
     if (textStyle.fontWeight === NUMERICAL_FONT_BOLD) {
         styleProperties.fontWeight = "bold";
     } else if (textStyle.fontWeight !== NUMERICAL_FONT_NORMAL) {
         styleProperties.fontWeight = String(textStyle.fontWeight);
-    } else if (defaultValues || overrideLayerStyle) {
+    } else if (context.defaultValues) {
         styleProperties.fontWeight = "normal";
     }
 
-    overrideLayerStyle = layerStyle && layerStyle["font-style"] && layerStyle["font-style"] !== "normal";
-    if (textStyle.fontStyle && (textStyle.fontStyle !== "normal" || defaultValues || overrideLayerStyle)) {
+    if (textStyle.fontStyle && (textStyle.fontStyle !== "normal" || context.defaultValues)) {
         styleProperties.fontStyle = textStyle.fontStyle === "oblique" ? "italic" : textStyle.fontStyle;
     }
 
     if (textStyle.lineHeight) {
-        styleProperties.lineHeight = round(textStyle.lineHeight / densityDivisor, 1);
+        styleProperties.lineHeight = round(textStyle.lineHeight / context.densityDivisor, 1);
     }
 
-    overrideLayerStyle = layerStyle && layerStyle["letter-spacing"] && layerStyle["letter-spacing"] !== "normal";
     if (textStyle.letterSpacing) {
         var PRECISION = 2;
-        styleProperties.letterSpacing = round(textStyle.letterSpacing / densityDivisor, PRECISION);
-    } else if (defaultValues || overrideLayerStyle) {
+        styleProperties.letterSpacing = round(textStyle.letterSpacing / context.densityDivisor, PRECISION);
+    } else if (context.defaultValues) {
         styleProperties.letterSpacing = 0;
     }
 
@@ -219,51 +171,27 @@ function generateTextStyleStyleObject({
     }
 
     if (textStyle.color) {
-        styleProperties.color = getColorStringByFormat(textStyle.color, colorFormat);
+        styleProperties.color = context.getColorValue(textStyle.color);
     }
 
     return styleProperties;
 }
 
-function generateTextStyleCode(textStyle, params) {
-    var fontStyles = generateTextStyleStyleObject({
-        textStyle,
-        densityDivisor: params.densityDivisor,
-        colorFormat: params.colorFormat,
-        defaultValues: params.defaultValues
-    });
+function generateTextStyleCode(textStyle, context) {
+    var fontStyles = generateTextStyleStyleObject(textStyle, context);
     var selector = generateName(fontStyles.selector);
     var textStyleCode = {};
 
     delete fontStyles.selector;
-
-    if (params.containerColor) {
-        fontStyles.color = `colors.${params.containerColor.name}`;
-    }
 
     textStyleCode[selector] = fontStyles;
 
     return textStyleCode;
 }
 
-function generateStyleguideTextStylesObject(options, containerAndType, textStyles) {
-    var { container } = containerAndType;
-    var params = {
-        densityDivisor: container.densityDivisor,
-        colorFormat: options.colorFormat,
-        defaultValues: options.defaultValues
-    };
-
+function generateStyleguideTextStylesObject(textStyles, context) {
     return textStyles.reduce((styles, ts) => {
-        var tsParams;
-        if (ts.color) {
-            var containerColor = container.findColorEqual(ts.color, options.useLinkedStyleguides);
-            tsParams = Object.assign({}, params, { containerColor });
-        } else {
-            tsParams = params;
-        }
-
-        var textStyle = generateTextStyleCode(ts, tsParams);
+        var textStyle = generateTextStyleCode(ts, context);
         return Object.assign(styles, textStyle);
     }, {});
 }
