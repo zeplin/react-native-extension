@@ -42,7 +42,12 @@ export class Context {
     getColorValue(color) {
         const matchedColor = this.container.findColorEqual(color, this.useLinkedStyleguides);
         if (matchedColor) {
-            return `colors.${matchedColor.getFormattedName("constant")}`;
+            const colorName = (
+                matchedColor.getFormattedName
+                    ? matchedColor.getFormattedName("constant")
+                    : matchedColor.name
+            );
+            return `colors.${colorName}`;
         }
         return getColorStringByFormat(color, this.colorFormat);
     }
