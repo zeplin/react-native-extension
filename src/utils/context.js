@@ -1,5 +1,6 @@
 import { OPTION_NAMES } from "../constants";
 import { getColorStringByFormat } from "./color-utils";
+import { generateName } from "./name-utils";
 
 function getLinkedResources(container, type, resource) {
     const isProject = type === "project";
@@ -25,6 +26,7 @@ export class Context {
 
         this.useLinkedStyleguides = extensionContext.getOption(OPTION_NAMES.USE_LINKED_STYLEGUIDES);
         this.colorFormat = extensionContext.getOption(OPTION_NAMES.COLOR_FORMAT);
+        this.tokenNameFormat = extensionContext.getOption(OPTION_NAMES.TOKEN_NAME_FORMAT);
         this.defaultValues = extensionContext.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES);
         this.showDimensions = extensionContext.getOption(OPTION_NAMES.SHOW_DIMENSIONS);
         this.densityDivisor = this.container.densityDivisor;
@@ -42,12 +44,8 @@ export class Context {
     getColorValue(color) {
         const matchedColor = this.container.findColorEqual(color, this.useLinkedStyleguides);
         if (matchedColor) {
-            const colorName = (
-                matchedColor.getFormattedName
-                    ? matchedColor.getFormattedName("constant")
-                    : matchedColor.name
-            );
-            return `colors.${colorName}`;
+            const colorName = generateName(matchedColor.originalName || matchedColor.name, this.tokenNameFormat);
+            return colorName.startsWith('"') ? `colors[${colorName}]` : `colors.${colorName}`;
         }
         return getColorStringByFormat(color, this.colorFormat);
     }

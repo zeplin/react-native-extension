@@ -197,7 +197,7 @@ Object {
 exports[`Text Styles should generate code snippet 1`] = `
 Object {
   "code": "const textStyles = StyleSheet.create({
-  sampleTextStyleWithColor: {
+  SAMPLE_TEXT_STYLE_WITH_COLOR: {
     fontFamily: \\"SFProText\\",
     fontSize: 20,
     fontWeight: \\"normal\\",
@@ -206,7 +206,7 @@ Object {
     textAlign: \\"left\\",
     color: colors.RED
   },
-  sampleTextStyle: {
+  SAMPLE_TEXT_STYLE: {
     fontFamily: \\"SFProText\\",
     fontSize: 20,
     fontWeight: \\"normal\\",
@@ -223,7 +223,7 @@ Object {
 exports[`Text Styles should generate exportable file 1`] = `
 Object {
   "code": "const textStyles = StyleSheet.create({
-  sampleTextStyleWithColor: {
+  SAMPLE_TEXT_STYLE_WITH_COLOR: {
     fontFamily: \\"SFProText\\",
     fontSize: 20,
     fontWeight: \\"normal\\",
@@ -232,7 +232,7 @@ Object {
     textAlign: \\"left\\",
     color: colors.RED
   },
-  sampleTextStyle: {
+  SAMPLE_TEXT_STYLE: {
     fontFamily: \\"SFProText\\",
     fontSize: 20,
     fontWeight: \\"normal\\",

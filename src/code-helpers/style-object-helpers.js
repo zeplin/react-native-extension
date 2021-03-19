@@ -1,7 +1,5 @@
 import {
-    isHtmlTag,
     round,
-    selectorize,
     blendColors,
     layerHasGradient,
     layerHasBlendMode,
@@ -79,9 +77,7 @@ function generateTextLayerStyleObject(layer, context) {
 function generateLayerStyleObject(layer, context) {
     var layerType = layer.type;
 
-    var styles = {
-        selector: selectorize(layer.name) || ".layer"
-    };
+    var styles = {};
 
     if (context.showDimensions) {
         styles.width = round(layer.rect.width / context.densityDivisor, 1);
@@ -104,7 +100,6 @@ function generateLayerStyleObject(layer, context) {
     if (layerType === "text" && layer.defaultTextStyle) {
         var textStyle = generateTextLayerStyleObject(layer, context);
 
-        delete textStyle.selector;
         Object.assign(styles, textStyle);
     } else if (layer.fills.length && !layerHasGradient(layer) && !layerHasBlendMode(layer)) {
         styles.backgroundColor = context.getColorValue(blendColors(layer.fills.map(fill => fill.color)));
@@ -131,14 +126,7 @@ function generateLayerStyleObject(layer, context) {
 }
 
 function generateTextStyleStyleObject(textStyle, context) {
-    var selector = selectorize(textStyle.name);
-    if (!isHtmlTag(selector)) {
-        selector = selector.substring(1);
-    }
-
-    var styleProperties = {
-        selector
-    };
+    var styleProperties = {};
 
     styleProperties.fontFamily = textStyle.fontFamily;
     styleProperties.fontSize = round(textStyle.fontSize / context.densityDivisor, 1);
@@ -178,15 +166,11 @@ function generateTextStyleStyleObject(textStyle, context) {
 }
 
 function generateTextStyleCode(textStyle, context) {
-    var fontStyles = generateTextStyleStyleObject(textStyle, context);
-    var selector = generateName(fontStyles.selector);
-    var textStyleCode = {};
+    var selector = generateName(textStyle.name, context.tokenNameFormat);
 
-    delete fontStyles.selector;
-
-    textStyleCode[selector] = fontStyles;
-
-    return textStyleCode;
+    return {
+        [selector]: generateTextStyleStyleObject(textStyle, context)
+    };
 }
 
 function generateStyleguideTextStylesObject(textStyles, context) {

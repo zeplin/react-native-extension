@@ -51,6 +51,35 @@
         "default": "default"
       },
       {
+        "name": "Token name format",
+        "type": "picker",
+        "id": "tokenNameFormat",
+        "submenu": true,
+        "options": [
+          {
+            "name": "CONSTANT_CASE",
+            "value": "constant"
+          },
+          {
+            "name": "snake_case",
+            "value": "snake"
+          },
+          {
+            "name": "camelCase",
+            "value": "camel"
+          },
+          {
+            "name": "PascalCase",
+            "value": "pascal"
+          },
+          {
+            "name": "Use original",
+            "value": "none"
+          }
+        ],
+        "default": "constant"
+      },
+      {
         "name": "Dimensions",
         "type": "switch",
         "id": "showDimensions",
