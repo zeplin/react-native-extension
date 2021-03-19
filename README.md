@@ -7,20 +7,20 @@ Generates React Native JavaScript snippets from colors, text styles and layers. 
 Sample colors output:
 ```js
 const colors = {
-  red: "#ff0000",
-  green: "#00ff00",
-  blue: "#0000ff",
-  yellow: "#ffff00",
-  black: "#000000",
-  black50: "rgba(0, 0, 0, 0.5)",
-  white: "#ffffff"
+  RED: "#ff0000",
+  GREEN: "#00ff00",
+  BLUE: "#0000ff",
+  YELLOW: "#ffff00",
+  BLACK: "#000000",
+  BLACK_50: "rgba(0, 0, 0, 0.5)",
+  WHITE: "#ffffff"
 };
 ```
 
 Sample text style output:
 ```js
 const textStyles = StyleSheet.create({
-  sampleTextStyle: {
+  SAMPLE_TEXT_STYLE: {
     fontFamily: "SFProText",
     fontSize: 20,
     fontWeight: "normal",
@@ -28,14 +28,14 @@ const textStyles = StyleSheet.create({
     letterSpacing: 0,
     textAlign: "left"
   },
-  sampleTextStyleWithColor: {
+  SAMPLE_TEXT_STYLE_WITH_COLOR: {
     fontFamily: "SFProText",
     fontSize: 20,
     fontWeight: "normal",
     fontStyle: "normal",
     letterSpacing: 0,
     textAlign: "left",
-    color: colors.red
+    color: colors.RED
   }
 });
 ```
@@ -62,8 +62,18 @@ const layerWithShadow = {
 Supports HEX, RGB or HSL. Sample colors output as HSL:
 ```js
 const colors = {
-  red: "hsl(0, 100%, 50%)",
-  black50: "hsla(0, 0%, 0%, 0.5)"
+  RED: "hsl(0, 100%, 50%)",
+  BLACK_50: "hsla(0, 0%, 0%, 0.5)"
+};
+```
+
+#### Token name format
+
+Formats the name of colors and text styles. Supports constant case, snake case, camel case, pascal case or no format. Sample colors output as no format:
+```js
+const colors = {
+  red: "#ff0000",
+  "black 50": "rgba(0, 0, 0, 0.5)",
 };
 ```
 
