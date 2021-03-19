@@ -57,23 +57,23 @@
         "submenu": true,
         "options": [
           {
-            "name": "Constant Case",
+            "name": "CONSTANT_CASE",
             "value": "constant"
           },
           {
-            "name": "Snake Case",
+            "name": "snake_case",
             "value": "snake"
           },
           {
-            "name": "Camel Case",
+            "name": "camelCase",
             "value": "camel"
           },
           {
-            "name": "Pascal Case",
+            "name": "PascalCase",
             "value": "pascal"
           },
           {
-            "name": "Do not format",
+            "name": "Use original",
             "value": "none"
           }
         ],
