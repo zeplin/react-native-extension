@@ -120,7 +120,17 @@ Object {
     height: 2
   },
   shadowRadius: 4,
-  shadowOpacity: 1
+  shadowOpacity: 1,
+  boxShadow: [
+    {
+      offsetX: 0,
+      offsetY: 2,
+      blurRadius: 4,
+      spreadDistance: 6,
+      color: colors.BLACK_50,
+      inset: false
+    }
+  ]
 };",
   "language": "javascript",
 }

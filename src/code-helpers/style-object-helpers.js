@@ -39,6 +39,23 @@ function generateShadowStyleObject(shadow, layerType, context) {
     };
 }
 
+function generateBoxShadowStyleObject(shadows, layerType, context) {
+    if (layerType === "text" || !shadows.length) {
+        return {};
+    }
+
+    return {
+        boxShadow: shadows.map(shadow => ({
+            offsetX: round(shadow.offsetX / context.densityDivisor, 1),
+            offsetY: round(shadow.offsetY / context.densityDivisor, 1),
+            blurRadius: round(shadow.blurRadius / context.densityDivisor, 1),
+            spreadDistance: round((shadow.spread || 0) / context.densityDivisor, 1),
+            color: context.getColorValue(shadow.color),
+            inset: shadow.type === "inner"
+        }))
+    };
+}
+
 function generateBorderStyleObject(
     border,
     layerType,
@@ -106,9 +123,15 @@ function generateLayerStyleObject(layer, context) {
     }
 
     if (layer.shadows.length) {
-        // Multiple shadows can only be achieved with multiple views
+
+        // Legacy shadow props need multiple layers. Box shadow can do all of them in one, but we want to keep the old ones for backwards compatibility
         Object.assign(styles,
             generateShadowStyleObject(layer.shadows[layer.shadows.length - 1], layerType, context)
+        );
+
+        // Box shadow is more modern and supported in RN 76+
+        Object.assign(styles,
+            generateBoxShadowStyleObject(layer.shadows, layerType, context)
         );
     }
 

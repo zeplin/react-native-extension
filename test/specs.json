@@ -1050,7 +1050,7 @@
         },
         "output": {
             "code":
-                "const rectangle78 = {\n  width: 65,\n  height: 53,\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1\n};",
+                "const rectangle78 = {\n  width: 65,\n  height: 53,\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1,\n  boxShadow: [\n    {\n      offsetX: 0,\n      offsetY: 7,\n      blurRadius: 20,\n      spreadDistance: 0,\n      color: \"rgba(0, 0, 0, 0.25)\",\n      inset: false\n    }\n  ]\n};",
             "language": "javascript"
         }
     },
@@ -2252,7 +2252,7 @@
         },
         "output": {
             "code":
-                "const rectangle34 = {\n  width: 359,\n  height: 222,\n  borderRadius: 8,\n  backgroundColor: \"#131624\",\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1\n};",
+                "const rectangle34 = {\n  width: 359,\n  height: 222,\n  borderRadius: 8,\n  backgroundColor: \"#131624\",\n  shadowColor: \"rgba(0, 0, 0, 0.25)\",\n  shadowOffset: {\n    width: 0,\n    height: 7\n  },\n  shadowRadius: 20,\n  shadowOpacity: 1,\n  boxShadow: [\n    {\n      offsetX: 0,\n      offsetY: 7,\n      blurRadius: 20,\n      spreadDistance: 0,\n      color: \"rgba(0, 0, 0, 0.25)\",\n      inset: false\n    }\n  ]\n};",
             "language": "javascript"
         }
     },

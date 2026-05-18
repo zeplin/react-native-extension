@@ -45,6 +45,16 @@ Sample layer output:
 const layerWithShadow = {
   width: 100,
   height: 100,
+  boxShadow: [
+    {
+      offsetX: 0,
+      offsetY: 2,
+      blurRadius: 4,
+      spreadDistance: 6,
+      color: colors.black50,
+      inset: false
+    }
+  ],
   shadowColor: colors.black50,
   shadowOffset: {
     width: 0,
@@ -54,6 +64,8 @@ const layerWithShadow = {
   shadowOpacity: 1
 };
 ```
+
+`boxShadow` is generated for modern React Native support, and legacy `shadow*` props are also emitted for compatibility.
 
 ## Options
 
