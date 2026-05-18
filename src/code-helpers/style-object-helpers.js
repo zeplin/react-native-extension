@@ -123,7 +123,6 @@ function generateLayerStyleObject(layer, context) {
     }
 
     if (layer.shadows.length) {
-
         // Legacy shadow props need multiple layers. Box shadow can do all of them in one, but we want to keep the old ones for backwards compatibility
         Object.assign(styles,
             generateShadowStyleObject(layer.shadows[layer.shadows.length - 1], layerType, context)
